@@ -8,6 +8,6 @@
 
 class SmallestIntegerFinder {
   findSmallestInt(args) {
-    // code here
+    return Math.min(...args);
   }
 }
