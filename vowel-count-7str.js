@@ -10,13 +10,20 @@
 //loop (reduce?)
 //conditional - ++ if charCodeAt (neede?) = a||e||i||o||u
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function getCount(str) {
   let total = 0;
   const vowels = ["a", "e", "i", "o", "u"];
 
-  str.split("").forEach((letter) => {
-    console.log(letter);
-    vowels.forEach((vowel) => vowel === letter && total++);
+  str.split("").forEach(letter => {
+    // consxole.log(letter);
+    vowels.forEach(vowel => vowel === letter && total++);
   });
   return total;
 }
