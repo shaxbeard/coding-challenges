@@ -8,6 +8,13 @@
 // "2", "" --> "2"
 // "-5", "3" --> "-2"
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function sumStr(a, b) {
   return String(Number(a) + Number(b));
 }
