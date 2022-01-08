@@ -6,6 +6,14 @@
 // function sumTwoSmallestNumbers(numbers) {
 //   return numbers.sort((a, b) => a - b).reduce((a, b, i) => (i < 2 ? a + b : a));
 // }
+
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function sumTwoSmallestNumbers(numbers) {
   numbers = numbers.sort((a, b) => a - b);
   return numbers[0] + numbers[1];
