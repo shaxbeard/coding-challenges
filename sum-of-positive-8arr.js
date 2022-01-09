@@ -16,6 +16,13 @@
 //   return sum;
 // }
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function positiveSum(arr) {
   return arr.reduce((total, item) => (item > 0 ? total + item : total), 0);
   // return arr.reduce((total, item) => total + item);
