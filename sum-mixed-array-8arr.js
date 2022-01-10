@@ -3,6 +3,13 @@
 
 // Return your answer as a number.
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function sumMix(x) {
   return x.map(Number).reduce((total, item) => total + item, 0);
 }
