@@ -10,6 +10,7 @@
 //Return - a string, length == size, starts with 1
 //Examples - 4 -> '1010', 6 -> '101010
 //Pseudocode
+//Methods
 
 function stringy(size) {
   let arr = [];
