@@ -7,8 +7,18 @@
 //Examples
 // "Example Input" ==> "iNPUT eXAMPLE"
 
+//PREP
+//Input is a string - can have multiple spaces, including leading/trailing
+//Reverse the words - AND change the characters. IF uc -> lc; IF lc -> uc
+
+//This fails the tests in codewars if I trim the whitespace - they don't want me to trim !!
 function stringTransformer(str) {
-  return str;
+  const reversed = str.split(" ").reverse().join(" ");
+  return reversed
+    .split("")
+    .map(l => (l.toUpperCase() === l ? l.toLowerCase() : l.toUpperCase()))
+    .join("");
 }
 
 console.log(stringTransformer("Example Input"), "iNPUT eXAMPLE");
+console.log(stringTransformer("  Example Input "), "iNPUT eXAMPLE");
