@@ -4,6 +4,7 @@
 //Return
 //Examples
 //Pseudocode
+//Methods
 
 //Desired result
 //solution('abc', 'bc') -> true
