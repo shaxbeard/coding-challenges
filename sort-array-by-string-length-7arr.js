@@ -10,6 +10,13 @@
 
 // All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function sortByLength(arr) {
   return arr.sort((a, b) => a.length - b.length);
 }
