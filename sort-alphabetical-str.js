@@ -2,6 +2,13 @@
 
 // ['one', 'two', 'three' ]), ["one", "three", "two"])
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 const arr = ["one", "two", "three", "four"];
 const numbers = [4, 2, 5, 1, 3];
 
