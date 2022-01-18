@@ -3,6 +3,13 @@
 // 'world'  =>  'dlrow'
 // 'word'   =>  'drow'
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 const str = "world";
 
 function solution(str) {
