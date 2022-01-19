@@ -14,7 +14,8 @@
 //return a new array -> same as input array but without the smallest number - if smallest is duplicated, remove the first index of the num
 
 function removeMinimum(arr) {
-  return arr;
+  const min = Math.min(...arr); // min = the lowest value in the array
+  return arr.filter((num, i) => i !== arr.indexOf(min)); // keep each number if its index does NOT EQUAL the first index of the number (so remove the first instance)
 }
 
 console.log(removeMinimum([1, 2, 3, 4, 5]), [2, 3, 4, 5]);
