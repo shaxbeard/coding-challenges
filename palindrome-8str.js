@@ -19,6 +19,6 @@ function isPalindrome(line) {
 //"walter" -> false
 //123456 -> false
 
-console.log(isPalindrome(123241));
+console.log(isPalindrome(12321));
 console.log(isPalindrome("otto"));
 console.log(isPalindrome("walter"));
