@@ -26,10 +26,12 @@
 //METHODS !!
 
 function oddOrEven(array) {
-  if (!array.length) array = [0];
-  const sum = array.reduce((a, b) => a + b);
-  return sum % 2 === 0 ? "even" : "odd";
+  // if (!array.length) array = [0];
+  // const sum = array.reduce((a, b) => a + b);
+  // return sum % 2 === 0 ? "even" : "odd";
+  return array.reduce((a, c) => a + c, 0) % 2 === 0 ? "even" : "odd";
 }
 
-console.log(oddOrEven([0, 1, 4]));
-console.log(oddOrEven([]));
+console.log(oddOrEven([0, 1, 4]), "odd");
+console.log(oddOrEven([0, -1, -5]), "even");
+// console.log(oddOrEven([]));
