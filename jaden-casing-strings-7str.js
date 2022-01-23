@@ -10,9 +10,10 @@
 //Methods!
 
 function jadenCase(str) {
+  // console.log(str.split(" "));
   return str
     .split(" ")
-    .map((item) => item[0].toUpperCase() + item.slice(1))
+    .map(item => item[0].toUpperCase() + item.slice(1))
     .join(" ");
 }
 
