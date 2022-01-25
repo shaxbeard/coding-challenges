@@ -13,6 +13,7 @@
 
 function getMiddle(s) {
   const middleIndex = Math.ceil(s.length / 2 - 1);
+  console.log(middleIndex);
   return s.substr(middleIndex, s.length % 2 === 1 ? 1 : 2);
 }
 
