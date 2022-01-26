@@ -1,3 +1,8 @@
+// Given an array of letters that proceed through the alphabet one at a time,
+// find the letter that is missing from the sequence.
+
+// arr = ["a", "b", "c", "d", "f"]
+
 //PREP
 //Parameter -
 //Return -
@@ -17,7 +22,6 @@ const findMissingLetters = myArr => {
   });
   return missingLetter;
 };
-
 //Examples
 console.log(findMissingLetters(["a", "b", "c", "d", "f"]), "e");
 console.log(findMissingLetters(["w", "x", "z"]), "y");
