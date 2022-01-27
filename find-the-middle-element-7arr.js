@@ -11,6 +11,13 @@
 // gimme([5, 10, 14]) => 1
 // 10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
 
+// function gimme(triplet) {
+//   //return triplet.indexOf(2), triplet.indexOf(10), etc
+//   //so find the middle VALUE dynamically inside of the indexOf() method
+//   //copy each array - then sort and select the middle value with [1]
+//   return triplet.indexOf([...triplet].sort((a, b) => a - b)[1]);
+// }
+
 function gimme(triplet) {
   return triplet.indexOf([...triplet].sort((a, b) => a - b)[1]);
 }
