@@ -17,10 +17,20 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 
 // USING A FOR LOOP
 
+// function reverseString(text) {
+//   let result = "";
+//   for (let i = text.length - 1; i >= 0; i--) {
+//     result += text[i];
+//   }
+//   return result;
+// }
+
+// USING A FOR..OF LOOP IN ES6
+
 function reverseString(text) {
   let result = "";
-  for (let i = text.length - 1; i >= 0; i--) {
-    result += text[i];
+  for (let char of text) {
+    result = char + result;
   }
   return result;
 }
