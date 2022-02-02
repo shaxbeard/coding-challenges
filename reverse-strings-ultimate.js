@@ -27,12 +27,22 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 
 // USING A FOR..OF LOOP IN ES6
 
+// function reverseString(text) {
+//   let result = "";
+//   for (let char of text) {
+//     result = char + result;
+//   }
+//   return result;
+// }
+
+// RECURSIVE METHOD
+
 function reverseString(text) {
-  let result = "";
-  for (let char of text) {
-    result = char + result;
+  if (text === "") {
+    return "";
+  } else {
+    return reverseString(text.substr(1)) + text[0];
   }
-  return result;
 }
 
 console.log(reverseString("algorithm"), "mhtirogla");
