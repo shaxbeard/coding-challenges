@@ -30,3 +30,15 @@ function chunkArray(array, size) {
   return result;
 }
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
+
+//USING SLICE()
+
+function chunkArray(array, size) {
+  let result = [];
+
+  for (i = 0; i < array.length; i += size) {
+    let chunk = array.slice(i, i + size);
+    result.push(chunk);
+  }
+  return result;
+}
