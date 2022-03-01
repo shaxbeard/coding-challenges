@@ -9,9 +9,20 @@
 
 // LOOPING THROUGH AND COMPARING CHARACTERS
 
+// function palindromeChecker(str) {
+//   let charArray = str.toLowerCase().split("");
+//   return charArray.every((l, i) => l === charArray[charArray.length - i - 1]);
+// }
+
+// LOOPING THROUGH AND COMPARING CHARACTERS(OPTIMIZED)
 function palindromeChecker(str) {
-  let charArray = str.toLowerCase().split("");
-  return charArray.every((l, i) => l === charArray[charArray.length - i - 1]);
+  var strLen = str.length;
+  for (let i = 0; i < strLen / 2; i++) {
+    if (str[i] !== str[strLen - i - 1]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 console.log(palindromeChecker("racecar"), true);
