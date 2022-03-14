@@ -32,5 +32,12 @@
 //   return result;
 // }
 
+// USING REDUCE() - concise
+function longestWord(str) {
+  return str.split(" ").reduce((maxWord, word) => {
+    return word.length > maxWord.length ? word : maxWord;
+  }, "");
+}
+
 console.log(longestWord("Top Shelf Web Development Training on Scotch"));
 console.log(longestWord("BUILDING FOR THE NEXT BILLION USERS"));
