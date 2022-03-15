@@ -6,19 +6,19 @@
 
 // USING A FOR LOOP
 
-// function longestWord(str) {
-//   let wordArray = str.split(" ");
-//   let maxLength = 0;
-//   let result = "";
+function longestWord(str) {
+  let wordArray = str.split(" ");
+  let maxLength = 0;
+  let result = "";
 
-//   for (let i = 0; i < wordArray.length; i++) {
-//     if (wordArray[i].length > maxLength) {
-//       maxLength = wordArray[i].length;
-//       result = wordArray[i];
-//     }
-//   }
-//   return result;
-// }
+  for (let i = 0; i < wordArray.length; i++) {
+    if (wordArray[i].length > maxLength) {
+      maxLength = wordArray[i].length;
+      result = wordArray[i];
+    }
+  }
+  return result;
+}
 
 // // USING REDUCE()
 // function longestWord(str) {
@@ -33,10 +33,16 @@
 // }
 
 // USING REDUCE() - concise
+// function longestWord(str) {
+//   return str.split(" ").reduce((maxWord, word) => {
+//     return word.length > maxWord.length ? word : maxWord;
+//   }, "");
+// }
+
+// USING SORT()
+
 function longestWord(str) {
-  return str.split(" ").reduce((maxWord, word) => {
-    return word.length > maxWord.length ? word : maxWord;
-  }, "");
+  return str.split(" ").sort((wordA, wordB) => wordB.length - wordA.length)[0];
 }
 
 console.log(longestWord("Top Shelf Web Development Training on Scotch"));
