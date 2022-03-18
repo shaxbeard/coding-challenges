@@ -1,5 +1,8 @@
 function searchReplace(str, word, newWord) {
-  return str;
+  if (word[0] === word[0].toUpperCase()) {
+    newWord = newWord[0].toUpperCase() + newWord.slice(1);
+  }
+  return str.replace(word, newWord);
 }
 
 console.log(
