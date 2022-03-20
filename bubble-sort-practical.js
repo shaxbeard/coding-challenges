@@ -10,30 +10,44 @@ function swap(array, i, j) {
   array[j] = temp;
 }
 
-// // basic implementation
-function bubbleSortBasic(array) {
-  var countOuter = 0;
-  var countInner = 0;
-  var countSwap = 0;
+function bubbleSort(array) {
+  let countOuter = 0;
+  let countInner = 0;
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     countOuter++;
-    for (var j = 1; j < array.length; j++) {
+    for (let j = 1; j < array.length; j++) {
       countInner++;
-      if (array[j - 1] > array[j]) {
-        countSwap++;
-        swap(array, j - 1, j);
-      }
     }
   }
-  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
-  return array;
+  console.log("outer:", countOuter, "inner:", countInner);
 }
+console.log(bubbleSort(arrayRandom.slice()));
+
+// // basic implementation
+// function bubbleSortBasic(array) {
+//   var countOuter = 0;
+//   var countInner = 0;
+//   var countSwap = 0;
+
+//   for (var i = 0; i < array.length; i++) {
+//     countOuter++;
+//     for (var j = 1; j < array.length; j++) {
+//       countInner++;
+//       if (array[j - 1] > array[j]) {
+//         countSwap++;
+//         swap(array, j - 1, j);
+//       }
+//     }
+//   }
+//   console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
+//   return array;
+// }
 
 // console.log("~~~ ~~~ BASIC ~~~ ~~~");
 
 // console.log("\n~~~ basic: arrayRandom ~~~");
-console.log(bubbleSortBasic(arrayRandom.slice()));
+// console.log(bubbleSortBasic(arrayRandom.slice()));
 
 // console.log("\n~~~ basic: arrayOrdered ~~~");
 // bubbleSortBasic(arrayOrdered.slice());
