@@ -4,20 +4,19 @@
 //Return - object with key=char, value=count for char
 //methods
 
+// FOR-OF
 function count(string) {
   let obj = {};
-  string.split("").forEach(letter => {
-    if (obj[letter] === undefined) {
-      obj[letter] === 0;
-    }
-    obj[letter]++;
-  });
+  for (letter of string) {
+    !obj[letter] ? (obj[letter] = 1) : obj[letter]++;
+  }
+  return obj;
 }
 
 // FOR EACH METHOD
 // function count(string) {
 //   let obj = {};
-//   string.split("").forEach((letter) => {
+//   string.split("").forEach(letter => {
 //     !obj[letter] ? (obj[letter] = 1) : obj[letter]++;
 //   });
 //   return obj;
