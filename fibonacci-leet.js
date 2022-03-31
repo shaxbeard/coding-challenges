@@ -62,3 +62,17 @@ function fib(n) {
 }
 
 console.log(fib(4), 5);
+
+// RECURSIVE SOLUTION USING MEMOIZATION
+function fib(n, memo) {
+  memo = memo || {};
+
+  if (memo[n]) {
+    return memo[n];
+  }
+  if (n <= 1) {
+    return 1;
+  }
+
+  return (memo[n] = fib(n - 1, memo) + fib(n - 2, memo));
+}
