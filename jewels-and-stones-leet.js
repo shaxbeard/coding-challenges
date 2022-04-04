@@ -16,9 +16,12 @@ function numJewelsInStones(jewels, stones) {
     !obj[l] && (obj[l] = true);
     return obj;
   }, {});
-  console.log(map);
-
-  //loop
+  //loop over stones and increment
+  let counter = 0;
+  for (stone of stones) {
+    map[stone] && counter++;
+  }
+  return counter;
 }
 
 console.log(numJewelsInStones("aA", "aAAbbbb"), 3);
