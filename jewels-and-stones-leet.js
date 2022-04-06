@@ -10,18 +10,34 @@
 // hash map, if char in jewels, then set property to true
 // counter, loop, if letter in "jewels" is in "stones", counter++
 
+// function numJewelsInStones(jewels, stones) {
+//   //hash map
+//   const map = jewels.split("").reduce((obj, l) => {
+//     !obj[l] && (obj[l] = true);
+//     return obj;
+//   }, {});
+//   //loop over stones and increment
+//   let counter = 0;
+//   for (stone of stones) {
+//     map[stone] && counter++;
+//   }
+//   return counter;
+// }
+
 function numJewelsInStones(jewels, stones) {
-  //hash map
-  const map = jewels.split("").reduce((obj, l) => {
-    !obj[l] && (obj[l] = true);
-    return obj;
-  }, {});
-  //loop over stones and increment
-  let counter = 0;
-  for (stone of stones) {
-    map[stone] && counter++;
+  const map = {};
+  let count = 0;
+
+  for (const jewel of jewels) {
+    map[jewel] = true;
   }
-  return counter;
+
+  for (const stone of stones) {
+    if (map[stone]) {
+      count++;
+    }
+  }
+  return count;
 }
 
 console.log(numJewelsInStones("aA", "aAAbbbb"), 3);
