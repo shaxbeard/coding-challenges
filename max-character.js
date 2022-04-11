@@ -14,6 +14,9 @@ function maxCharacter(str) {
   for (char of str) {
     !map[char] ? (map[char] = 1) : map[char]++;
   }
+
+  //find the highest number in the char map
+  return Object.entries(map).sort(([, a], [, b]) => b - a)[0][0];
 }
 
 console.log(maxCharacter("Hello World!"), "l");
