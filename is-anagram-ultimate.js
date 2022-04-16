@@ -1,7 +1,15 @@
 // DIRECT COMPARISON
 
 function isAnagram(strA, strB) {
-  return strA;
+  const sanitizeString = function (str) {
+    return str
+      .toLowerCase()
+      .replace(/[^a-z\d]/g, "")
+      .split("")
+      .sort()
+      .join("");
+  };
+  return sanitizeString(strA) === sanitizeString(strB);
 }
 
 console.log(isAnagram("silent", "listen"), true);
