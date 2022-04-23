@@ -6,7 +6,9 @@
 // }
 
 function searchReplace(str, w, newW) {
-  w[0] === w[0].toUpperCase() && newW[0].toUpperCase() + newW.slice(1);
+  if (w[0] === w[0].toUpperCase()) {
+    newW = newW[0].toUpperCase() + newW.slice(1);
+  }
   return str.replace(w, newW);
 }
 
