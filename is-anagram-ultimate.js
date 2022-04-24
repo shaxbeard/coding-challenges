@@ -1,15 +1,8 @@
 // DIRECT COMPARISON
 
 // function isAnagram(strA, strB) {
-//   const sanitizeString = function (str) {
-//     return str
-//       .toLowerCase()
-//       .replace(/[^a-z\d]/g, "")
-//       .split("")
-//       .sort()
-//       .join("");
-//   };
-//   return sanitizeString(strA) === sanitizeString(strB);
+//   const sortString = str => str.toLowerCase().split("").sort().join("");
+//   return sortString(strA) === sortString(strB);
 // }
 
 // CHARACTER MAP COMPARISON
@@ -18,7 +11,7 @@ function isAnagram(strA, strB) {
   function createCharMap(text) {
     let charMap = {};
     for (let char of text) {
-      if (charMap.hasOwnProperty(char)) {
+      if (charMap[char]) {
         charMap[char]++;
       } else {
         charMap[char] = 1;
