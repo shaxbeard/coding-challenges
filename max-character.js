@@ -10,25 +10,33 @@
 
 function maxCharacter(str) {
   //char map
-  const map = {};
-  for (char of str) {
-    !map[char] ? (map[char] = 1) : map[char]++;
-  }
-
+  // const map = {};
+  // for (const char of str) {
+  //   !map[char] ? (map[char] = 1) : map[char]++;
+  // }
   //find the highest number in the char map
-  //   return Object.entries(map).sort(([, a], [, b]) => b - a)[0][0];
-
-  let maxCount = 0;
-  let maxChar = "";
-
-  for (char in map) {
-    if (map[char] > maxCount) {
-      maxCount = map[char];
-      maxChar = char;
-    }
-  }
-  return maxChar;
+  // return Object.entries(map).sort(([, a], [, b]) => b - a)[0][0];
+  // let maxCount = 0;
+  // let maxChar = "";
+  // for (const char in map) {
+  //   if (map[char] > maxCount) {
+  //     maxCount = map[char];
+  //     maxChar = char;
+  //   }
+  // }
+  // return maxChar;
 }
 
+function maxCharacter(str) {
+  function charMap(str) {
+    const map = {};
+    for (const char of str) {
+      !map[char] ? (map[char] = 1) : map[char]++;
+    }
+    return map;
+  }
+  const map = charMap(str);
+  return Object.entries(map).sort(([, a], [, b]) => b - a)[0][0];
+}
 console.log(maxCharacter("Hello World!"), "l");
 console.log(maxCharacter("abracadabra"), "a");
