@@ -7,6 +7,13 @@
 // name + " does not play banjo"
 // Names given are always valid strings.
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 //Examples
 //Rogerido => "Roderigo plays banjo"
 //Patrick -> "Patrick does not play banjo"
