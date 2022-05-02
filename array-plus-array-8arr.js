@@ -3,6 +3,13 @@
 
 // P.S. Each array includes only integer numbers. Output is a number too.
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 myArr = [1, 2, 3];
 yourArr = [3, 4, 5];
 
