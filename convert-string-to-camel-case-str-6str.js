@@ -6,6 +6,13 @@
 // "the-stealth-warrior" gets converted to "theStealthWarrior"
 // "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function toCamelCase(str) {
   const strSplit = str.indexOf("-") !== -1 ? str.split("-") : str.split("_");
   const initialCaps = strSplit.map((item, index) => {
