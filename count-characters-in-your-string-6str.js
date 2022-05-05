@@ -2,6 +2,7 @@
 // Count the number of each character in a string
 //Parameters - string - caps? nums? spaces? if "" -> {}
 //Return - object with key=char, value=count for char
+//methods
 
 // function count(string) {
 //   let obj = {};
