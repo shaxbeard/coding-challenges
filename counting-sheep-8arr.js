@@ -2,6 +2,13 @@
 
 // For example,
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 const arr = [
   true,
   true,
