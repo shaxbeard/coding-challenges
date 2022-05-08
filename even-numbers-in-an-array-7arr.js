@@ -1,3 +1,10 @@
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 const arr = [-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26];
 
 function evenNumbers(array, number) {
