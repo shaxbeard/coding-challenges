@@ -1,3 +1,10 @@
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 let arr = ["a", "b", "c", "d", "f"];
 
 const findMissingLetters = (array) => {
