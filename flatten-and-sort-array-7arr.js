@@ -1,3 +1,10 @@
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 const arr = [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]];
 
 // function flattenAndSort(array) {
