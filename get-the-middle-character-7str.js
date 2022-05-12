@@ -4,6 +4,7 @@
 //Return - IF odd -> reutrn the middle char; IF even -> return middle 2 chars
 //Example - "testing" -> "t"; "middle" -> "dd"
 //Pseudocode
+// METHODS - STRING OR ARRAY
 
 //If odd like 7 chars, get char at position 4
 //7 / 2 = 3.5 ; cut off the .5 - then it will be the zero indexed char 3
