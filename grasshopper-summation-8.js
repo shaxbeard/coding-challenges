@@ -7,6 +7,13 @@
 // summation(8) -> 36
 // 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 var summation = function (num) {
   let total = 0;
   for (let i = 0; i <= num; i++) {
