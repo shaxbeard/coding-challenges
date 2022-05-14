@@ -10,6 +10,13 @@
 // There will always be at least one number in the input string.
 // Output string must be two numbers separated by a single space, and highest number is first.
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function highAndLow(numbers) {
   const arr = numbers.split(" ").sort((a, b) => b - a);
   return `${arr[0]} ${arr[arr.length - 1]}`;
