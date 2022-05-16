@@ -1,3 +1,10 @@
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function isUpperCase(str) {
   return str.toUpperCase() === str;
 }
