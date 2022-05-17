@@ -2,6 +2,13 @@
 //Inputs: a string, letters only not numbers or special characters
 //return the full string with intial caps on all letters
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function jadenCase(str) {
   return str
     .split(" ")
