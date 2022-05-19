@@ -23,6 +23,7 @@
 //sum the array
 //if the sum is even reutrn "even"
 //if the sum is odd return "odd"
+//METHODS !!
 
 function oddOrEven(array) {
   if (!array.length) array = [0];
