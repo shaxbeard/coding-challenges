@@ -4,6 +4,7 @@
 //Return - sum of the binary value of the array digits
 //Example
 //Pseudocode  - loop, sum
+//Methods!
 
 // Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
 
