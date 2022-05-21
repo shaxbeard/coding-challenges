@@ -2,6 +2,13 @@
 //String or number. If number, convert to string.
 //Return - true or false
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function isPalindrome(line) {
   const str = line.toString();
   return str === str.split("").reverse().join("");
