@@ -6,6 +6,13 @@
 // makeNegative(0);    // return 0
 // makeNegative(0.12); // return -0.12
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function makeNegative(num) {
   return num > 0 ? num * -1 : num;
   // return -Math.abs(num); // using a math method
