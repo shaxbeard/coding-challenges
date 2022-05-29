@@ -25,12 +25,12 @@
 //   let arrayCopy = [...array];
 
 //   while (arrayCopy.length > 0) {
-//     result.push(arrayCopy.slice(0, size));
+//     result.push(arrayCopy.splice(0, size));
 //   }
 //   return result;
 // }
 
-//USING SLICE()
+// USING SLICE()
 
 // function chunkArray(array, size) {
 //   let result = [];
