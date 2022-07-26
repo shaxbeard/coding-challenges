@@ -5,9 +5,8 @@ const findMissingLetters = (array) => {
   arr.forEach((item, i, { [i - 1]: prev }) => {
     if (i > 0) {
       missingLetter =
-        item.charCodeAt() !== prev.charCodeAt() + 1
-          ? String.fromCharCode(item.charCodeAt() - 1)
-          : null;
+        item.charCodeAt() !== prev.charCodeAt() + 1 &&
+        String.fromCharCode(item.charCodeAt() - 1);
     }
   });
   return missingLetter;
