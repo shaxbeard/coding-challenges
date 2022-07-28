@@ -28,12 +28,7 @@ function isAnagram(strA, strB) {
 
     for (let char in strAMap) {
       if (strAMap[char] !== strBMap[char]) {
-        // strA="silent", strB="piston"
-        //Iteration #1 - strAMap[s] = 1, strBMap[s] = 1
-        //Iteration #2 - strAMap[i] = 1, strBMap[i] = 1
-        //Iteration #3 - strAMap[l] = 1, strBMap[l] = 0
         return false;
-        //Exit the entire function and return false
       }
     }
     return true;
@@ -42,7 +37,7 @@ function isAnagram(strA, strB) {
   }
 }
 
-console.log(isAnagram("skywalker", "listen"), false); // different lengths
+// console.log(isAnagram("skywalker", "listen"), false); // different lengths
 console.log(isAnagram("silent", "piston"), false); // same length
-console.log(isAnagram("silent", "listen"), true); // anagrams
-console.log(isAnagram("Buckethead", "DeathCubeK"), true); // anagrams
+// console.log(isAnagram("silent", "listen"), true); // anagrams
+// console.log(isAnagram("Buckethead", "DeathCubeK"), true); // anagrams
