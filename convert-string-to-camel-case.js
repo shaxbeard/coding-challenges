@@ -7,13 +7,24 @@
 // "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
 
 function toCamelCase(str) {
+  // const strSplit = str.indexOf("-") !== -1 ? str.split("-") : str.split("_");
+  //   let camel;
+  //   strSplit.forEach((item, index) => {
+  //     index === 0
+  //       ? (camel = item) // Add the first word unchanged
+  //       : (camel += item[0].toUpperCase() + item.slice(1)); // for the other words, add the first letter as uppercase, then add the rest of the word
+  //   });
+  //   return camel;
+  // }
+
   const strSplit = str.indexOf("-") !== -1 ? str.split("-") : str.split("_");
-  let camel;
-  strSplit.forEach((item, index) => {
-    index === 0
-      ? (camel = item)
-      : (camel += item[0].toUpperCase() + item.slice(1));
-  });
+
+  const camel = strSplit.reduce((total, item, index) => {
+    return (total =
+      index === 0
+        ? (total = item)
+        : total + item[0].toUpperCase() + item.slice(1));
+  }, "");
   return camel;
 }
 
