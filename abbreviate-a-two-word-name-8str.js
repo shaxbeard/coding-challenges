@@ -8,6 +8,7 @@
 
 // patrick feeney => P.F
 
+//PREP
 //Parameter - string, 2 words, 1 space between words, lowercase OR uppercase letters
 //Return - first letter from first word -> uppercase; then dot; then first letter from second word -> uppercase; then dot (NO - only one dot)
 //Example - Sam Harris -> S.H ; patrick feeney -> P.F
