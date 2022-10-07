@@ -9,6 +9,13 @@
 // Example(Input --> Output)
 // ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5"
 
+//PREP
+//Parameter -
+//Return -
+//Example -
+//Pseudocode -
+//Methods!
+
 function findNeedle(haystack) {
   return `found the needle at position ${haystack.indexOf("needle")}`;
 }
