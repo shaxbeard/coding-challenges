@@ -17,6 +17,7 @@
 function nthSmallest(arr, n) {
   //sort the array from smallest to largest
   //selecte the nth item from this sorted array
+  return arr.sort((a, b) => a - b)[n - 1];
 }
 
 console.log(nthSmallest([3, 1, 2], 2), 2);
