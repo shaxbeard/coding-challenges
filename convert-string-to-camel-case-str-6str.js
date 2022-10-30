@@ -41,5 +41,6 @@ function toCamelCase(str) {
   // return camel;
 }
 
-console.log(toCamelCase("the-stealth-warrier"));
-console.log(toCamelCase("the_stealth_warrier"));
+console.log(toCamelCase("the-stealth-warrier"), "theStealthWarrior");
+console.log(toCamelCase("the_stealth_warrier"), "theStealthWarrior");
+console.log(toCamelCase("The_Stealth_Warrier"), "TheStealthWarrior");
