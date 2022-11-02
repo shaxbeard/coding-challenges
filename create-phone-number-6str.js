@@ -30,9 +30,7 @@
 
 function createPhoneNumber(numbers) {
   let phone = "(xxx) xxx-xxxx";
-  numbers.forEach((number) => {
-    phone = phone.replace("x", number);
-  });
+  numbers.forEach(number => (phone = phone.replace("x", number)));
   return phone;
 }
 
