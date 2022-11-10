@@ -12,7 +12,7 @@
 // Note: N may be 1 or less (in the latter case, the first array will be []).
 
 function missingNum(arr, mixArr) {
-  return arr;
+  return arr.filter(n => mixArr.indexOf(n) === -1)[0] || 0; // Quadratic
 }
 
 console.log(
