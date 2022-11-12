@@ -1,6 +1,8 @@
-// Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+// Your goal in this kata is to implement a difference function,
+// which subtracts one array from another and returns the result.
 
-// It should remove all values from list a, which are present in list b keeping their order.
+// It should remove all values from array a, which are present
+// in array b keeping their order.
 
 // arrayDiff([1,2],[1]) == [2]
 // If a value is present in b, all of its occurrences must be removed from the other:
@@ -32,8 +34,10 @@
 // }
 
 function arrayDiff(a, b) {
-  return a.filter((el) => b.indexOf(el) === -1);
+  return a.filter(el => b.indexOf(el) === -1);
 }
+
+//Coming back to consider time and space complexity
 
 console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
 console.log(arrayDiff([1, 2, 3], [1, 2]));
