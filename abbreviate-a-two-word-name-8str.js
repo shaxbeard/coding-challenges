@@ -15,16 +15,18 @@
 //Pseudocode - to uppercase, split, grab the first letter of each name
 //Methods!
 
+//which one is the better solution?
+
 function abbrevName(name) {
   //  My solution
-  //   return name
-  //     .toUpperCase()
-  //     .split(" ")
-  //     .map((item) => item[0])
-  //     .join(".");
+  // return name
+  //   .toUpperCase()
+  //   .split(" ")
+  //   .map((item) => item[0])
+  //   .join(".");
   // Top ranked solution on codewars
-  var arr = name.toUpperCase().split(" ");
-  return `${arr[0][0]}.${arr[1][0]}`;
+  // var arr = name.toUpperCase().split(" ");
+  // return `${arr[0][0]}.${arr[1][0]}`;
 }
 
 console.log(abbrevName("Sam Harris"));
