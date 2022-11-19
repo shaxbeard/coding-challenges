@@ -6,16 +6,20 @@
 
 // All inputs will be valid.
 
-// Parameters
-// return
-// Examples
-// Psuedocode
-// Methods
+// PREP
+// input - string, so no int, normal letters only? yes
+// return an ARRAY - sort alphabetically by LAST CHAR - if 2 words end in same char, leave orig order
 
-function last(str) {
-  return str;
-}
+// function last(str) {
+//   const arr = str.split(" ");
+//   const reversed = arr.map(word => word.split("").reverse().join(""));
+//   const sorted = reversed.sort((a, b) => (a > b ? 1 : a === b ? 0 : -1));
+//   return sorted.map(word => word.split("").reverse().join(""));
+// }
 
+function last(str) {}
+
+console.log(last("take me to semynak"), ["take", "me", "semynak", "to"]);
 console.log(last("man i need a taxi up to ubud"), [
   "a",
   "need",
@@ -28,4 +32,3 @@ console.log(last("man i need a taxi up to ubud"), [
 ]);
 
 // (last('what time are we climbing up the volcano'), ['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']);
-// (last('take me to semynak'), ['take', 'me', 'semynak', 'to']);
