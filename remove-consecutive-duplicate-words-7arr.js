@@ -7,7 +7,10 @@
 // --> "alpha beta gamma delta alpha beta gamma delta"
 
 function removeConsecutiveDuplicates(str) {
-  return str;
+  return str
+    .split(" ")
+    .filter((w, i, a) => w !== a[i - 1])
+    .join(" ");
 }
 
 console.log(
