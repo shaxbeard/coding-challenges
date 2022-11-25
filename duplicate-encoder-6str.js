@@ -34,12 +34,22 @@ function duplicateEncoder(str) {
   /* *************************** */
   /* *************************** */
 
-  //THIS IS THE BEST QUADRATIC SOLUTION
-  return str
-    .toLowerCase()
-    .split("")
-    .map((l, i, a) => (a.indexOf(l) === a.lastIndexOf(l) ? "(" : ")"))
-    .join("");
+  //   //THIS IS THE BEST QUADRATIC SOLUTION
+  //   // toLowerCase -> split -> map -> join
+  //   // if letter is unique, then first index === last index; else, letter has duplicates
+  //   return str
+  //     .toLowerCase()
+  //     .split("")
+  //     .map((l, i, a) => (a.indexOf(l) === a.lastIndexOf(l) ? "(" : ")"))
+  //     .join("");
+
+  // THIS IS A LINEAR SOLUTION ??
+  const arr = str.toLowerCase().split("");
+  const letterCounts = arr.reduce((total, letter) => {
+    total[letter] == null ? (total[letter] = 1) : total[letter]++;
+    return total;
+  }, {});
+  return arr.map(letter => (letterCounts[letter] > 1 ? ")" : "(")).join("");
 }
 
 console.log(duplicateEncoder("din"), "(((");
