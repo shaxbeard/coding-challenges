@@ -43,13 +43,27 @@ function duplicateEncoder(str) {
   //     .map((l, i, a) => (a.indexOf(l) === a.lastIndexOf(l) ? "(" : ")"))
   //     .join("");
 
-  // THIS IS A LINEAR SOLUTION ??
-  const arr = str.toLowerCase().split("");
-  const letterCounts = arr.reduce((total, letter) => {
-    total[letter] == null ? (total[letter] = 1) : total[letter]++;
-    return total;
-  }, {});
-  return arr.map(letter => (letterCounts[letter] > 1 ? ")" : "(")).join("");
+  // // THIS IS MY LINEAR SOLUTION
+  // const arr = str.toLowerCase().split("");
+  // const letterCounts = arr.reduce((total, letter) => {
+  //   total[letter] == null ? (total[letter] = 1) : total[letter]++;
+  //   return total;
+  // }, {});
+  // return arr.map(letter => (letterCounts[letter] > 1 ? ")" : "(")).join("");
+
+  //THIS IS A MEMO SOLUTION USING TWO FUNCTIONS FROM CODEWARS
+  function countCharacters(chars) {
+    return chars.reduce((memo, char) => {
+      memo[char] = memo[char] ? memo[char] + 1 : 1;
+      return memo;
+    }, {});
+  }
+  function duplicateEncode(word) {
+    const chars = word.split("").map(ch => ch.toLowerCase());
+    const charsCount = countCharacters(chars);
+    return chars.map(ch => (charsCount[ch] > 1 ? ")" : "(")).join("");
+  }
+  return duplicateEncode(str);
 }
 
 console.log(duplicateEncoder("din"), "(((");
