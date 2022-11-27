@@ -18,25 +18,37 @@
 //Methods!
 
 function getCount(str) {
-  let total = 0;
   const vowels = ["a", "e", "i", "o", "u"];
+  let total = 0;
 
-  str.split("").forEach(letter => {
-    // consxole.log(letter);
-    vowels.forEach(vowel => vowel === letter && total++);
-  });
-  return total;
-}
+  // // Wow! I had to use total++ inside of the forEach() EVEN INSIDE OF REDUCE
 
-// // Wow! I had to use total++ inside of the forEach() EVEN INSIDE OF REDUCE
-// function getCount(str) {
-//   const vowels = ["a", "e", "i", "o", "u"];
+  // NESTED FOR EACH LOOPS
 
-//   return str.split("").reduce((total, letter) => {
-//     vowels.forEach((vowel) => vowel === letter && total++);
-//     return total;
-//   }, 0);
+//   str.split("").forEach(letter => {
+//     vowels.forEach(vowel => vowel === letter && total++);
+//   });
+//   return total;
 // }
 
-console.log(getCount("abracadabra"));
-console.log(getCount("talented"));
+//  FOR EACH WITH INCLUDES()
+
+// function vowelsCounter(text) {
+//   let counter = 0;
+//   text.split("").forEach(letter => vowels.includes(letter) && counter++);
+//   return counter;
+// }
+
+
+
+
+
+// REGULAR EXPRESSIONS
+function getCount(str) {
+  let matchingInstances = str.match(/[aeiou]/gi);
+  return matchingInstances ? matchingInstances.length : 0;
+}
+
+console.log(getCount("abracadabra"), 5);
+console.log(getCount("talented"), 3);
+console.log(getCount("abcdefghijklmnopqrstuvwxyz"), 5);
