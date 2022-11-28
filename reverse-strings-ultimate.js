@@ -45,11 +45,20 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 //   }
 // }
 
+function fact(num) {
+  if (num >= 1) {
+    return num * fact(num - 1);
+  } else {
+    return 1;
+  }
+}
+console.log(fact(10));
+
 // USING .REDUCE()
 
-function reverseString(text) {
-  return text.split("").reduce((acc, char) => char + acc);
-}
+// function reverseString(text) {
+//   return text.split("").reduce((acc, char) => char + acc);
+// }
 
-console.log(reverseString("algorithm"), "mhtirogla");
-console.log(reverseString("123456789"), "987654321");
+// console.log(reverseString("algorithm"), "mhtirogla");
+// console.log(reverseString("123456789"), "987654321");
