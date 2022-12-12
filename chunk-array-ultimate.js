@@ -20,25 +20,34 @@
 
 // LOOPING THROUGH THE NUMBER OF CHUNKS
 
-function chunkArray(array, size) {
-  let result = [];
-  let arrayCopy = [...array];
+// function chunkArray(array, size) {
+//   let result = [];
+//   let arrayCopy = [...array];
 
-  while (arrayCopy.length > 0) {
-    result.push(arrayCopy.slice(0, size));
-  }
-  return result;
-}
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
+//   while (arrayCopy.length > 0) {
+//     result.push(arrayCopy.slice(0, size));
+//   }
+//   return result;
+// }
 
 //USING SLICE()
 
-function chunkArray(array, size) {
-  let result = [];
+// function chunkArray(array, size) {
+//   let result = [];
 
-  for (i = 0; i < array.length; i += size) {
-    let chunk = array.slice(i, i + size);
-    result.push(chunk);
+//   for (i = 0; i < array.length; i += size) {
+//     let chunk = array.slice(i, i + size);
+//     result.push(chunk);
+//   }
+//   return result;
+// }
+
+// RECURSION
+function chunkArray(array, size) {
+  if (array.length <= size) {
+    return [array];
   }
-  return result;
+  return [array.slice(0, size), ...chunkArray(array.slice(size), size)];
 }
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
