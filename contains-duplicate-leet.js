@@ -25,33 +25,33 @@
 // };
 
 // USING NESTED FOR LOOPS - IS THIS CORRECT ??
-const containsDuplicate = function (nums) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let k = i + 1; k < nums.length; k++) {
-      if (nums[i] === nums[k]) {
-        return true;
-      }
-    }
-  }
-  return false;
-};
-
-// USING A MAP
 // const containsDuplicate = function (nums) {
-//   // first you create a hash map
-//   const map = nums.reduce((obj, el) => {
-//     !obj[el] ? (obj[el] = 1) : obj[el]++;
-//     return obj;
-//   }, {});
-
-//   //then you loop over the map and return true IF the map contains a duplicate
-//   for (num in map) {
-//     if (map[num] > 1) {
-//       return true;
+//   for (let i = 0; i < nums.length; i++) {
+//     for (let k = i + 1; k < nums.length; k++) {
+//       if (nums[i] === nums[k]) {
+//         return true;
+//       }
 //     }
 //   }
 //   return false;
 // };
+
+// USING A MAP
+const containsDuplicate = function (nums) {
+  // first you create a hash map
+  const map = nums.reduce((obj, el) => {
+    !obj[el] ? (obj[el] = 1) : obj[el]++;
+    return obj;
+  }, {});
+
+  //then you loop over the map and return true IF the map contains a duplicate
+  for (num in map) {
+    if (map[num] > 1) {
+      return true;
+    }
+  }
+  return false;
+};
 
 // USING A FOR LOOP
 // function containsDuplicate(arr) {
@@ -70,19 +70,19 @@ const containsDuplicate = function (nums) {
 // }
 
 // USING FOR-OF
-const containsDuplicate = function (arr) {
-  const numsMap = {};
-  for (num of arr) {
-    // as you are building the map, return true as soon as you find a duplicate
-    if (numsMap[num]) {
-      return true;
-      // if no duplicate, then just set the first instance of a num to true
-    } else {
-      numsMap[num] = true;
-    }
-  }
-  return false;
-};
+// const containsDuplicate = function (arr) {
+//   const numsMap = {};
+//   for (num of arr) {
+//     // as you are building the map, return true as soon as you find a duplicate
+//     if (numsMap[num]) {
+//       return true;
+//       // if no duplicate, then just set the first instance of a num to true
+//     } else {
+//       numsMap[num] = true;
+//     }
+//   }
+//   return false;
+// };
 
 console.log(containsDuplicate([1, 2, 3, 1]), true);
 console.log(containsDuplicate([1, 2, 3, 4]), false);
