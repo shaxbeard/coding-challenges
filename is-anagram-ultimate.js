@@ -8,6 +8,8 @@
 // CHARACTER MAP COMPARISON
 
 function isAnagram(strA, strB) {
+  strA = strA.toLowerCase();
+  strB = strB.toLowerCase();
   function createCharMap(text) {
     let charMap = {};
     for (let char of text) {
@@ -43,3 +45,4 @@ function isAnagram(strA, strB) {
 console.log(isAnagram("skywalker", "listen"), false); // different lengths
 console.log(isAnagram("silent", "piston"), false); // same length
 console.log(isAnagram("silent", "listen"), true); // anagrams
+console.log(isAnagram("Buckethead", "DeathCubeK"), true); // anagrams
