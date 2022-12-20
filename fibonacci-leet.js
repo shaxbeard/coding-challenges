@@ -24,14 +24,15 @@
 
 //  FOR() LOOP SOLUTION
 function fib(n) {
-  let arr = [0, 1]; // because we ALWAYS have 0 and 1?
+  let arr = [0, 1];
   for (let i = 2; i <= n; i++) {
     arr[i] = arr[i - 1] + arr[i - 2];
-    //iteration #1 - (i=2) arr[2] = arr[1] (=1) + arr[0] (=0) - so arr = [0,1,1]
+    //iteration #1 - (i=2)(arr=[0,1]) -- arr[2] = arr[1] (=1) + arr[0] (=0) - so arr = [0,1,1]
     //iteration #2 - (i=3) arr[3] = arr[2] (=1) + arr[1] (=1) - so arr = [0,1,1,2]
     //iteration #3 - (i=4) arr[4] = arr[3] (=2) + arr[2] (=1) = so arr = [0,1,1,2,3]
+    // (i=5) now the condition of i <= 4 is FALSE so break out of the loop
   }
-  return arr[n]; //arr[4] = [0,1,1,2,3] (index 4 = 3)
+  return arr[n]; //arr[4] where arr = [0,1,1,2,3] (index 4 = 3)
 }
 
 console.log(fib(4), 3);
