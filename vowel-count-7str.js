@@ -30,6 +30,15 @@ const vowels = ["a", "e", "i", "o", "u"];
 //   return total;
 // }
 
+// SHORTENED VERSION OF ABOVE
+// function getCount(str) {
+//   let total = 0;
+//   for (letter of str) {
+//     vowels.includes(letter) && total++;
+//   }
+//   return total;
+// }
+
 // NESTED FOR LOOPS
 // function getCount(str) {
 //   let total = 0;
