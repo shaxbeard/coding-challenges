@@ -38,14 +38,14 @@ const vowels = ["a", "e", "i", "o", "u"];
 //   return total;
 // }
 
-// SPLIT().FOR EACH() WITH INCLUDES() - 40% SLOWER THAN FOR LOOP BUT FASTER THAN FOR-OF
+// SPLIT().FOR EACH() WITH INCLUDES() - 40% SLOWER THAN REGEX BUT FASTER THAN FOR-OF
 // function getCount(str) {
 //   let total = 0;
 //   str.split("").forEach(letter => vowels.includes(letter) && total++);
 //   return total;
 // }
 
-// FOR-OF LOOP WITH INCLUDES() - 45% SLOWER THAN FOR LOOP - 5% SLOWER THAN SPLIT().FOREACH() !!!
+// FOR-OF LOOP WITH INCLUDES() - 45% SLOWER THAN REGEX - 5% SLOWER THAN SPLIT().FOREACH() !!!
 // function getCount(str) {
 //   let total = 0;
 //   for (letter of str) {
