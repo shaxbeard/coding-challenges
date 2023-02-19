@@ -1,28 +1,30 @@
 // USING A FOR LOOP
 
-// function factorial(n) {
-//     if (n <= 1) {
-//         return 1
-//     }
-//     for (let i = n - 1; i >= 1; i--) {
-//         n *= i;
-//     }
-//     return n;
-// }
+function factorial(n) {
+  if (n <= 1) {
+    return 1;
+  }
+  for (let i = n - 1; i >= 1; i--) {
+    n *= i;
+  }
+  return n;
+}
+console.log(factorial(4));
 
 // USING A WHILE LOOP
 
 // function factorial(n) {
-//     var result = n
-//     if (n <= 1) {
-//         return 1
-//     }
-//     while (n > 1) {
-//         n--
-//         result *= n
-//     }
-//     return result
+//   var result = n;
+//   if (n <= 1) {
+//     return 1;
+//   }
+//   while (n > 1) {
+//     n--;
+//     result *= n;
+//   }
+//   return result;
 // }
+// console.log(factorial(4));
 
 // USING RECURSION
 
@@ -35,15 +37,15 @@
 
 // USING MEMOIZATION
 
-function factorial(n, memo) {
-  memo = memo || {};
-  if (memo[n]) {
-    return memo[n];
-  }
-  if (n <= 1) {
-    return 1;
-  }
-  return (memo[n] = n * factorial(n - 1, memo));
-}
+// function factorial(n, memo) {
+//   memo = memo || {};
+//   if (n <= 1) {
+//     return 1;
+//   }
+//   if (memo[n]) {
+//     return memo[n];
+//   }
+//   return (memo[n] = n * factorial(n - 1, memo));
+// }
 
-console.log(factorial(5));
+// console.log(factorial(5));
