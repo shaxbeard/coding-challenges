@@ -13,8 +13,44 @@
 // Input: head = []
 // Output: []
 
-var reverseList = function (head) {
-  return head;
-};
+class LinkedList {
+  constructor() {
+    this.head = this.tail = null;
+  }
 
-console.log(reverseList([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1]);
+  append(value) {
+    if (!this.tail) {
+      this.head = this.tail = new Node(value);
+    } else {
+      let oldTail = this.tail;
+      this.tail = new Node(value);
+      oldTail.next = this.tail;
+    }
+  }
+  reverseList() {
+    let current = this.head;
+    let prev = null;
+    while (current) {
+      const temp = current.next;
+      current.next = prev;
+      prev = current;
+      current = temp;
+    }
+    return prev;
+  }
+}
+
+class Node {
+  constructor(value, prev, next) {
+    this.value = value;
+    this.next = next || null;
+  }
+}
+
+const list = new LinkedList();
+
+list.append(5);
+list.append(6);
+list.append(7);
+// console.log(list.reverseList());
+console.log(list);
