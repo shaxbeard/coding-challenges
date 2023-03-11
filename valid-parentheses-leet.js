@@ -32,9 +32,13 @@ const isValid = s => {
     if (s[i] == "(" || s[i] == "{" || s[i] == "[") {
       stack.push(s[i]);
     } else if (
-      (s[i] == ")" && char == "(") ||
-      (s[i] == "}" && char == "{") ||
-      (s[i] == "]" && char == "[")
+      // (s[i] == ")" && char == "(") ||
+      // (s[i] == "}" && char == "{") ||
+      // (s[i] == "]" && char == "[")
+
+      (char == "(" && s[i] == ")") ||
+      (char == "{" && s[i] == "}") ||
+      (char == "[" && s[i] == "]")
     ) {
       stack.pop();
     } else return false;
@@ -69,5 +73,5 @@ console.log(isValid("()[]{}"), true);
 
 // console.log(isValid("()[]{}"), true);
 // console.log(isValid("()[{}"), false);
-console.log(isValid("([]{})"), true);
+// console.log(isValid("([]{})"), true);
 // console.log(isValid("([{}])"), true);
