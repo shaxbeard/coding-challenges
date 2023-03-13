@@ -13,7 +13,12 @@
 // we return the second one.
 
 var middleNode = function (head) {
-  return head;
+  let fast = (slow = head);
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+  return slow;
 };
 
 console.log(middleNode([1, 2, 3, 4, 5]), 3);
