@@ -29,6 +29,7 @@
 //   }
 //   return result;
 // }
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
 
 // USING SLICE()
 
@@ -43,11 +44,11 @@
 // }
 
 // RECURSION
-function chunkArray(array, size) {
-  if (array.length <= size) {
-    return [array];
-  }
-  return [array.slice(0, size), ...chunkArray(array.slice(size), size)];
-}
+// function chunkArray(array, size) {
+//   if (array.length <= size) {
+//     return [array];
+//   }
+//   return [array.slice(0, size), ...chunkArray(array.slice(size), size)];
+// }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
