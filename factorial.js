@@ -37,15 +37,15 @@
 
 // USING MEMOIZATION
 
-function factorial(n, memo) {
-  memo = memo || {};
-  if (n <= 1) {
-    return 1;
-  } else if (memo[n]) {
-    return memo[n];
-  } else {
-    return (memo[n] = n * factorial(n - 1, memo));
-  }
-}
+// function factorial(n, memo) {
+//   memo = memo || {};
+//   if (n <= 1) {
+//     return 1;
+//   } else if (memo[n]) {
+//     return memo[n];
+//   } else {
+//     return (memo[n] = n * factorial(n - 1, memo));
+//   }
+// }
 
-console.log(factorial(5));
+// console.log(factorial(5));
