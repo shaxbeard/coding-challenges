@@ -38,6 +38,27 @@
 //   return arr;
 // }
 
+// OPTIMIZATION - DRY CODE AND BETTER READABILITY BY REMVOING REPETITIVE BITS
+function fizzBuzz(n) {
+  const arr = [];
+
+  for (let i = 1; i <= n; i++) {
+    const divisbleBy3 = i % 3 === 0;
+    const divisbleBy5 = i % 5 === 0;
+
+    if (divisbleBy3 && divisbleBy5) {
+      arr.push("FizzBuzz");
+    } else if (divisbleBy3) {
+      arr.push("Fizz");
+    } else if (divisbleBy5) {
+      arr.push("Buzz");
+    } else {
+      arr.push(i.toString());
+    }
+  }
+  return arr;
+}
+
 // function fizzBuzz(n) {
 //   const arr = [];
 //   for (let i = 1; i <= n; i++) {
@@ -66,20 +87,19 @@
 //   });
 // }
 
-function fizzBuzz(n) {
-  return [...Array(n)].map((x, i) => {
-    //   return Array.from({ length: n }, (_, i) => {
-    i += 1;
-    return i % 3 === 0 && i % 5 === 0
-      ? "FizzBuzz"
-      : i % 3 === 0
-      ? "Jello"
-      : i % 5 === 0
-      ? "Buzz"
-      : //   : `${i}`;
-        i.toString();
-  });
-}
+// function fizzBuzz(n) {
+//   return [...Array(n)].map((x, i) => {
+//     i += 1;
+//     return i % 3 === 0 && i % 5 === 0
+//       ? "FizzBuzz"
+//       : i % 3 === 0
+//       ? "Fizz"
+//       : i % 5 === 0
+//       ? "Buzz"
+//       : //   : `${i}`;
+//         i.toString();
+//   });
+// }
 
 console.log(fizzBuzz(3), ["1", "2", "Fizz"]);
 console.log(fizzBuzz(5), ["1", "2", "Fizz", "4", "Buzz"]);
