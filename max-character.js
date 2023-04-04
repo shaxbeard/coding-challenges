@@ -8,6 +8,7 @@
 
 // No String or Array Methods (well brute force it first, but then no methods)!
 
+// MAKE A CHAR MAP THEN LOOP OVER THE COMPLETED MAP TO FIND MAX VALUE
 // function maxCharacter(str) {
 //   // char map
 //   const map = {};
@@ -26,6 +27,7 @@
 //   return maxChar;
 // }
 
+// MAKE A CHAR MAP THEN SORT THE MAP AND SELECT THE FIRST ELEMENT
 function maxCharacter(str) {
   function charMap(str) {
     const map = {};
