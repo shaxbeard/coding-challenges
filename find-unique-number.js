@@ -15,6 +15,7 @@
 // function findUniq(arr) {
 //   for (let i = 0; i < arr.length; i++) {
 //     if (arr[i] !== arr[arr.length - 1]) {
+//       //skip the iteration if the element !== the final element - how does this work?
 //       if (arr[i] !== arr[i + 1]) {
 //         return arr[i];
 //       } else {
@@ -47,10 +48,45 @@
 //   }
 // }
 
+// FOR() SOLUTION -- FASTEST PERFORMANCE
+// function findUniq(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     // compare each element with the final element in the array until you find a difference
+//     if (arr[i] !== arr[arr.length - 1]) {
+//       // IF arr[i] is also different from the NEXT element, then arr[i] is the unique one
+//       if (arr[i] !== arr[i + 1]) {
+//         return arr[i];
+//       } else {
+//         return arr[arr.length - 1]; // otherwise it is FINAL element that is unique
+//       }
+//     }
+//   }
+// }
+
+// THIS NESTED LOOP SEEMS TO WORK, BUT IT MUST BE QUADRATIC THUS SLOWER?
+// function findUniq(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (i !== j && arr[i] !== arr[j]) {
+//         return arr[i];
+//       }
+//     }
+//   }
+// }
+
+// USING A HASH MAP
+
+//Go through the entire array and store the frequency of each number in a hash map
+function findUniq(arr) {
+  return arr;
+}
+
+//Loop through the map to find the number with the value of 1
+
 // console.log(findUniq([1, 0, 0]), 1);
 // console.log(findUniq([0, 1, 0]), 1);
 // console.log(findUniq([0, 0, 1]), 1);
-// console.log(findUniq([1, 1, 1, 2, 1, 1]), 2);
-// console.log(findUniq([0, 0, 0.55, 0, 0]), 0.55);
-// console.log(findUniq([2, 1, 1, 1, 1, 1]), 2);
-// console.log(findUniq([1, 1, 1, 1, 1, 2]), 2);
+console.log(findUniq([1, 1, 1, 2, 1, 1]), 2);
+console.log(findUniq([0, 0, 0.55, 0, 0]), 0.55);
+console.log(findUniq([2, 1, 1, 1, 1, 1]), 2);
+console.log(findUniq([1, 1, 1, 1, 1, 2]), 2);
