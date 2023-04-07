@@ -34,18 +34,18 @@
 // }
 
 // LEON'S SOLUTION
-function binarySearch(nums, target) {
-  let left = 0,
-    right = nums.length - 1;
-  while (left < right) {
-    let mid = left + Math.floor((right - left + 1) / 2);
-    if (target < nums[mid]) {
-      right = mid - 1;
-    } else {
-      left = mid;
-    }
-  }
-  return nums[left] === target ? left : -1;
-}
+// function binarySearch(nums, target) {
+//   let left = 0,
+//     right = nums.length - 1;
+//   while (left < right) {
+//     let mid = left + Math.floor((right - left + 1) / 2);
+//     if (target < nums[mid]) {
+//       right = mid - 1;
+//     } else {
+//       left = mid;
+//     }
+//   }
+//   return nums[left] === target ? left : -1;
+// }
 
 console.log(binarySearch([2, 6, 64, 90, 103, 200], 90), 3);
