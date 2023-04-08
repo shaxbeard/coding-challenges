@@ -37,7 +37,9 @@ function maxCharacter(str) {
     return map;
   }
   const map = charMap(str);
-  console.log(Object.values(map));
+  console.log("This is the actual char map: ", map);
+  console.log("This is the char map with Object.values: ", Object.values(map));
+  console.log("This is the char map with Object.entrie: ", Object.entries(map));
   // return Object.entries(map).sort(([, a], [, b]) => b - a)[0][0];
 }
 console.log(maxCharacter("Hello World!"), "l");
