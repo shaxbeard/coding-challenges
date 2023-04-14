@@ -96,7 +96,7 @@ console.log(fib(6), 8);
 
 //   return (memo[n] = fib(n - 1, memo) + fib(n - 2, memo));
 // }
-// console.log(fib(5));
+// console.log(fib(5), 8);
 
 // VISUALIZATION VERSION OF MEMOIZED FIBONACCI
 // var memo = {};
