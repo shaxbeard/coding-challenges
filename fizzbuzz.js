@@ -35,7 +35,7 @@ function fizzbuzz(n) {
   }
 }
 
-// VARIATION #1 - RETURNIN AN ARRAY OF VALUES
+// VARIATION #1 - RETUR AN ARRAY OF VALUES
 // console.log(fizzbuzz(3), [1, 2, "Fizz"]);
 // console.log(fizzbuzz(10), [
 //   [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"],
