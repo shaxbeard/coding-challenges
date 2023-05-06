@@ -1,4 +1,4 @@
-//TASK: Implement bubblesort!
+// TASK: Implement bubblesort!
 // sample of arrays to sort
 var arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 var arrayOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -10,19 +10,70 @@ function swap(array, i, j) {
   array[j] = temp;
 }
 
-function bubbleSort(array) {
-  let countOuter = 0;
-  let countInner = 0;
+// BASIC IMPLEMENTATION - NO SECONDARY FUNCTION, NO SWAPS
+// function bubbleSort(array) {
+//   //nested loops - but the inner loop starts at 1
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 1; j < array.length; j++) {
+//       //if the number on the left of each pair is bigger than the num on the right, swap them
+//       if (array[j - 1] > array[j]) {
+//         let temp = array[j - 1];
+//         array[j - 1] = array[j];
+//         array[j] = temp;
+//       }
+//     }
+//   }
+//   return array;
+// }
 
+// OPTIMIZED BUBBLE SORT
+function bubbleSort(array) {
+  let isSorted;
   for (let i = 0; i < array.length; i++) {
-    countOuter++;
+    isSorted = true;
     for (let j = 1; j < array.length; j++) {
-      countInner++;
+      if (array[j - 1] > array[j]) {
+        let temp = array[j - 1];
+        array[j - 1] = array[j];
+        array[j] = temp;
+        isSorted = false;
+      }
     }
+    if (isSorted) break;
   }
-  console.log("outer:", countOuter, "inner:", countInner);
+  return array;
 }
+
 console.log(bubbleSort(arrayRandom.slice()));
+
+// function bubbleSort(array) {
+//   //nested loops - but the inner loop starts at 1
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 1; j < array.length; j++) {
+//       //if the number on the left of each pair is bigger than the num on the right, swap them
+//       if (array[j - 1] > array[j]) {
+//         // let temp = array[j - 1];
+//         // array[j - 1] = array[j];
+//         // array[j] = temp;
+//         swap(array, j - 1, j);
+//       }
+//     }
+//   }
+//   return array;
+// }
+// console.log(bubbleSort(arrayRandom.slice()));
+
+// function bubbleSort(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 1; j < array.length; j++) {
+//       if (array[j - 1] > array[j]) {
+//         swap(array, j - 1, j);
+//       }
+//     }
+//   }
+//   return array;
+// }
+// console.log(bubbleSort(arrayRandom.slice()));
 
 // // basic implementation
 // function bubbleSortBasic(array) {
@@ -34,9 +85,9 @@ console.log(bubbleSort(arrayRandom.slice()));
 //     countOuter++;
 //     for (var j = 1; j < array.length; j++) {
 //       countInner++;
-//       if (array[j - 1] > array[j]) {
-//         countSwap++;
-//         swap(array, j - 1, j);
+// if (array[j - 1] > array[j]) {
+//   countSwap++;
+//   swap(array, j - 1, j);
 //       }
 //     }
 //   }
