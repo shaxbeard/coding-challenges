@@ -35,11 +35,13 @@
 // }
 
 // USING FILTER AND EVERY
-// function findCommonStrings(arrays) {
-//   return arrays[0].filter(string =>
-//     arrays.every(array => array.includes(string))
-//   );
-// }
+function findCommonStrings(arrays) {
+  // For each item in the first nested array, keep that item IF
+  return arrays[0].filter(string =>
+    // Every nested array returns TRUE for array.includes() for that item
+    arrays.every(array => array.includes(string))
+  );
+}
 
 // USING REDUCE AND FILTER
 // function findCommonStrings(arrays) {
