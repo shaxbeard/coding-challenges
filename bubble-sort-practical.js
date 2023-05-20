@@ -4,47 +4,51 @@ var arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 var arrayOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var arrayReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
-function swap(array, i, j) {
-  var temp = array[i];
-  array[i] = array[j];
+// If you want to separate the swapping logic to a separate function
+function swap(array, j) {
+  let temp = array[j - 1];
+  array[j - 1] = array[j];
   array[j] = temp;
 }
 
 // BASIC IMPLEMENTATION - NO SECONDARY FUNCTION, NO SWAPS
-// function bubbleSort(array) {
-//   //nested loops - but the inner loop starts at 1
-//   for (let i = 0; i < array.length; i++) {
-//     for (let j = 1; j < array.length; j++) {
-//       //if the number on the left of each pair is bigger than the num on the right, swap them
-//       if (array[j - 1] > array[j]) {
-//         let temp = array[j - 1];
-//         array[j - 1] = array[j];
-//         array[j] = temp;
-//       }
-//     }
-//   }
-//   return array;
-// }
-
-// OPTIMIZED BUBBLE SORT
 function bubbleSort(array) {
-  let isSorted;
+  //nested loops - but the inner loop starts at 1
   for (let i = 0; i < array.length; i++) {
-    isSorted = true;
     for (let j = 1; j < array.length; j++) {
+      //if the number on the left of each pair is bigger than the num on the right, swap them
       if (array[j - 1] > array[j]) {
         let temp = array[j - 1];
         array[j - 1] = array[j];
         array[j] = temp;
-        isSorted = false;
+        // swap(array, j);
       }
     }
-    if (isSorted) break;
   }
   return array;
 }
 
 console.log(bubbleSort(arrayRandom.slice()));
+
+// OPTIMIZED BUBBLE SORT
+// function bubbleSort(array) {
+//   let isSorted;
+//   for (let i = 0; i < array.length; i++) {
+//     isSorted = true;
+//     for (let j = 1; j < array.length; j++) {
+//       if (array[j - 1] > array[j]) {
+//         let temp = array[j - 1];
+//         array[j - 1] = array[j];
+//         array[j] = temp;
+//         isSorted = false;
+//       }
+//     }
+//     if (isSorted) break;
+//   }
+//   return array;
+// }
+
+// console.log(bubbleSort(arrayRandom.slice()));
 
 // function bubbleSort(array) {
 //   //nested loops - but the inner loop starts at 1
