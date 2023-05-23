@@ -32,10 +32,6 @@ const isValid = s => {
     if (s[i] == "(" || s[i] == "{" || s[i] == "[") {
       stack.push(s[i]);
     } else if (
-      // (s[i] == ")" && char == "(") ||
-      // (s[i] == "}" && char == "{") ||
-      // (s[i] == "]" && char == "[")
-
       (char == "(" && s[i] == ")") ||
       (char == "{" && s[i] == "}") ||
       (char == "[" && s[i] == "]")
