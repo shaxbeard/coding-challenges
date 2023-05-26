@@ -15,32 +15,38 @@
 //Pseudocode
 //METHODS !!!  If string, I could use replace?
 
-//Coming back to consider time and space complexity
+// TIME COMPLEXITY IS O(n * m) - where n is the length of the first array,
+// and m is the length of the second array
+
+function arrayDiff(a, b) {
+  for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < b.length; j++) {
+      if (a[i] == b[j]) {
+        a.splice(i, 1);
+        i--;
+      }
+    }
+  }
+  return a;
+}
+
+// TIME COMPLEXITY FOR THE FILTER METHODS IS  ALSO O(n * m)
+// where n is the length of the first array, and m is the length of the second array
 
 // function arrayDiff(a, b) {
-//   for (let i = 0; i < a.length; i++) {
-//     for (let j = 0; j < b.length; j++) {
-//       if (a[i] == b[j]) {
-//         a.splice(i, 1);
-//         i--;
-//       }
-//     }
-//   }
-//   return a;
-// }
-
-// function arrayDiff(a, b) {
-//   return a.filter(el => b.indexOf(el) === -1); //quadratic - function inside function
+//   return a.filter(el => b.indexOf(el) === -1); // if item in a is NOT in b, then KEEP IT
 // }
 
 // function arrayDiff(a, b) {
 //   return a.filter(el => !b.includes(el));
 // }
 
-// function arrayDiff(a, b) {
-//   let newSet = new Set(b); //pass array #2 to the set
-//   return a.filter(n => !newSet.has(n)); //check each item in array #1 - keep only if NOT in array #2
-// }
+// IMPROVE TIME COMPLEXITY BY USING SET() FOR ARRAY B
 
-console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
-console.log(arrayDiff([1, 2, 3], [1, 2]));
+function arrayDiff(a, b) {
+  let bUniques = new Set(b); //pass array #2 to the set
+  return a.filter(n => !bUniques.has(n)); //check each item in array #1 - keep only if NOT in array #2
+}
+
+console.log(arrayDiff([1, 2, 2, 2, 3], [2]), [1, 3]);
+console.log(arrayDiff([1, 2, 3], [1, 2]), [3]);
