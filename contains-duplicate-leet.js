@@ -18,17 +18,11 @@
 // Input: nums = [1,1,1,3,3,4,3,2,4,2]
 // Output: true
 
-// USING SET
-// const containsDuplicate = function (nums) {
-//   const uniques = [...new Set(nums)];
-//   return uniques.length !== nums.length;
-// };
-
 // console.log(containsDuplicate([1, 2, 3, 1]), true);
 // console.log(containsDuplicate([1, 2, 3, 4]), false);
 // console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
 
-// USING NESTED FOR LOOPS - IS THIS CORRECT ??
+// USING NESTED FOR LOOPS - Big O (n^2) - quadratic
 // const containsDuplicate = function (nums) {
 //   for (let i = 0; i < nums.length; i++) {
 //     for (let k = i + 1; k < nums.length; k++) {
@@ -44,27 +38,28 @@
 // console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
 
 // USING A MAP - THEN LOOPING OVER THE MAP
-const containsDuplicate = function (nums) {
-  // first you create a hash map
-  const map = nums.reduce((obj, el) => {
-    !obj[el] ? (obj[el] = 1) : obj[el]++;
-    return obj;
-  }, {});
+// const containsDuplicate = function (nums) {
+//   // first you create a hash map
+//   const map = nums.reduce((obj, el) => {
+//     !obj[el] ? (obj[el] = 1) : obj[el]++;
+//     return obj;
+//   }, {});
 
-  //then you loop over the map and return true IF the map contains a duplicate
-  for (const num in map) {
-    if (map[num] > 1) {
-      return true;
-    }
-  }
-  return false;
-};
+//   //then you loop over the map and return true IF the map contains a duplicate
+//   for (const num in map) {
+//     if (map[num] > 1) {
+//       return true;
+//     }
+//   }
+//   return false;
+// };
 
-console.log(containsDuplicate([1, 2, 3, 1]), true);
-console.log(containsDuplicate([1, 2, 3, 4]), false);
-console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
+// console.log(containsDuplicate([1, 2, 3, 1]), true);
+// console.log(containsDuplicate([1, 2, 3, 4]), false);
+// console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
 
-// USING FOR-OF LOOP - TEST THE MAP AS YOU ARE BUILDING IT
+// USING A MAP
+// PATTERN OF LOGIC - TEST THE MAP AS YOU ARE BUILDING IT
 // const containsDuplicate = function (arr) {
 //   const numsMap = {};
 //   for (num of arr) {
@@ -83,11 +78,12 @@ console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
 // console.log(containsDuplicate([1, 2, 3, 4]), false);
 // console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
 
-// const containsDuplicate = function (nums) {
-//   const uniques = [...new Set([...nums])];
-//   return uniques.length !== nums.length;
-// };
+// // USING SET
+const containsDuplicate = function (nums) {
+  const uniques = [...new Set(nums)];
+  return uniques.length !== nums.length;
+};
 
-// console.log(containsDuplicate([1, 2, 3, 1]), true);
-// console.log(containsDuplicate([1, 2, 3, 4]), false);
-// console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
+console.log(containsDuplicate([1, 2, 3, 1]), true);
+console.log(containsDuplicate([1, 2, 3, 4]), false);
+console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
