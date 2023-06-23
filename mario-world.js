@@ -35,45 +35,41 @@
 //   }
 // }
 
-// // const height = parseInt(prompt("Enter pyramid height:"));
 // buildPyramid(8);
 
 // RIGHT ALINGED PYRAMID - CAN HAVE USER INPUT HEIGHT IN BROWSER
-function buildPyramid(height) {
-  debugger;
-  for (let row = 1; row <= height; row++) {
-    let line = "";
-    // Add spaces to align the pyramid to the right
-    for (let spaces = 1; spaces <= height - row; spaces++) {
-      line += " ";
-    }
-    // Add '#' characters for the current row
-    for (let col = 1; col <= row; col++) {
-      line += "#";
-    }
-    console.log(line);
-  }
-}
-
-// const height = parseInt(prompt("Enter pyramid height:"));
-buildPyramid(8);
-
-// RECURSIVE FUNCTION TO BUILD A PYRAMID - LEFT-ALIGNED
-// function buildPyramidRecursively(height, row = 1, line = "") {
-//   if (row > height) {
-//     return; // Base case: we have built all rows
+// function buildPyramid(height) {
+//   for (let row = 1; row <= height; row++) {
+//     let line = "";
+//     // Add spaces to align the pyramid to the right
+//     for (let spaces = 1; spaces <= height - row; spaces++) {
+//       line += " ";
+//     }
+//     // Add '#' characters for the current row
+//     for (let col = 1; col <= row; col++) {
+//       line += "#";
+//     }
+//     console.log(line);
 //   }
-//   line += "#";
-//   if (line.length === row) {
-//     console.log(line); // We have built a complete row
-//     line = ""; // Reset line for the next row
-//     row++; // Move to the next row
-//   }
-//   buildPyramidRecursively(height, row, line);
 // }
 
-// // const height = parseInt(prompt("Enter pyramid height:"));
-// buildPyramidRecursively(8);
+// buildPyramid(8);
+
+// RECURSIVE FUNCTION TO BUILD A PYRAMID - LEFT-ALIGNED
+function buildPyramidRecursively(height, row = 1, line = "") {
+  if (row > height) {
+    return;
+  }
+  line += "#";
+  if (line.length === row) {
+    console.log(line); // We have built a complete row
+    line = ""; // Reset line for the next row
+    row++; // Move to the next row
+  }
+  buildPyramidRecursively(height, row, line);
+}
+
+buildPyramidRecursively(8);
 
 // // RECURSIVE FUNCTION TO BUILD A PYRAMID - RIGHT-ALIGNED
 // function buildPyramidRecursively(height, row = 1, line = "") {
