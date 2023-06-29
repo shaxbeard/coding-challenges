@@ -1,7 +1,8 @@
 function topKFrequent(nums, k) {
+  debugger;
   const numCount = {};
 
-  // Count the occurrences of each number
+  // Count the occurrences of each number in a hash map
   for (let num of nums) {
     if (numCount[num]) {
       numCount[num]++;
@@ -9,15 +10,21 @@ function topKFrequent(nums, k) {
       numCount[num] = 1;
     }
   }
+  // numCount: { 1: 3, 2: 2, 3: 6 }
 
-  // Create an array of unique numbers
+  // Create an array of unique numbers (the KEYS from the hash map)
   const uniqueNums = Object.keys(numCount);
 
-  // Sort the unique numbers based on their frequency
+  // uniqueNums: ['1', '2', '3']
+
+  // Sort the unique numbers based on their frequency (the VALUES of these numbers in the hash map!)
   uniqueNums.sort((a, b) => numCount[b] - numCount[a]);
+
+  // uniqueNums: ['3', '1', '2']
 
   // Return the top k frequent elements
   return uniqueNums.slice(0, k).map(Number);
+  // [3, 1]
 }
 
 // Example usage:
@@ -25,6 +32,10 @@ const nums = [1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3];
 const k = 2;
 const result = topKFrequent(nums, k);
 console.log(result); // Output: [1, 2]
+
+// IS THERE A RECURRING PATTERN OF LOGIC FOR THIS SOLUTION?
+// This solution is a pattern of "sort the hash map".
+// Here, it is sorting just the hash map KEYS in the order of the hash map VALUES
 
 // function topKFrequent(nums, k) {
 //   // O(1) time
