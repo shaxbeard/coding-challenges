@@ -107,18 +107,32 @@
 // console.log(fib(6));
 
 //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE
+// function fibonacciClosure() {
+//   let memo = {};
+//   return function fib(n) {
+//     if (n in memo) {
+//       return memo[n];
+//     } else {
+//       if (n < 2) {
+//         return 1; // OR return n to add zero at start
+//       } else {
+//         return (memo[n] = fib(n - 1) + fib(n - 2));
+//       }
+//     }
+//   };
+// }
+
+//RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE - NO "ELSE" STATEMENTS
 function fibonacciClosure() {
   let memo = {};
   return function fib(n) {
     if (n in memo) {
       return memo[n];
-    } else {
-      if (n < 2) {
-        return 1; // OR return n to add zero at start
-      } else {
-        return (memo[n] = fib(n - 1) + fib(n - 2));
-      }
     }
+    if (n < 2) {
+      return 1; // OR return n to add zero at start
+    }
+    return (memo[n] = fib(n - 1) + fib(n - 2));
   };
 }
 
@@ -129,3 +143,9 @@ console.log(fasterFib(5), 8);
 //[0,1,1,2,3,5,8,13,21,34,55]
 //OR
 //[1,1,2,3,5,8,13,21,34,55]
+
+// IS THERE A RECURRING PATTERN OF LOGIC FOR THIS SOLUTION?
+// This solution has THREE big elements
+// 1. Using recursiion
+// 2. Using memoization
+// 3. Using a closure with memoization
