@@ -18,13 +18,24 @@
 // TIME COMPLEXITY IS O(n * m) - where n is the length of the first array,
 // and m is the length of the second array
 
+// function arrayDiff(a, b) {
+//   for (let i = 0; i < a.length; i++) {
+//     for (let j = 0; j < b.length; j++) {
+//       if (a[i] == b[j]) {
+//         a.splice(i, 1);
+//         i--;
+//       }
+//     }
+//   }
+//   return a;
+// }
+
+// Using includes() instead of the inner loop
 function arrayDiff(a, b) {
   for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < b.length; j++) {
-      if (a[i] == b[j]) {
-        a.splice(i, 1);
-        i--;
-      }
+    if (b.includes(a[i])) {
+      a.splice(i, 1);
+      i--;
     }
   }
   return a;
@@ -43,10 +54,10 @@ function arrayDiff(a, b) {
 
 // IMPROVE TIME COMPLEXITY BY USING SET() FOR ARRAY B
 
-function arrayDiff(a, b) {
-  let bUniques = new Set(b); //pass array #2 to the set
-  return a.filter(n => !bUniques.has(n)); //check each item in array #1 - keep only if NOT in array #2
-}
+// function arrayDiff(a, b) {
+//   let bUniques = new Set(b); //pass array #2 to the set
+//   return a.filter(n => !bUniques.has(n)); //check each item in array #1 - keep only if NOT in array #2
+// }
 
 console.log(arrayDiff([1, 2, 2, 2, 3], [2]), [1, 3]);
 console.log(arrayDiff([1, 2, 3], [1, 2]), [3]);
