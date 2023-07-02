@@ -22,6 +22,11 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
+// Input is an array of nums AND a "target" number
+// Return the INDICES of two nums from the array that add up to target
+// Examples are explained very well for us above
+//
+
 // BRUTE FORCE (nested for loops) - O(n^2) quadratic
 // function twoSum(nums, target) {
 //   // Outer loop for i
@@ -38,26 +43,27 @@
 // }
 
 // Linear time complexity O(n) - You calculate the sum AS YOU ARE BUILDING THE MAP
-function twoSum(nums, target) {
-  // Create an empty object to store the numbers in the input array as keys and their indices as values.
-  const numMap = {};
-  debugger;
+// function twoSum(nums, target) {
+//   // Create an empty object to store the numbers in the input array as keys and their indices as values.
+//   const numMap = {};
+//   debugger;
 
-  for (let i = 0; i < nums.length; i++) {
-    // Check if the difference between the target value and the current number is already in the numMap object.
-    if (target - nums[i] in numMap) {
-      // If it is, return an array containing the index of the current number and the index of the number in numMap that adds up to the target value.
-      return [numMap[target - nums[i]], i];
-    }
-    // If the difference is not in the numMap object, add the current number and its index to the object.
-    numMap[nums[i]] = i;
-  }
-  return [];
-}
+//   // Loop through each number in the array  - we are NOT looping through the numMap
+//   for (let i = 0; i < nums.length; i++) {
+//     // Check if the difference between the target value and the current ARRAY number is already a KEY in the numMap object.
+//     if (target - nums[i] in numMap) {
+//       // If it is, return an array containing the index of the current number and the index of the number in numMap that adds up to the target value.
+//       return [numMap[target - nums[i]], i];
+//     }
+//     // If the difference is not in the numMap object, add the current number and its index to the object.
+//     numMap[nums[i]] = i;
+//   }
+//   return [];
+// }
 
-// console.log(twoSum([2, 7, 11, 15], 9), [0, 1]);
-console.log(twoSum([3, 2, 4], 6), [1, 2]);
-console.log(twoSum([3, 3], 6), [0, 1]);
+// // console.log(twoSum([2, 7, 11, 15], 9), [0, 1]);
+// console.log(twoSum([3, 2, 4], 6), [1, 2]);
+// console.log(twoSum([3, 3], 6), [0, 1]);
 
 // var twoSum = function (nums, target) {
 //   let map = new Map();
