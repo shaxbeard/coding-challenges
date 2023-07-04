@@ -3,8 +3,8 @@
 
 // P.S. Each array includes only integer numbers. Output is a number too.
 
-myArr = [1, 2, 3];
-yourArr = [3, 4, 5];
+// myArr = [1, 2, 3];
+// yourArr = [3, 4, 5];
 
 // function arrayPlusArray(arr1, arr2) {
 //   const mergedArr = [...arr1, ...arr2];
