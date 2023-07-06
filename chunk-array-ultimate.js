@@ -3,23 +3,27 @@
 // where each sub-array has the specified length.
 
 // LOOPING THROUGH THE ARRAY
-// function chunkArray(arr, size) {
-//   let result = [];
+function chunkArray(arr, size) {
+  let result = [];
 
-//   for (value of arr) {
-//     let lastArray = result[result.length - 1];
-//     if (!lastArray || lastArray.length == size) {
-//       result.push([value]);
-//     } else {
-//       lastArray.push(value);
-//     }
-//     console.log(lastArray);
-//   }
-//   return result;
-// }
+  for (value of arr) {
+    // On each iteration, set the value of lastArray to the last nested array inside of the result array
+    const lastArray = result[result.length - 1];
+    // If lastArray is empty or we have reached our target chunk size
+    if (!lastArray || lastArray.length == size) {
+      // Then push a new nested array with the current value inside of it into the outer result array
+      result.push([value]);
+      // Otherwise, keep pushing new numbers in the current nested array to build up our chunks
+    } else {
+      lastArray.push(value);
+    }
+  }
+  return result;
+}
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
 
 // LOOPING THROUGH THE NUMBER OF CHUNKS WITH SPLICE()
-
 // function chunkArray(array, size) {
 //   let result = [];
 //   let arrayCopy = [...array];
@@ -32,16 +36,15 @@
 // console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
 
 // USING SLICE()
-
 // function chunkArray(array, size) {
 //   let result = [];
 
 //   for (i = 0; i < array.length; i += size) {
-//     let chunk = array.slice(i, i + size);
-//     result.push(chunk);
+//     result.push(array.slice(i, i + size));
 //   }
 //   return result;
 // }
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
 
 // RECURSION
 // function chunkArray(array, size) {
