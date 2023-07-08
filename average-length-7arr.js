@@ -15,14 +15,9 @@
 // ['aa', 'bbb', 'cccc'] => ['aaa', 'bbb', 'ccc'] // average length is 3
 // ['aa', 'bb', 'ddd', 'eee'] => ['aaa', 'bbb', 'ddd', 'eee'] // average length is 2.5 round up to 3
 
-// function averageLength(arr) {
-//   const avg = Math.round(arr.reduce((a, c) => a + c.length, 0) / arr.length);
-//   return arr.map(item => item[0].repeat(avg));
-// }
-
 function averageLength(arr) {
-  const avg = Math.round(arr.join("").length / arr.length);
-  return arr.map(item => item[0].repeat(avg));
+  const avg = Math.round(arr.join("").length / arr.length); // count the length of all strings together
+  return arr.map(item => item[0].repeat(avg)); // use the repeat() method to make all strings the same length
 }
 
 console.log(averageLength(["aa", "bbb", "cccc"]), ["aaa", "bbb", "ccc"]);
