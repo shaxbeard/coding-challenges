@@ -25,22 +25,47 @@
 // console.log(linearSearch([2, 6, 7, 90, 103], 90), 3);
 
 // BINARY SEARCH SOLUTION #1
+// function binarySearch(arr, item) {
+//   debugger;
+//   var min = 0;
+//   var max = arr.length - 1;
+//   var middle;
+
+//   while (min <= max) {
+//     middle = Math.floor((min + max) / 2);
+
+//     if (arr[middle] === item) {
+//       return middle;
+//     } else {
+//       if (arr[middle] < item) {
+//         min = middle + 1;
+//       } else {
+//         max = middle - 1;
+//       }
+//     }
+//   }
+//   return -1;
+// }
+
 function binarySearch(arr, item) {
-  var min = 0;
-  var max = arr.length - 1;
-  var middle;
+  // min, max, and middle indexes
+  let min = 0;
+  let max = arr.length - 1;
+  let middle;
 
+  //while min <= max do the binary searching
   while (min <= max) {
+    // calculate the middle index - WHERE DOES THIS GO?
     middle = Math.floor((min + max) / 2);
-
+    // if the middle IS the item, return the index
     if (arr[middle] === item) {
       return middle;
+    }
+    // else, adjust the min or the max
+    if (arr[middle] < item) {
+      min = middle + 1;
     } else {
-      if (arr[middle] < item) {
-        min = middle + 1;
-      } else {
-        max = middle - 1;
-      }
+      max = middle - 1;
     }
   }
   return -1;
