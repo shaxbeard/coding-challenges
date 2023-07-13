@@ -18,37 +18,48 @@
 //   const result = [];
 //   // Nested for() loops to test each item in the first array against the other arrays
 //   for (let i = 0; i < arrays[0].length; i++) {
-//     const string = arrays[0][i];
+//     // O(a)
+//     const string = arrays[0][i]; // repeated nested index assigned to variable
 //     let isInAllArrays = true;
 
 //     for (let j = 1; j < arrays.length; j++) {
+//       // O(b)
 //       if (!arrays[j].includes(string)) {
+//         // O(c)
 //         isInAllArrays = false;
 //         break;
 //       }
 //     }
 //     if (isInAllArrays && !result.includes(string)) {
-//       result.push(string);
+//       result.push(string); // O(1)
 //     }
 //   }
 //   return result;
 // }
 
-// USING FILTER AND EVERY
-function findCommonStrings(arrays) {
-  // For each item in the first nested array, keep that item IF
-  return arrays[0].filter(string =>
-    // Every nested array returns TRUE for array.includes() for that item
-    arrays.every(array => array.includes(string))
-  );
-}
+// console.log(
+//   findCommonStrings([
+//     ["apple", "banana", "pear", "orange"],
+//     ["apple", "pear", "kiwi", "strawberry"],
+//     ["apple", "pear", "grape"],
+//   ]),
+//   ["apple", "pear"]
+// );
 
-// USING REDUCE AND FILTER
+// USING FILTER AND EVERY - The time complexity of the provided solution is O(n * m * k)
 // function findCommonStrings(arrays) {
-//   return arrays.reduce((commonStrings, array) =>
-//     commonStrings.filter(string => array.includes(string))
+//   // For each item in the first nested array, keep that item IF
+//   return arrays[0].filter(string =>
+//     // Every nested array returns TRUE for array.includes() for that item
+//     arrays.every(array => array.includes(string))
 //   );
 // }
+
+function findCommonStrings(arrays) {
+  return arrays[0].filter(el =>
+    arrays.every(subarray => subarray.includes(el))
+  );
+}
 
 console.log(
   findCommonStrings([
@@ -58,3 +69,60 @@ console.log(
   ]),
   ["apple", "pear"]
 );
+
+// USING REDUCE AND FILTER
+// function findCommonStrings(arrays) {
+//   return arrays.reduce((commonStrings, array) =>
+//     commonStrings.filter(el => array.includes(el))
+//   );
+// }
+
+// console.log(
+//   findCommonStrings([
+//     ["apple", "banana", "pear", "orange"],
+//     ["apple", "pear", "kiwi", "strawberry"],
+//     ["apple", "pear", "grape"],
+//   ]),
+//   ["apple", "pear"]
+// );
+
+// function map(arr) {
+//   const wordMap = {};
+//   for (let word of arr) {
+//     if (wordMap[word]) {
+//       wordMap[word]++;
+//     } else {
+//       wordMap[word] = 1;
+//     }
+//   }
+//   return wordMap;
+// }
+
+// USING A MAP -  the overall time complexity is O(n + m + k) - simplify to O(n)
+// Is it possible to find a recurring PATTERN for this one? Flatten nested arrays, then count each word, then compare to the # of nested arrays?
+// function findCommonStrings(arr) {
+//   // Remove duplicates from each subarray - we need each string to be unique for this function to work
+//   const uniqueArr = arr.map(subArr => [...new Set(subArr)]);
+//   // Flatten the nested arrays into a single array
+//   const flattenedArray = uniqueArr.flat();
+
+//   const wordMap = map(flattenedArray);
+
+//   // Find the strings with a frequency equal to the number of nested arrays (aka - these strings are in ALL of the nested arrays)
+//   const commonStrings = [];
+//   for (const key in wordMap) {
+//     if (wordMap[key] === arr.length) {
+//       commonStrings.push(key);
+//     }
+//   }
+//   return commonStrings;
+// }
+
+// console.log(
+//   findCommonStrings([
+//     ["apple", "banana", "banana", "banana", "pear", "orange"],
+//     ["apple", "pear", "kiwi", "strawberry"],
+//     ["apple", "pear", "pear", "pear", "pear", "grape"],
+//   ]),
+//   ["apple", "pear"]
+// );
