@@ -1,3 +1,5 @@
+// Return an object with keys of the characters in the string and values of the number of times they appear (a hash map)
+
 //PREP
 // Count the number of each character in a string
 //Parameters - string - caps? nums? spaces? if "" -> {}
@@ -22,7 +24,7 @@ function count(string) {
 //   return obj;
 // }
 
-//BEST PRACTICE WITH REDUCE() - 6% slower
+// BEST PRACTICE WITH REDUCE() - 6% slower
 // function count(string) {
 //   return string.split("").reduce((obj, letter) => {
 //     !obj[letter] ? (obj[letter] = 1) : obj[letter]++;
