@@ -31,15 +31,15 @@
 // }
 
 // Using includes() instead of the inner loop
-function arrayDiff(a, b) {
-  for (let i = 0; i < a.length; i++) {
-    if (b.includes(a[i])) {
-      a.splice(i, 1);
-      i--;
-    }
-  }
-  return a;
-}
+// function arrayDiff(a, b) {
+//   for (let i = 0; i < a.length; i++) {
+//     if (b.includes(a[i])) {
+//       a.splice(i, 1);
+//       i--;
+//     }
+//   }
+//   return a;
+// }
 
 // TIME COMPLEXITY FOR THE FILTER METHODS IS  ALSO O(n * m)
 // where n is the length of the first array, and m is the length of the second array
