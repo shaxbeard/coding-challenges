@@ -1,15 +1,30 @@
-function topKFrequent(nums, k) {
-  debugger;
+function map(nums) {
   const numCount = {};
-
-  // Count the occurrences of each number in a hash map
-  for (let num of nums) {
-    if (numCount[num]) {
-      numCount[num]++;
+  for (let i = 0; i < nums.length; i++) {
+    if (numCount[nums[i]]) {
+      numCount[nums[i]]++;
     } else {
-      numCount[num] = 1;
+      numCount[nums[i]] = 1;
     }
   }
+  return numCount;
+}
+
+function charMap(string) {
+  return string.split("").reduce((map, nums) => {
+    map[nums] ? map[nums]++ : (map[nums] = 1);
+    return map;
+  }, {});
+}
+
+const myString = "abracadabra";
+console.log(charMap(myString));
+
+function topKFrequent(nums, k) {
+  debugger;
+
+  // Count the occurrences of each number in a hash map
+  const numCount = map(nums);
   // numCount: { 1: 3, 2: 2, 3: 6 }
 
   // Create an array of unique numbers (the KEYS from the hash map)
