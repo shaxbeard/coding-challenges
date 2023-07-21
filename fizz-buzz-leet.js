@@ -88,7 +88,7 @@ function fizzBuzz(n) {
 // }
 
 // function fizzBuzz(n) {
-//   return [...Array(n)].map((x, i) => {
+// return [...Array(n)].map((x, i) => {
 //     i += 1;
 //     return i % 3 === 0 && i % 5 === 0
 //       ? "FizzBuzz"
