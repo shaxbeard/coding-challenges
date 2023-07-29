@@ -34,35 +34,16 @@
 
 // CHAT GPT GAVE ME THIS AS A "ONE-LINER" VERSION USING REDUCE - it works!
 // function count(str) {
-//   debugger;
-//   return [...str].reduce(
-//     (map, char) => ((map[char] = (map[char] || 0) + 1), map),
-//     {}
-//   );
-// }
-
-// Here is the shortest but utterly unreadable version !!
-// function count(str) {
-//   return [...str].reduce((a, c) => ((a[c] = (a[c] || 0) + 1), a), {});
-// }
-
-// function count(str) {
-//   debugger;
-//   return [...str].reduce(
-//     (map, char) => ((map[char] = map[char] ? map[char] + 1 : 1), map),
-//     {}
-//   );
-// }
-
-// function count(str) {
 //   return [...str].reduce(
 //     (map, char) => ((map[char] = !map[char] ? 1 : map[char] + 1), map),
 //     {}
 //   );
 // }
-function count(str) {
-  return [...str].reduce((a, c) => ((a[c] = !a[c] ? 1 : a[c] + 1), a), {});
-}
+
+// Using a and c as variables to make it ultra short but hard to read
+// function count(str) {
+//   return [...str].reduce((a, c) => ((a[c] = !a[c] ? 1 : a[c] + 1), a), {});
+// }
 
 // console.log(count("aba"));
 console.log(count("abracadabra"));
