@@ -1,78 +1,42 @@
-function map(nums) {
-  const numCount = {};
-  for (let i = 0; i < nums.length; i++) {
-    if (numCount[nums[i]]) {
-      numCount[nums[i]]++;
+// Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+// Example 1:
+// Input: nums = [1,1,1,2,2,3], k = 2
+// Output: [1,2]
+
+//Input - an array of INTs - a single INT called "k"
+//Return the top "k" most frequent nums in the array
+//   So if k = 2, I will return the top 2 most fequent numbers from the array
+
+// Solution with making a numMap and then sorting the keys in that map by their values
+// Time complexity is O(n) to create the numMap + O(m log m) to sort the map using a "divide and conquer" sorting method
+// The time for O(m log m) will likely dominate the time complexity, so you can drop the others because they are "non-dominant terms"
+function topkFrequent(arr, k) {
+  // Create a frequency map
+  const freqMap = frequencyMap(arr); // O(n)
+
+  // Pull out an array of just the keys from the freqMap
+  const keysArr = Object.keys(freqMap); // O(m) - Why not n? Because the freqMap only has entries for the unique nums
+
+  // Sort the keys using the values from the freqMap
+  keysArr.sort((a, b) => freqMap[b] - freqMap[a]); // O(m log m)
+
+  //Slice out just the top k items from the array of keys (and convert the keys to numbers)
+  return keysArr.slice(0, k).map(Number); // O(k) + O(k)
+}
+
+console.log(topkFrequent([1, 1, 1, 2, 2, 3], 2), [1, 2]);
+
+// Separate the map into a separate function
+// Why can this be below the function call? Beause functions declared using the function keyword are hoisted
+function frequencyMap(arr) {
+  const freqMap = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!freqMap[arr[i]]) {
+      freqMap[arr[i]] = 1;
     } else {
-      numCount[nums[i]] = 1;
+      freqMap[arr[i]]++;
     }
   }
-  return numCount;
+  return freqMap;
 }
-
-function charMap(string) {
-  return string.split("").reduce((map, nums) => {
-    map[nums] ? map[nums]++ : (map[nums] = 1);
-    return map;
-  }, {});
-}
-
-const myString = "abracadabra";
-console.log(charMap(myString));
-
-function topKFrequent(nums, k) {
-  debugger;
-
-  // Count the occurrences of each number in a hash map
-  const numCount = map(nums);
-  // numCount: { 1: 3, 2: 2, 3: 6 }
-
-  // Create an array of unique numbers (the KEYS from the hash map)
-  const uniqueNums = Object.keys(numCount);
-
-  // uniqueNums: ['1', '2', '3']
-
-  // Sort the unique numbers based on their frequency (the VALUES of these numbers in the hash map!)
-  uniqueNums.sort((a, b) => numCount[b] - numCount[a]);
-
-  // uniqueNums: ['3', '1', '2']
-
-  // Return the top k frequent elements
-  return uniqueNums.slice(0, k).map(Number);
-  // [3, 1]
-}
-
-// Example usage:
-const nums = [1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3];
-const k = 2;
-const result = topKFrequent(nums, k);
-console.log(result); // Output: [1, 2]
-
-// IS THERE A RECURRING PATTERN OF LOGIC FOR THIS SOLUTION?
-// This solution is a pattern of "sort the hash map".
-// Here, it is sorting just the hash map KEYS in the order of the hash map VALUES
-
-// function topKFrequent(nums, k) {
-//   // O(1) time
-
-//   const count = new Map();
-
-//   // 1. build hash map: number and how often it appears
-//   // O(N) time
-//   for (let num of nums) {
-//     count.set(num, (count.get(num) || 0) + 1);
-//   }
-
-//   // 2-3. build heap of top k frequent elements and
-//   // convert it into an output array
-//   // O(N log k) time
-//   return Array.from(count.keys())
-//     .sort((a, b) => count.get(b) - count.get(a))
-//     .slice(0, k);
-// }
-
-// Example usage:
-// const nums = [1, 1, 1, 2, 2, 3];
-// const k = 2;
-// const result = topKFrequent(nums, k);
-// console.log(result); // Output: [1, 2]
