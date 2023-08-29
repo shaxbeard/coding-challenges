@@ -20,30 +20,20 @@
 const vowels = ["a", "e", "i", "o", "u"];
 
 // REGEX - FASTEST @ 4.5 million ops/s
-// function getCount(str) {
-//   let vowelsArr = str.match(/[aeiou]/gi);
-//   return !vowelsArr ? 0 : vowelsArr.length;
-// }
+function getCount(str) {
+  let vowelsArr = str.match(/[aeiou]/gi);
+  return !vowelsArr ? 0 : vowelsArr.length;
+}
 
-// NESTED FOR LOOPS - 5% SLOWER THAN REGEX
-// function getCount(str) {
-//   let total = 0;
-//   for (let i = 0; i < str.length; i++) {
-//     for (let j = 0; j < vowels.length; j++) {
-//       if (str[i] === vowels[j]) {
-//         total++;
-//       }
-//     }
-//   }
-//   return total;
-// }
-
-// SPLIT().FOR EACH() WITH INCLUDES() - 40% SLOWER THAN REGEX BUT FASTER THAN FOR-OF
-// function getCount(str) {
-//   let total = 0;
-//   str.split("").forEach(letter => vowels.includes(letter) && total++);
-//   return total;
-// }
+function getCount(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      count++;
+    }
+  }
+  return count;
+}
 
 // FOR-OF LOOP WITH INCLUDES() - 45% SLOWER THAN REGEX - 5% SLOWER THAN SPLIT().FOREACH() !!!
 // function getCount(str) {
@@ -67,16 +57,6 @@ const vowels = ["a", "e", "i", "o", "u"];
 
 // // Wow! I had to use total++ inside of the forEach() EVEN INSIDE OF REDUCE
 
-// NESTED FOR EACH LOOPS
-//   let total = 0;
-//   function getCount(str) {
-//   str.split("").forEach(letter => {
-//     vowels.forEach(vowel => vowel === letter && total++);
-//   });
-//   return total;
-// }
-//}
-
 // REDUCE WITH INCLUDES()
 // function getCount(str) {
 //   let total = 0;
@@ -86,7 +66,7 @@ const vowels = ["a", "e", "i", "o", "u"];
 //   }, 0);
 // }
 
-console.log(getCount("abracadabra"), 5);
-console.log(getCount("talented"), 3);
-console.log(getCount("abcdefghijklmnopqrstuvwxyz"), 5);
+// console.log(getCount("abracadabra"), 5);
+// console.log(getCount("talented"), 3);
+// console.log(getCount("abcdefghijklmnopqrstuvwxyz"), 5);
 console.log(getCount("bbb"), 0);
