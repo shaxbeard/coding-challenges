@@ -4,18 +4,6 @@
 
 // Note: if there is nothing to sum, the sum is default to 0.
 
-// function positiveSum(arr) {
-//   const sum = arr.reduce((total, item) => {
-//     if (item < 0) {
-//       return total;
-//     }
-//     console.log("total: ", total);
-//     console.log("item: ", item);
-//     return total + item;
-//   }, 0);
-//   return sum;
-// }
-
 //PREP
 //Parameter -
 //Return -
@@ -23,19 +11,51 @@
 //Pseudocode -
 //Methods!
 
-function positiveSum(arr) {
-  return arr.reduce((total, item) => (item > 0 ? total + item : total), 0);
-  // return arr.reduce((total, item) => total + item);
-}
-
-console.log(positiveSum([1, -4, 7, 12]));
-
+// METHOD #1 - MANUAL TRANSMISSION WITH FOR() AND IF()
+// function positiveSum(arr) {
 //   let sum = 0;
-//   arr.forEach((item) => {
-//     item > 0 ? (sum += item) : null;
-//   });
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > 0) {
+//       sum += arr[i];
+//     }
+//   }
 //   return sum;
 // }
+
+//METHOD #2 - SHORTER WITH FOREACH()
+// function positiveSum(arr) {
+//   let sum = 0;
+
+//   arr.forEach(num => num > 0 && (sum += num));
+//   return sum;
+// }
+
+// console.log(positiveSum([1, -4, 7, 12]));
+
+// METHOD #3 - USING REDUCE WITH 1 LINE
+// function positiveSum(arr) {
+//   return arr.reduce((sum, num) => (num > 0 ? sum + num : sum), 0);
+// }
+
+// METHOD #4 - USING REDUCE WITH MULITPLE LINES
+// function positiveSum(arr) {
+//   return arr.reduce((a, c) => {
+//     if (c > 0) {
+//       return a + c;
+//     } else {
+//       return a;
+//     }
+//   }, 0);
+// }
+// console.log(positiveSum([1, -4, 7, 12]));
+
+// function positiveSum(arr) {
+//   return arr.reduce((total, item) => (item > 0 ? total + item : total), 0);
+//   // return arr.reduce((total, item) => total + item);
+// }
+
+// console.log(positiveSum([1, -4, 7, 12]));
 
 //   return arr.reduce((total, item) => (item > 0 ? total + item : null), 0);
 //   return sum;
