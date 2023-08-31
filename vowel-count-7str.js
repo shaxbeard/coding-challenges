@@ -19,21 +19,30 @@
 
 const vowels = ["a", "e", "i", "o", "u"];
 
+// SOLUTION #1 - Manual transmission with for() loop and if() statement
+// function getCount(str) {
+//   let count = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (vowels.includes(str[i])) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// SOLUTION #2 - REGEX SOLUTION
 // REGEX - FASTEST @ 4.5 million ops/s
+// function getCount(str) {
+//   let vowelsArr = str.match(/[aeiou]/gi);
+//   return !vowelsArr ? 0 : vowelsArr.length;
+// }
+
+// SOLUTION #3 - 1 LINER WITH REDUCE()
 function getCount(str) {
-  let vowelsArr = str.match(/[aeiou]/gi);
-  return !vowelsArr ? 0 : vowelsArr.length;
+  return str.split("").reduce((a, c) => (vowels.includes(c) ? a + 1 : a), 0);
 }
 
-function getCount(str) {
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (vowels.includes(str[i])) {
-      count++;
-    }
-  }
-  return count;
-}
+console.log(getCount("abracadabra"), 5);
 
 // FOR-OF LOOP WITH INCLUDES() - 45% SLOWER THAN REGEX - 5% SLOWER THAN SPLIT().FOREACH() !!!
 // function getCount(str) {
@@ -59,7 +68,7 @@ function getCount(str) {
 
 // REDUCE WITH INCLUDES()
 // function getCount(str) {
-//   let total = 0;
+//   const vowels = ["a", "e", "i", "o", "u"];
 //   return str.split("").reduce((counter, letter) => {
 //     vowels.includes(letter) && counter++;
 //     return counter;
@@ -69,4 +78,4 @@ function getCount(str) {
 // console.log(getCount("abracadabra"), 5);
 // console.log(getCount("talented"), 3);
 // console.log(getCount("abcdefghijklmnopqrstuvwxyz"), 5);
-console.log(getCount("bbb"), 0);
+// console.log(getCount("bbb"), 0);
