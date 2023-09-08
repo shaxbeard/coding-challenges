@@ -25,15 +25,44 @@
 //Pseudocode
 //Methods
 
-function maskify(cc) {
-  //replace elements at the end of a string
-  //convert to array and use the splice method - can you use the array length?
-  //manually loop over the array and replace each index with # until you reach arr.length - 4?
+//Method #1 - MANUAL TRANSMISSION - Use a for() loop to replace characters with # until length - 4
+function maskify(str) {
+  //input check - if empty string, return empty string
+  if (str.length < 1) {
+    return "";
+  }
+  //Initialize an empty string for the altered string
+  let masked = "";
 
-  return cc
+  //Loop over the input string and push a # to the masked string
+  for (let i = 0; i < str.length; i++) {
+    if (i < str.length - 4) {
+      masked += "#";
+    } else {
+      masked += str[i];
+    }
+  }
+
+  return masked;
+}
+
+// Method #2 - Convert to array and use map() to loop
+function maskify(str) {
+  return str
     .split("")
-    .map((item, index) => (index < cc.length - 4 ? "#" : item))
+    .map((char, i) => (i < str.length - 4 ? "#" : char))
     .join("");
+}
+
+//METHOD #3 - USE BUILT-IN STRING METHODS: SLICE() AND REPLACE()
+function maskify(str) {
+  return str.slice(0, -4).replace(/./g, "#") + str.slice(-4);
+}
+
+//METHOD #3 - USE BUILT-IN STRING METHODS: SLICE() AND PADSTART()
+function maskify(str) {
+  debugger;
+  return str.slice(-4).padStart(str.length, "#");
 }
 
 console.log(maskify("4556364607935616"), "############5616");
