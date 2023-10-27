@@ -16,16 +16,15 @@ function topkFrequent(arr, k) {
   const freqMap = frequencyMap(arr); // O(n)
 
   // Pull out an array of just the keys from the freqMap
-  const keysArr = Object.keys(freqMap); // O(m) - Why not n? Because the freqMap only has entries for the unique nums
-
   // Sort the keys using the values from the freqMap
-  keysArr.sort((a, b) => freqMap[b] - freqMap[a]); // O(m log m)
+  const keysArr = Object.keys(freqMap).sort((a, b) => freqMap[b] - freqMap[a]); // O(m log m)
 
   //Slice out just the top k items from the array of keys (and convert the keys to numbers)
   return keysArr.slice(0, k).map(Number); // O(k) + O(k)
 }
 
 console.log(topkFrequent([1, 1, 1, 2, 2, 3], 2), [1, 2]);
+console.log(topkFrequent([1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4], 2), [3, 1]);
 
 // Separate the map into a separate function
 // Why can this be below the function call? Beause functions declared using the function keyword are hoisted
