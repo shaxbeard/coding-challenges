@@ -37,40 +37,55 @@
 //[3,4]
 //[4]
 
-// function maximumSubarray(nums) {
-//   let solution = nums[0];
-//   for (let i = 1; i < nums.length; i++) {
-//     nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
-//     solution = Math.max(solution, nums[i]);
+// Method #1 - Brute force with nested for() loops to test all combinations of numbers
+// function findMaxSubarraySum(arr) {
+//   let maxSum = -Infinity;
+//   let maxSubarray = []; //This method allows you to show the sum AND the subarray
+
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i; j < arr.length; j++) {
+//       // Use slice() to generate every subarray in the array
+//       const subarray = arr.slice(i, j + 1); // O(m)
+//       const subarraySum = subarray.reduce((acc, curr) => acc + curr, 0); // O(m)
+//       // Test each sum against a maxSum on each iteration
+//       if (subarraySum > maxSum) {
+//         maxSum = subarraySum;
+//         maxSubarray = subarray;
+//       }
+//     }
 //   }
-//   return solution;
+//   return [maxSum, maxSubarray];
 // }
 
-// console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]), 6);
-// console.log(maximumSubarray([5, 4, -1, 7, 8]), 23);
+// const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// const [maxSum, maxSubarray] = findMaxSubarraySum(arr);
 
-// Method #1 - Brute force with nested for() loops to test all combinations of numbers
-function findMaxSubarraySum(arr) {
-  let maxSum = -Infinity;
-  let maxSubarray = []; //This method allows you to show the sum AND the subarray
+// console.log("Maximum Subarray Sum:", maxSum);
+// console.log("Maximum Subarray:", maxSubarray);
 
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i; j < arr.length; j++) {
-      // Use slice() to generate every subarray in the array
-      const subarray = arr.slice(i, j + 1); // O(m)
-      const subarraySum = subarray.reduce((acc, curr) => acc + curr, 0); // O(m)
-      // Test each sum against a maxSum on each iteration
-      if (subarraySum > maxSum) {
-        maxSum = subarraySum;
-        maxSubarray = subarray;
-      }
-    }
+// maxSum = 7
+// nums = [-2, 1, -2, 4, 3, 6, 7, -5, 4]
+// nums[i]                     ^
+//
+
+// maxSum = 5
+// nums = [-2, 1, -2, 4, 3, 5, 6, -5, 4]
+// nums[i]                     ^                  ^
+// runningMax = 7
+
+//Method #2 - Keep a running maximum sum by overwriting the input array
+function maximumSubarray(nums) {
+  debugger;
+  let maxSum = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    //Mutate the input array to store a running max sum at each index
+    let runningMax = nums[i] + nums[i - 1];
+    nums[i] = Math.max(nums[i], runningMax);
+    //If the next number is larger than the running max sum, then start counting again with the new number
+    maxSum = Math.max(maxSum, nums[i]);
   }
-  return [maxSum, maxSubarray];
+  return maxSum;
 }
 
-const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-const [maxSum, maxSubarray] = findMaxSubarraySum(arr);
-
-console.log("Maximum Subarray Sum:", maxSum);
-console.log("Maximum Subarray:", maxSubarray);
+console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]), 6);
+console.log(maximumSubarray([5, 4, -1, 7, 8]), 23);
