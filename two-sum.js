@@ -12,7 +12,10 @@
 // Example 1:
 // Input: nums = [2,7,11,15], target = 9
 // Output: [0,1]
-// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].]
+// What is the state of our loop and map when the solution is reaches?
+// map = { 2: 0}
+// loop - nums[i] = 7
 
 // Example 2:
 // Input: nums = [3,2,4], target = 6
@@ -42,11 +45,17 @@
 //   return [];
 // }
 
+//target = 9
+//numMap = {2: 0}
+
+//nums = [2, 7, 11, 15]
+//nums[i]    ^  // Is the target(9) - nums[i](7) = 2 already a key in numMap? Yes
+//return the index value of numMap[target - nums[i]] and the current index (i)
+
 // Linear time complexity O(n) - You calculate the sum AS YOU ARE BUILDING THE MAP
 function twoSum(nums, target) {
   // Create an empty object to store the numbers in the input array as keys and their indices as values.
   const numMap = {};
-  // debugger;
 
   // Loop through each number in the array  - we are NOT looping through the numMap
   for (let i = 0; i < nums.length; i++) {
