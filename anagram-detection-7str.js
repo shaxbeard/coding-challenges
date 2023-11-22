@@ -56,14 +56,23 @@
 //   return testSorted === originalSorted;
 // }
 
-//Method #3 - Edit the prototype of the String object to add a method you can call
-String.prototype.sortLetters = function () {
-  return this.toLowerCase().split("").sort().join("");
-};
+//Method #3 - Use the sort() array method but modularize to keep code DRY
+function anagram(str1, str2) {
+  return sortWord(str1) == sortWord(str2);
+}
 
-var anagram = function (test, original) {
-  return test.sortLetters() == original.sortLetters();
-};
+function sortWord(word) {
+  return word.toLowerCase().split("").sort().join("");
+}
+
+//Method #3 - Edit the prototype of the String object to add a method you can call
+// String.prototype.sortLetters = function () {
+//   return this.toLowerCase().split("").sort().join("");
+// };
+
+// var anagram = function (test, original) {
+//   return test.sortLetters() == original.sortLetters();
+// };
 
 console.log(anagram("foefet", "toffee"), true);
 console.log(anagram("Buckethead", "DeathCubeK"), true);
