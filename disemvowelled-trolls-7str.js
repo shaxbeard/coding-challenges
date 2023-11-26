@@ -16,22 +16,6 @@
 
 //   //Loop over the string to test each letter individually
 //   for (let i = 0; i < str.length; i++) {
-//     if (!vowels.includes(str.charAt(i))) {
-//       nonVowels += str.charAt(i);
-//     }
-//   }
-
-//   return nonVowels;
-// }
-
-// function disemvowel(str) {
-//   const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
-
-//   //Push all of the non-vowels to a new string
-//   let nonVowels = "";
-
-//   //Loop over the string to test each letter individually
-//   for (let i = 0; i < str.length; i++) {
 //     if (!vowels.includes(str[i])) {
 //       nonVowels += str[i];
 //     }
@@ -53,12 +37,22 @@
 //   "Ths wbst s fr lsrs LL!"
 // );
 
-const vowels = "aeiou";
+// const vowels = "aeiou";
+
+// function disemvowel(str) {
+//   return str
+//     .split("")
+//     .filter(letter => !vowels.includes(letter.toLowerCase()))
+//     .join("");
+// }
+
+// const vowels = "aeiouAEIOU";
+const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
 
 function disemvowel(str) {
   return str
     .split("")
-    .filter(letter => !vowels.includes(letter.toLowerCase()))
+    .filter(letter => !vowels.includes(letter))
     .join("");
 }
 
