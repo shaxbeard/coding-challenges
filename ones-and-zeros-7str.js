@@ -51,10 +51,37 @@
 //   }
 // };
 
-// const binaryArrayToNumber = (arr) => parseInt(arr.join(""), 2);
-function binaryArrayToNumber(arr) {
-  return parseInt(arr.join(""), 2);
-}
+//METHOD #2 - USING THE BUILT-IN ABILITY FOR PARSE-INT TO READ BINARY FROM A STRING
+
+// Step 1. arr.join(""): This joins all the elements of the array into a single string. For example, [1, 1, 1, 1].join("") would result in the string "1111".
+
+// Step 2. parseInt(..., 2): The second argument to parseInt() specifies the radix or base of the numeral system to be used. In this case, 2 indicates that the input string is in base-2 (binary).
+
+// THE LONG WAY WITH COMMENTS
+// function binaryArrayToNumber(arr) {
+//   // Convert the array to a string so that we can pass it into parseInt
+//   let str = arr.join("");
+
+//   // Use parseInt to convert the stringified number from binary (base 2) to decimal (base 10)
+//   let decimal = parseInt(str, 2);
+
+//   // return the decimal version of the number
+//   return decimal;
+// }
+
+// THE SHORTER WAY
+// function binaryArrayToNumber(arr) {
+//   return parseInt(arr.join(""), 2);
+// }
+
+//
+const binaryArrayToNumber = arr => {
+  return arr.reduce((a, c) => (a = a * 2 + c), 0);
+};
+
+// function binaryArrayToNumber(arr) {
+//   return arr.reduce( (a, b) => a << 1 | b );
+// }
 
 console.log(binaryArrayToNumber([1, 1, 1, 1]));
 console.log(binaryArrayToNumber([1, 1, 1]));
