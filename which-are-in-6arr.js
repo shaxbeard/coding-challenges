@@ -29,19 +29,14 @@
 //   }
 
 // FILTER, FIND, AND INCLUDES
-// function inArray(array1, array2) {
-//   return array1.filter(a1 => array2.find(a2 => a2.includes(a1))).sort();
-// }
-
-// FILTER, FIND, AND MATCH
-// function inArray(array1, array2) {
-//   return array1.filter(a1 => array2.find(a2 => a2.match(a1))).sort();
+// function inArray(arr1, arr2) {
+//   return arr1.filter(inner => arr2.find(outer => outer.includes(inner))).sort();
 // }
 
 // FILTER, SOME, AND INCLUDES
-// function inArray(a1, a2) {
-//   return a1.filter(val => a2.some(word => word.includes(val)).sort());
-// }
+function inArray(arr1, arr2) {
+  return arr1.filter(inner => arr2.some(outer => outer.includes(inner))).sort();
+}
 
 console.log(
   inArray(
@@ -52,8 +47,8 @@ console.log(
 );
 console.log(
   inArray(
-    ["tarp", "mice", "bull"],
+    ["harp", "mice", "bull"],
     ["lively", "alive", "starp", "sharp", "armstrong"]
   ),
-  ["tarp"]
+  ["harp"]
 );
