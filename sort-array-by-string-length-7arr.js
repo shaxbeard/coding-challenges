@@ -21,4 +21,9 @@ function sortByLength(arr) {
   return arr.sort((a, b) => a.length - b.length);
 }
 
-console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]), [
+  "Eyes",
+  "Glasses",
+  "Monocles",
+  "Telescopes",
+]);
