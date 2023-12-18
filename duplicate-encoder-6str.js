@@ -33,11 +33,18 @@
 //   //THIS IS THE BEST QUADRATIC SOLUTION
 //   // toLowerCase -> split -> map -> join
 //   // if letter is unique, then first index === last index; else, letter has duplicates
+// function duplicateEncoder(str) {
+//   return str
+//     .toLowerCase()
+//     .split("")
+//     .map((l, i, a) => (a.indexOf(l) === a.lastIndexOf(l) ? "(" : ")"))
+//     .join("");
+// }
 function duplicateEncoder(str) {
   return str
     .toLowerCase()
     .split("")
-    .map((l, i, a) => (a.indexOf(l) === a.lastIndexOf(l) ? "(" : ")"))
+    .map((l, i) => (str.indexOf(l) === str.lastIndexOf(l) ? "(" : ")"))
     .join("");
 }
 
