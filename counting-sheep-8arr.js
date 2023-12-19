@@ -37,12 +37,16 @@ const arr = [
 ];
 // The correct answer would be 17.
 
-// Hint: Don't forget to check for bad values like null/undefined
+// Method #1 - Using a loop like forEach with && for the condition and count++
+// function countSheeps(arrayOfSheep) {
+//   let count = 0;
+//   arrayOfSheep.forEach((item) => item && count++);
+//   return count;
+// }
 
-function countSheeps(arrayOfSheep) {
-  let count = 0;
-  arrayOfSheep.forEach((item) => item && count++);
-  return count;
+// Method #2 - Using the reduce() method
+function countSheeps(sheep) {
+  return sheep.reduce((a, c) => (c === true ? a + 1 : a), 0);
 }
 
 console.log(countSheeps(arr));
