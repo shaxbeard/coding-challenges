@@ -118,7 +118,6 @@
 // console.log(mergeSort([38, 27, 43, 3, 9, 82, 10]), [3, 9, 10, 27, 38, 43, 82]);
 
 // QUICK SORT
-
 function quicksort(array) {
   if (array.length <= 1) {
     return array;
