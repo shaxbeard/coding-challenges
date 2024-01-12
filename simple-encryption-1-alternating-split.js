@@ -1,3 +1,4 @@
+// PART ONE - ENCRYPT
 // Implement a pseudo-encryption algorithm,
 // which given a string S and an integer N,
 // concatenates all of the odd-indexed characters of S
@@ -9,10 +10,7 @@
 // encrypt("012345", 2)  =>  "135024"  ->  "304152"
 // encrypt("012345", 3)  =>  "135024"  ->  "304152"  ->  "012345"
 
-// encrypt("01234", 1)  =>  "13024"
-// encrypt("01234", 2)  =>  "13024"  ->  "32104"
-// encrypt("01234", 3)  =>  "13024"  ->  "32104"  ->  "20314"
-
+// PART TWO - DECRYPT
 // Together with the encryption function,
 // you should also implement a decryption function which reverses the process.
 
@@ -31,19 +29,22 @@
 
 //#2 THE DECRYPT() FUNCTION
 // input: ["1", "3", "5", "0", "2", "4"]
+// j = 0                             ^
+// ans = ["0", "1", "2"", "3", "4", "5""]
+// i = 0                        ^
 
-// function encrypt(str, n) {
-//   if (!str || n < 1) return str;
-//   while (n--) {
-//     let evens = "";
-//     let odds = "";
-//     for (let i = 0; i < str.length; i++) {
-//       i % 2 === 1 ? (odds += str[i]) : (evens += str[i]);
-//     }
-//     str = odds + evens;
-//   }
-//   return str;
-// }
+function encrypt(str, n) {
+  if (!str || n < 1) return str;
+  while (n--) {
+    let evens = "";
+    let odds = "";
+    for (let i = 0; i < str.length; i++) {
+      i % 2 === 1 ? (odds += str[i]) : (evens += str[i]);
+    }
+    str = odds + evens;
+  }
+  return str;
+}
 
 // console.log(encrypt("012345", 1), "135024");
 // console.log(encrypt("012345", 2), "304152");
@@ -52,14 +53,14 @@
 
 function decrypt(encryptedText, n) {
   if (!encryptedText || n <= 0) return encryptedText;
-  debugger;
   const ans = new Array(encryptedText.length);
-  //   const ans = [];
   while (n--) {
     let j = 0;
+    //Place the first set of nums back in their original odd indexes
     for (let i = 1; i < ans.length; i += 2) {
       ans[i] = encryptedText[j++];
     }
+    //Place the second set of nums back in their orignal even indexes
     for (let i = 0; i < ans.length; i += 2) {
       ans[i] = encryptedText[j++];
     }
