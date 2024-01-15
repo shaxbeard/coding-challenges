@@ -41,19 +41,19 @@
 // }
 
 // FOR LOOP OVERWRITING THE INPUT ARRAY
-function runningSum(nums) {
-  for (let i = 1; i < nums.length; i++) {
-    // nums[i] = nums[i - 1] + nums[i];
-    nums[i] += nums[i - 1];
-  }
-  return nums;
-}
+// function runningSum(arr) {
+//   for (let i = 1; i < arr.length; i++) {
+//     // arr[i] = arr[i - 1] + arr[i];
+//     arr[i] += arr[i - 1];
+//   }
+//   return arr;
+// }
 
 // REDUCE LOOP OVERWRITING THE INPUT ARRAY
-// const runningSum = nums => {
-//   nums.reduce((a, c, i, arr) => (arr[i] += a));
-//   return nums;
-// };
+const runningSum = nums => {
+  nums.reduce((a, c, i, arr) => (arr[i] += a));
+  return nums;
+};
 
 console.log(runningSum([1, 2, 3, 4]), [1, 3, 6, 10]);
 console.log(runningSum([1, 1, 1, 1, 1]), [1, 2, 3, 4, 5]);
