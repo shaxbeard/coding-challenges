@@ -9,14 +9,12 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 //   return text.split("").reverse().join("");
 // }
 
-//  CHAINING BUILT-IN METHODS USING ES6
-
+// //  CHAINING BUILT-IN METHODS USING ES6
 // function reverseString(text) {
 //   return [...text].reverse().join("");
 // }
 
 // USING A FOR LOOP
-
 // function reverseString(text) {
 //   let result = "";
 //   for (let i = text.length - 1; i >= 0; i--) {
@@ -36,7 +34,6 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 // }
 
 // RECURSIVE METHOD
-
 // function reverseString(text) {
 //   if (text === "") {
 //     return "";
@@ -45,20 +42,43 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 //   }
 // }
 
-function fact(num) {
-  if (num >= 1) {
-    return num * fact(num - 1);
-  } else {
-    return 1;
-  }
-}
-console.log(fact(10));
-
 // USING .REDUCE()
-
 // function reverseString(text) {
-//   return text.split("").reduce((acc, char) => char + acc);
+//   return text.split("").reduce((word, letter) => letter + word, "");
 // }
 
-// console.log(reverseString("algorithm"), "mhtirogla");
-// console.log(reverseString("123456789"), "987654321");
+// Using a basic for() loop - manual transmission
+// function reverseString(text) {
+//   let result = "";
+//   for (let i = text.length - 1; i >= 0; i--) {
+//     result += text[i];
+//   }
+//   return result;
+// }
+
+// Using a for...of loop
+// function reverseString(text) {
+//   let result = "";
+//   for (char of text) {
+//     result = char + result;
+//   }
+//   return result;
+// }
+
+//Using reduce
+// function reverseString(text) {
+//   return text.split("").reduce((word, char) => char + word, "");
+// }
+
+//recursion
+function reverseString(text) {
+  //base case
+  if (text === "") {
+    return "";
+  }
+  //recursive case
+  return reverseString(text.slice(1)) + text.charAt(0);
+}
+
+console.log(reverseString("algorithm"), "mhtirogla");
+console.log(reverseString("123456789"), "987654321");
