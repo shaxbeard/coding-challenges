@@ -70,15 +70,16 @@
 // }
 
 // THE SHORTER WAY
-// function binaryArrayToNumber(arr) {
-//   return parseInt(arr.join(""), 2);
-// }
+function binaryArrayToNumber(arr) {
+  return parseInt(arr.join(""), 2);
+}
 
-//
-const binaryArrayToNumber = arr => {
-  return arr.reduce((a, c) => (a = a * 2 + c), 0);
-};
+// THE TRICKY FORMULA
+// const binaryArrayToNumber = arr => {
+//   return arr.reduce((a, c) => (a = a * 2 + c), 0);
+// };
 
+// AN EVEN TRICKIER TECHNIQUE
 // function binaryArrayToNumber(arr) {
 //   return arr.reduce( (a, b) => a << 1 | b );
 // }
