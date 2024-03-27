@@ -1,54 +1,30 @@
-//Write a function that builds a left-aligned pyramid in the console. Then alter the function to right-align the pyramid.
 
-// Example - If you pass the number 8
-// The pyramid should be 8 levels high like so:
-//#
-//##
-//###
-//####
-//#####
-//######
-//#######
-//########
+ // Loop over each letter in str
+  // Return an array with the entire word "hello" on each iteration
+      // BUT one letter of each of these words will be capitalized
+      // On the first iteration , capitalize the first letter
+      // On the second iteration, capitalize the second letter
+      // ...
 
-// Example 2 - Right-alinged pyramid
-//        #
-//       ##
-//      ###
-//     ####
-//    #####
-//   ######
-//  #######
-// ########
+//  0     1    2    3    4
+// ["h", "e", "l", "l", "o"]
+//             ^
+// ["H", "e", "l", "l", "o"]
+// ["h", "E", "l", "l", "o"]
+// ["h", "e", "L", "l", "o"]
+// ...
 
-// function buildPyramid(height) {
-//   for (let row = 1; row <= height; row++) {
-//     let line = "";
-//     for (let spaces = 1; spaces <= height - row; spaces++) {
-//       line += " ";
-//     }
-//     for (let col = 1; col <= row; col++) {
-//       line += "#";
-//     }
-//     console.log(line);
-//   }
-// }
-// buildPyramid(8);
-
-function buildPyramidRecursively(height, row = 1, line = "") {
-  if (row > height) {
-    return;
-  }
-  if (line.length < height - row) {
-    line = " " + line;
-  } else {
-    line += "#";
-    if (line.length === height) {
-      console.log(line);
-      line = "";
-      row++;
-    }
-  }
-  buildPyramidRecursively(height, row, line);
+function wave(str) {
+  // Convert the string to an array of letters
+  // Loop over the array of letters
+  // Return the letters before the index 
+      // + the current letter capitalized
+      // + the letters after the index
+ 
+  return str.split("").map((char, index) => str.slice(0, index) + char.toUpperCase() + str.slice(index + 1)).filter(x => x != str);
 }
-buildPyramidRecursively(8);
+
+
+console.log(wave("hello"), ["Hello", "hEllo", "heLlo", "helLo", "hellO"])
+console.log(wave("du h"), ["Duh", "dUh", "duH"])
+console.log(wave(""))
