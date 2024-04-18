@@ -28,7 +28,8 @@
 
 // Method #1 - Nested Loops and charCodeAt()
 function highScore(str) {
-  let maxScore = 0;
+  const alphabet = " abcdefghijklmnopqrstuvwxyz";
+  let maxScore = 0;  
   let maxWord = "";
   let strArray = str.split(" ");
 
@@ -36,7 +37,7 @@ function highScore(str) {
     let wordScore = 0;
 
     for (let j = 0; j < strArray[i].length; j++) {
-      wordScore += strArray[i].charCodeAt(j) - 96;
+      console.log(strArray[i].charCodeAt(j) - 96);
     }
 
     if (wordScore > maxScore) {
