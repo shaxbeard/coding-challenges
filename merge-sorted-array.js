@@ -9,6 +9,14 @@
 //Step 5: [0,3,4,4,6]
 //Step 6: [0,3,4,4,6,30]
 
+// WAIT - WHY CAN'T YOU JUST DO THIS ??
+function mergeArrays(a, b) {
+    return [...new Set(a.concat(b))].sort((a, b) => a - b);
+}
+
+console.log(mergeArrays([1, 3, 5], [2, 4, 6]), [1, 2, 3, 4, 5, 6]);
+console.log(mergeArrays([2, 4, 8], [2, 4, 6]), [2, 4, 6, 8]);
+
 // Method BEST - Simpler merge function with concat() to ensure all items have been included
 // This is a common "merge" function when building mergeSort()
 // function mergeSortedArrays(left, right) {
@@ -62,9 +70,9 @@
 // }
 
 // Example usage:
-const array1 = [1, 3, 5];
-const array2 = [2, 4, 6];
-const array3 = [0, 7, 8];
+// const array1 = [1, 3, 5];
+// const array2 = [2, 4, 6];
+// const array3 = [0, 7, 8];
 
-const mergedArray = mergeSortedArrays([array1, array2, array3]);
-console.log(mergedArray); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+// const mergedArray = mergeSortedArrays([array1, array2, array3]);
+// console.log(mergedArray); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8]
