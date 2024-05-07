@@ -19,26 +19,46 @@
 // - reutrn "Buzz" if the value is a multiple of 5
 // return "FizzBuzz" if the value is a multiple of 3 & 5
 
-// VARIATION #2 - JUST "PRINT" ALL OF THE VALUES
+// VARIATION #1 - JUST "PRINT" ALL OF THE VALUES
+// function fizzbuzz(n) {
+//   for (let i = 1; i <= n; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       console.log("FizzBuzz");
+//     } else if (i % 3 === 0) {
+//       console.log("Fizz");
+//     } else if (i % 5 === 0) {
+//       console.log("Buzz");
+//     } else {
+//       console.log(i);
+//     }
+//   }
+// }
 
-function fizzbuzz(n) {
-  for (let i = 1; i <= n; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
+// fizzbuzz(20);
+
+
+// VARIATION #2 - RETURN AN ARRAY OF VALUE
+// THE CODEWARS VERSION OF FIZZBUZZ
+
+
+function fizzbuzz(n){
+  const result = [];
+  for(let i = 1; i <= n; i++){
+    const divisibleBy3 = i % 3 === 0;
+    const divisibleBy5 = i % 5 === 0;
+    
+    if (divisibleBy3 && divisibleBy5) {result.push("FizzBuzz")}
+    else if (divisibleBy3) {result.push("Fizz")}
+    else if (divisibleBy5) {result.push("Buzz")}
+    else {
+      result.push(i);
     }
   }
+  return result;
 }
 
-// VARIATION #1 - RETUR AN ARRAY OF VALUES
-// console.log(fizzbuzz(3), [1, 2, "Fizz"]);
-// console.log(fizzbuzz(10), [
-//   [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"],
-// ]);
 
-fizzbuzz(20);
+console.log(fizzbuzz(3), [1, 2, "Fizz"]);
+console.log(fizzbuzz(15), [
+  [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"],
+]);
