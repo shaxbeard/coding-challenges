@@ -13,17 +13,17 @@
 
 
 
-function check(a,b){
-    return a.includes(b);
-};
+// function check(a,b){
+//     return a.includes(b);
+// };
 
-function check(a,x) {
-    return a.some(v => v === x)
-}
+// function check(a,x) {
+//     return a.some(v => v === x)
+// }
 
-function check(a,b) {
-    return a.indexOf(b) > 0;
-}
+// function check(a,b) {
+//     return a.indexOf(b) > 0;
+// }
 
 console.log(check([66, 101], 66), true);
 console.log(check(['what', 'a', 'great', 'kata'], 'kat'), false);
