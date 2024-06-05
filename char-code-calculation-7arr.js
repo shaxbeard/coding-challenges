@@ -25,17 +25,26 @@
 // ["91", "98", "99"] // map(Number)
 // [91, 98, 99]
 
-function calc(x){
-  let total1 = "";
-  for (let i = 0; i < x.length; i++) {
-    total1 += x.charCodeAt(i);
-  }
-  const total2 = total1.replace(/7/g, "1");
-  return sumStrNums(total1) - sumStrNums(total2);
-}
+// METHOD 1 - MY ANSWER
+// function calc(x){
+//   let total1 = "";
+//   for (let i = 0; i < x.length; i++) {
+//     total1 += x.charCodeAt(i);
+//   }
+//   const total2 = total1.replace(/7/g, "1");
+//   return sumStrNums(total1) - sumStrNums(total2);
+// }
 
-function sumStrNums(str) {
-    return str.split("").map(Number).reduce((a,c) => a + c, 0);
+// function sumStrNums(str) {
+//     return str.split("").map(Number).reduce((a,c) => a + c, 0);
+// }
+
+// METHOD 2 - CODEWARS #2 SOLUTION - SHORTER BUT LESS READABLE
+function calc(x){
+  let sum = n => n.split("").reduce((a,c) => +a + +c); // Shorthand type casting
+  let total1 = x.replace(/./g, char => char.charCodeAt(0)); // Use replace with /g for a "replace all"
+  let total2 = total1.replace(/7/g,'1');
+  return sum(total1) - sum(total2);
 }
 
 console.log(calc('abcdef'), 6)
