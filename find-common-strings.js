@@ -13,19 +13,15 @@
 // OUTPUT
 // ["apple", "pear"];
 
-// NESTED FOR LOOPS
+// METHOD 1 - DEMO ONLY -- NESTED FOR LOOPS
 // function findCommonStrings(arrays) {
 //   const result = [];
-//   // Nested for() loops to test each item in the first array against the other arrays
 //   for (let i = 0; i < arrays[0].length; i++) {
-//     // O(a)
 //     const string = arrays[0][i]; // repeated nested index assigned to variable
 //     let isInAllArrays = true;
 
 //     for (let j = 1; j < arrays.length; j++) {
-//       // O(b)
 //       if (!arrays[j].includes(string)) {
-//         // O(c)
 //         isInAllArrays = false;
 //         break;
 //       }
@@ -48,9 +44,7 @@
 
 // USING FILTER AND EVERY - The time complexity of the provided solution is O(n * m * k)
 // function findCommonStrings(arrays) {
-//   // For each item in the first nested array, keep that item IF
 //   return arrays[0].filter(string =>
-//     // Every nested array returns TRUE for array.includes() for that item
 //     arrays.every(array => array.includes(string))
 //   );
 // }
@@ -70,21 +64,6 @@ console.log(
   ["apple", "pear"]
 );
 
-// USING REDUCE AND FILTER
-// function findCommonStrings(arrays) {
-//   return arrays.reduce((commonStrings, array) =>
-//     commonStrings.filter(el => array.includes(el))
-//   );
-// }
-
-// console.log(
-//   findCommonStrings([
-//     ["apple", "banana", "pear", "orange"],
-//     ["apple", "pear", "kiwi", "strawberry"],
-//     ["apple", "pear", "grape"],
-//   ]),
-//   ["apple", "pear"]
-// );
 
 // function map(arr) {
 //   const wordMap = {};
