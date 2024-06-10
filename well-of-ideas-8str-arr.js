@@ -10,7 +10,7 @@
 // assert.strictEqual(well(['good', 'bad', 'bad', 'bad', 'bad']), 'Publish!');
 // assert.strictEqual(well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good']), 'I smell a series!');
 
-// METHOD 1 - USING A LOOP TO COUNT
+// METHOD 1 - USING A FOR EACH() LOOP TO COUNT
 // function well(x){
 //   let counter = 0;
 //   x.forEach(val => val === "good" ? counter++ : null);
@@ -18,18 +18,21 @@
 //          counter > 0 ? "Publish!" : "Fail!" 
 // }
 
-// METHOD 2 - USING AN ARRAY METHOD 
+//METHOD 2 - USING A TAILOR MADE ARRAY METHOD THAT LOOPS AND COUNTS :)
+function well(x) {
+    const counter = x.reduce((a,c) => c === "good" ? a + 1 : a);
+    return counter > 2 ? "I smell a series!" :
+         counter > 0 ? "Publish!" : "Fail!" 
+}
+
+// METHOD 2 - USING ANOTHER ARRAY METHOD IN A CLEVER WAY
 // function well(x){
 //   const counter = x.filter(val => val === "good").length; 
 //   return counter > 2 ? "I smell a series!" :
 //          counter > 0 ? "Publish!" : "Fail!"
 // }
 
-function well(x) {
-    const counter = x.reduce((a,c) => c === "good" ? a + 1 : a);
-    return counter > 2 ? "I smell a series!" :
-         counter > 0 ? "Publish!" : "Fail!" 
-}
+
 
 console.log(well(['bad', 'bad', 'bad']), 'Fail!');
 console.log(well(['good', 'bad', 'bad', 'bad', 'bad']), 'Publish!')
