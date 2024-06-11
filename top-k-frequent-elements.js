@@ -29,13 +29,15 @@ console.log(topkFrequent([1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4], 2), [3, 1]);
 // Separate the map into a separate function
 // Why can this be below the function call? Beause functions declared using the function keyword are hoisted
 function frequencyMap(arr) {
-  const freqMap = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (!freqMap[arr[i]]) {
-      freqMap[arr[i]] = 1;
+  const map = {};
+  for (let num of arr) {
+    if (!map[num]) {
+      map[num] = 1;
     } else {
-      freqMap[arr[i]]++;
+      map[num]++;
     }
   }
-  return freqMap;
+  return map;
 }
+
+
