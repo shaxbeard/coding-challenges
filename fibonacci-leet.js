@@ -6,6 +6,8 @@
 // F(0) = 0, F(1) = 1
 // F(n) = F(n - 1) + F(n - 2), for n > 1.
 
+// Given n, calculate F(n).
+
 // Example 1:
 // Input: n = 2
 // Output: 1
@@ -106,7 +108,7 @@
 // }
 // console.log(fib(6));
 
-//RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE
+// //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE
 // function fibonacciClosure() {
 //   let memo = {};
 //   return function fib(n) {
@@ -123,22 +125,22 @@
 // }
 
 //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE - NO "ELSE" STATEMENTS
-function fibonacciClosure() {
-  let memo = {};
-  return function fib(n) {
-    if (n in memo) {
-      return memo[n];
-    }
-    if (n < 2) {
-      return 1; // OR return n to add zero at start
-    }
-    return (memo[n] = fib(n - 1) + fib(n - 2));
-  };
-}
+// function fibonacciClosure() {
+//   let memo = {};
+//   return function fib(n) {
+//     if (n in memo) {
+//       return memo[n];
+//     }
+//     if (n < 2) {
+//       return 1; // OR return n to add zero at start
+//     }
+//     return (memo[n] = fib(n - 1) + fib(n - 2));
+//   };
+// }
 
-const fasterFib = fibonacciClosure();
+// const fasterFib = fibonacciClosure();
 
-console.log(fasterFib(5), 8);
+// console.log(fasterFib(5), 8);
 
 //[0,1,1,2,3,5,8,13,21,34,55]
 //OR
