@@ -8,11 +8,6 @@
 // Output: 6
 // Explanation: The subarray [4,-1,2,1] has the largest sum 6.
 
-// Example 2:
-// Input: nums = [1]
-// Output: 1
-// Explanation: The subarray [1] has the largest sum 1.
-
 // Example 3:
 // Input: nums = [5,4,-1,7,8]
 // Output: 23
@@ -37,23 +32,17 @@
 //[3,4]
 //[4]
 
-// Method #1 - Brute force with nested for() loops to test all combinations of numbers
+// Method #1 - Brute force - THREE nested loops, so O(n^3)
 // function maximumSubarray(arr) {
-
-//   //Initialize a maxSum at negative infinity and a maxSubarray as an empty array
 //   let maxSum = -Infinity;
 //   let maxSubarray = []; //This method allows you to show the sum AND the subarray
 
-//   //Make a nested loop so you can compare each item in the array against every other item
 //   for (let i = 0; i < arr.length; i++) {
 //     for (let j = i; j < arr.length; j++) {
 //       // Use slice() to generate every subarray in the array
 //       const subarray = arr.slice(i, j + 1); // O(m)
-//       // Use reduce() to sum each of these subarrays
-//       const subarraySum = subarray.reduce((acc, curr) => acc + curr, 0); // O(m)
-//       // Test each sum against a maxSum on each iteration
+//       const subarraySum = subarray.reduce((a, c) => a + c, 0); // O(m)
 //       if (subarraySum > maxSum) {
-//         // If the sum of the current subArray is higher than maxSum, update the maxSum and the maxSubarray
 //         maxSum = subarraySum;
 //         maxSubarray = subarray;
 //       }
@@ -82,23 +71,22 @@
 // maxSum = 1
 // localMax = -2
 
-//Method #2 - Keep a running maximum sum by overwriting the input array
+
+
+// METHOD #2 FROM NEETCODE - "SLIDING WINDOW" TO DISCARD NEGATIVE PREFIXES
 function maximumSubarray(nums) {
-  // Initialize a variable for maxSum at the value of the first number in the array (index 0)
-  debugger;
-  let maxSum = nums[0];
-  // Loop through the array starting at index 1
-  for (let i = 1; i < nums.length; i++) {
-    // Add up the number at the current index with the previous index (which will be the running max sum)
-    let localMax = nums[i] + nums[i - 1];
-    //If the local maxSum is larger by adding the current number, then mutate the current number to store the local maxSum
-    //If the local maxSum is SMALLER by adding the current number, then leave the current number as it is
-    nums[i] = Math.max(nums[i], localMax);
-    //If the next number is larger than the running max sum, then start counting again with the new number
-    maxSum = Math.max(maxSum, nums[i]);
-  }
-  return maxSum;
+    let maxSub = nums[0];
+    let curSum = 0;
+    debugger
+
+    for (let n of nums) {
+        if (curSum < 0) curSum = 0; //only discard the prefix if it is negative
+        curSum += n; //the current sum keeps going every time
+        maxSub = Math.max(maxSub, curSum); //the maxSub can diverge from curSum (and then come back!)
+    }
+    return maxSub;
 }
 
 console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]), 6);
+// console.log(maximumSubarray([-2, 1, -3, 4, -1, 5, 1, -5, 4])); //for a test
 console.log(maximumSubarray([5, 4, -1, 7, 8]), 23);
