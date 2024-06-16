@@ -47,27 +47,45 @@
 // console.log(isValid("([]{})"), true);
 // console.log(isValid("([{}])"), true);
 
-const isValid = s => {
-  const map = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
-  };
-  const stack = [];
-  for (let i = 0; i < s.length; i++) {
-    let char = stack[stack.length - 1];
-    if (s[i] == "(" || s[i] == "{" || s[i] == "[") {
-      stack.push(s[i]);
-    } else if (char === map[s[i]]) {
-      stack.pop();
-    } else return false;
-  }
-  return stack.length ? false : true;
-};
+// const isValid = s => {
+//   const map = {
+//     ")": "(",
+//     "}": "{",
+//     "]": "[",
+//   };
+//   const stack = [];
+//   for (let i = 0; i < s.length; i++) {
+//     let char = stack[stack.length - 1];
+//     if (s[i] == "(" || s[i] == "{" || s[i] == "[") {
+//       stack.push(s[i]);
+//     } else if (char === map[s[i]]) {
+//       stack.pop();
+//     } else return false;
+//   }
+//   return stack.length ? false : true;
+// };
 
-console.log(isValid("[[{({{[[()]]}})}]]"));
+// var isValid = function(s) {
+//   const stack = [];
+//   for (let i = 0 ; i < s.length ; i++) {
+//       let c = s.charAt(i);
+//       switch(c) {
+//           case '(': stack.push(')');
+//               break;
+//           case '[': stack.push(']');
+//               break;
+//           case '{': stack.push('}');
+//               break;
+//           default:
+//               if (c !== stack.pop()) {
+//                   return false;
+//           }
+//       }
+//   }
+//   return stack.length === 0;
+// };
 
-// console.log(isValid("()[]{}"), true);
-// console.log(isValid("()[{}"), false);
+console.log(isValid("()[]{}"), true);
+console.log(isValid("()[{}"), false);
 // console.log(isValid("([]{})"), true);
 // console.log(isValid("([{}])"), true);
