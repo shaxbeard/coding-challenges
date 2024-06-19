@@ -8,6 +8,10 @@
 // rotate 2 steps to the right: [6,7,1,2,3,4,5]
 // rotate 3 steps to the right: [5,6,7,1,2,3,4]
  
+//   k = 3
+//   0 1 2 3 4 5 6 7 8 9    # indexes
+//  [5,6,7,1,2,3,4]   # nums array, length = 7
+//   j
 
 //METHOD 1 - MANUAL TRANSMISSION
 // function rotate(nums, k) {
@@ -23,6 +27,13 @@
 // }
 
 // METHOD 1 - REVERSE, REVERSE 1ST HALF, REVERSE 2ND HALF
+
+//   k = 3
+//   0 1 2 3 4 5 6     # indexes
+//  [5,6,7,1,2,3,4]    # nums, length = 7
+//           i       
+//             j
+
 function rotate(nums, k) {
     k %= nums.length // if k is greater than nums.length then one cycle is completed that means it will remain the same and we have to remainder shifts
     reverse(0, nums.length-1); // reverse   <--<------
