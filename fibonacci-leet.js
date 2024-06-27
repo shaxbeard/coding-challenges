@@ -7,6 +7,9 @@
 // F(n) = F(n - 1) + F(n - 2), for n > 1.
 
 // Given n, calculate F(n).
+// [0, 1, 1, 2, 3, 5, 8];
+//        ^               n = 2 - Wait, the fib sequence starts at ZERO - so we have to start counting from a zero index
+//           ^            n = 3 - so fib(3) = 1 + 1
 
 // Example 1:
 // Input: n = 2
@@ -30,7 +33,13 @@
 #####################    SOLUTIONS BELOW  ###############################
 */
 
-//  FOR() LOOP SOLUTION
+//  0  1  2  3  4  5  6   # The INDEX of 6
+//  1  2  3  4  5  6  7   # For the NUMBERS, fib(7) should equal 8
+// [0, 1, 1, 2, 3, 5, 8];
+
+                
+
+// METHOD #1 - ITERATIVE SOLUTION
 // function fib(n) {
 //   const arr = [0, 1];
 //   for (let i = 2; i <= n; i++) {
@@ -40,58 +49,55 @@
 // }
 
 // console.log(fib(6), 8);
-//[0,1,1,2,3,5,8,13,21,34,55]
+// [0,1,1,2,3,5,8,13,21,34,55]
 
-// ITERATIVE SOLUTION WITH WHILE()
-// function fib(n) {
-//   let previous = 1,
-//     current = 1;
+// METHOD #2 - SIMPLE RECURSIVE SOLUTION - O(2^n)
+function fib(n) {
+  if (n <= 1) {
+    return n;
+  }
+  return fib(n - 1) + fib(n - 2);
+}
 
-//   if (n <= 1) {
-//     return 1;
-//   } else {
-//     let counter = n - 1;
+console.log(fib(6), 8);
 
-//     while (counter) {
-//       let temp = current;
-//       current += previous;
-//       previous = temp;
-//       counter--;
-//     }
-//   }
-//   return current;
-// }
+//      1,2,3,4,5,6, 7, 8
+// [0,1,1,2,3,5,8,13,21,34]
 
-// A RECURSIVE SOLUTION
-// function fib(n) {
-//   if (n <= 1) {
-//     return 1;
-//   }
-//   return fib(n - 1) + fib(n - 2);
-// }
 
-// console.log(fib(4), 5);
+// THE TREE FOR THE BASIC RECURSIVE SOLUTION
+// Notice how fib(1) is calculated five times!
+// The time complexity of recursive fibonacci is EXPONENTIAL O(2^n) - Leon says it is "mayhem"
 
-// [0,1,1,2,3,5]  # Do we include the zero or not?
+//                      fib(5)
+//                    /       \..............             
+//              fib(4)                      fib(3)
+//              /   \                         /   \
+//         fib(3)    fib(2)                fib(2)  fib(1)
+//         /    \    /     \                /  \
+//     fib(2) fib(1) fib(1) fib(0)      fib(1) fib(0)
+//     /  \
+//  fib(1) fib(0)
+
+
+// METHOD #3 - MEMOIZED FIBONACCI O(n) - each repeated tree node is calculated only once
 
 // LEON VERSION OF MEMOIZED FIBONACCI - memo in the global scope
 // const memo = {};
 // function fib(n) {
-//   if (n <= 1) {
+//   if (n < 2) {
 //     return n;
 //   } else if (memo[n]) {
 //     return memo[n];
 //   } else {
-//     let result = fib(n - 1) + fib(n - 2);
-//     memo[n] = result;
-//     return result;
+//     memo[n] = fib(n - 1) + fib(n - 2);
+//     return memo[n]
 //   }
 // }
-// console.log(fib(5));
+// console.log(fib(6), 8);
 // [0, 1, 1, 2, 3, 5, 8];
 
-//log
-// console.log(fib(5));
+
 
 // RECURSIVE SOLUTION USING MEMOIZATION - memo in local scope, no closure
 // function fib(n, memo) {
@@ -99,14 +105,12 @@
 //   if (memo[n]) {
 //     return memo[n];
 //   }
-
 //   if (n <= 1) {
 //     return 1;
 //   }
-
 //   return (memo[n] = fib(n - 1, memo) + fib(n - 2, memo));
 // }
-// console.log(fib(6));
+// console.log(fib(6), 8); // Test fails - returns 13
 
 // //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE
 // function fibonacciClosure() {
@@ -116,13 +120,20 @@
 //       return memo[n];
 //     } else {
 //       if (n < 2) {
-//         return 1; // OR return n to add zero at start
+//         return n; // OR return n to add zero at start
 //       } else {
-//         return (memo[n] = fib(n - 1) + fib(n - 2));
+//         memo[n] = fib(n - 1) + fib(n - 2);
+//         return memo[n];
 //       }
 //     }
 //   };
 // }
+// const fasterFib = fibonacciClosure();
+// console.log(fasterFib(6), 8);
+//  0  1  2  3  4  5  6   # The INDEX of 6
+//  1  2  3  4  5  6  7   # For the NUMBERS, fib(7) should equal 8
+// [0, 1, 1, 2, 3, 5, 8];
+
 
 //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE - NO "ELSE" STATEMENTS
 // function fibonacciClosure() {
