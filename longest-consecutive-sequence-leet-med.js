@@ -20,29 +20,33 @@
 // Output: 7
 
 
-//[100,4,200,1,3,2]   # input array
+//[100,8,200,5,7,6]   # input array
 
-// max = 4
-// currNum = 8
-// currMax = 4
-//     x       x x
+//Nums that BEGIN a sequence (even if that sequence is just 1 num)
+// 100 .... 200 ... 5  ... 
+
+// max = 0
+// currNum = 
+// currMax = 
+//            
 //{100,8,200,5,7,6}   # array converted to a set
-//                 ^
+//  ^
 
 function longestConsecutive(nums) {
     if (nums == null || nums.length === 0) return 0; // input check
     const set = new Set(nums); 
-    let max = 0;  // global max
+    let max = 0;
 
     for (let num of set) {
-      if (set.has(num - 1)) continue;  // disregard nums that don't begin a sequence
+      if (set.has(num - 1)) continue;  // Only proceed with nums that begin a sequence
+      // loop through each sequence and increment the local (current) max sequence
       let currNum = num;
       let currMax = 1;
-      while (set.has(currNum + 1)) {
+      while (set.has(currNum + 1)) { // use while() to increment 2 variables at same time
         currNum++;
         currMax++;
       }
-      max = Math.max(max, currMax);
+      max = Math.max(max, currMax); // After the loop, check if this sequence > max sequence
     }
     return max;
 }
