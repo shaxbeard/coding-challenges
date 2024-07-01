@@ -1,47 +1,39 @@
-// USING A FOR LOOP
 
+// METHOD 1 - Iterative solution
+
+// CodeWars test error says "factorial for 0 is 1"
+// BUT THIS IS THE ITERATIVE SOLUTION IN MY ANKI !!!!!
+// function factorial(n) {
+//   for (let i = n - 1; i > 1; i--) {
+//     n *= i;
+//   }
+//   return n;
+// }
+
+// This iterative solution passes on CodeWars
+// function factorial(n) {
+  // let answer = 1;
+  // for (let i = n; i > 1; i--) {
+  //   answer *= i;
+  // }
+  // return answer;
+// }
+// console.log(factorial(5), 120);
+
+
+
+
+// METHOD 2 - USING RECURSION
 function factorial(n) {
-  for (let i = n - 1; i > 1; i--) {
-    n *= i;
-  }
-  return n;
+  // base case
+    if (n < 2) {
+        return 1;
+    }
+  // recursive case
+    return n * factorial(n - 1);
 }
-// function factorial(n) {
-//   debugger;
-//   let answer = 1;
-//   for (let i = n; i > 1; i--) {
-//     answer *= i;
-//   }
-//   return answer;
-// }
-console.log(factorial(5), 120);
 
-// USING A WHILE LOOP
-
-// function factorial(n) {
-//   var result = n;
-//   if (n <= 1) {
-//     return 1;
-//   }
-//   while (n > 1) {
-//     n--;
-//     result *= n;
-//   }
-//   return result;
-// }
-// console.log(factorial(4));
-
-// USING RECURSION
-
-// function factorial(n) {
-//     if (n <= 1) {
-//         return 1
-//     }
-//     return n * factorial(n - 1)
-// }
-
-// USING MEMOIZATION
-
+// METHOD 3 - USING RECURSION AND MEMOIZATION
 // function factorial(n, memo) {
 //   memo = memo || {};
 //   if (n <= 1) {
@@ -55,7 +47,7 @@ console.log(factorial(5), 120);
 
 // console.log(factorial(5));
 
-// Recursive solution with memoization and closure
+// METHOD 4 - USING RECURSION, MEMOIZATION, AND CLOSURE
 // function factorial() {
 //   let memo = {};
 //   return function fact(num) {
@@ -70,5 +62,4 @@ console.log(factorial(5), 120);
 // }
 
 // const fasterFactorial = factorial();
-
 // console.log(fasterFactorial(5), 120);
