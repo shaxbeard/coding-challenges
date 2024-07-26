@@ -37,7 +37,7 @@ var groupAnagrams = function(strs) {
     let res = {};
     for (let str of strs) {
         let count = new Array(26).fill(0);
-        for (let char of str) count[char.charCodeAt() - 97]++; // increment the count for each letter
+        for (let char of str) count[char.charCodeAt(0) - "a".charCodeAt(0)]++; // increment the count for each letter
         let key = count.join("");
         // push each word to an array in an object where its key is the "count array"
         !res[key] ? res[key] = [str] : res[key].push(str); 

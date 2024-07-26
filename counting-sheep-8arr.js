@@ -1,4 +1,5 @@
-// Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+// Consider an array/list of sheep where some sheep may be missing from their place. 
+// We need a function that counts the number of sheep present in the array (true means present).
 
 // For example,
 
@@ -46,7 +47,8 @@ const arr = [
 
 // Method #2 - Using the reduce() method
 function countSheeps(sheep) {
-  return sheep.reduce((a, c) => (c === true ? a + 1 : a), 0);
+  // return sheep.reduce((a, c) => (c === true ? a + 1 : a), 0);
+  return sheep.reduce((a, c) => (c ? a + 1 : a), 0);
 }
 
-console.log(countSheeps(arr));
+console.log(countSheeps(arr), 17);
