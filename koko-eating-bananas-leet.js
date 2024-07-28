@@ -14,13 +14,7 @@
 // Input: piles = [3,6,7,11], h = 8
 // Output: 4
 
-// k = rate of bananas/hr (looking for min)
-// h - total hours allowed
-//  0 1 2 3
-// [3,6,7,11] 
 
-
-// result = 3 
 
 // THIS PROBLEM HAS TWO LOOPS 
 // LOOP #1 - A FOR LOOP THROUGH THE PILES ARRAY
@@ -35,21 +29,24 @@
 // l =        ^
 // r =        ^  
 
-function minEatingSpeed(piles, h) {
-    let l = 1
-    let r = Math.max(...piles)
-    let result = r
+// result = 3 
 
-    while (l <= r) {
+
+function minEatingSpeed(piles, h) {
+    let l = 1 //the lowest possible eating rate is 1
+    let r = Math.max(...piles) // the highest possible rate is max(piles)
+    let result = r // use the highest rate for the right pointer in the range array
+
+    while (l <= r) { // This is the binary search
         let k = Math.floor((l + r) / 2)
         let hours = 0
-        for (let p of piles) {
+        for (let p of piles) { // Loop to count total hours at rate k
             hours += Math.ceil(p / k)
         }
-        if (hours <= h) {
-            result = Math.min(result, k)
+        if (hours <= h) { // is hours below the threshold?
+            result = Math.min(result, k) // needed? result always goes down?
             // result = k
-            r = k - 1
+            r = k - 1 // keep looking for a lower value
         } else {
             l = k + 1
         }
