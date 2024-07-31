@@ -37,7 +37,9 @@
 //  1  2  3  4  5  6  7   # For the NUMBERS, fib(7) should equal 8
 // [0, 1, 1, 2, 3, 5, 8];
 
-                
+// 0,1,2,3,4,5,6     # Range to loop through
+//[0,1,1,2,3,5,8]            # ouput array, len = 7
+//               ^           
 
 // METHOD #1 - ITERATIVE SOLUTION
 // function fib(n) {
@@ -49,11 +51,12 @@
 // }
 
 // console.log(fib(6), 8);
+//  0,1,2,3,4,5,6,7, 8, 9, 10
 // [0,1,1,2,3,5,8,13,21,34,55]
 
 // METHOD #2 - SIMPLE RECURSIVE SOLUTION - O(2^n)
 // function fib(n) {
-//   if (n <= 1) {
+//   if (n < 2) {
 //     return n;
 //   }
 //   return fib(n - 1) + fib(n - 2);
@@ -61,7 +64,7 @@
 
 // console.log(fib(6), 8);
 
-//      1,2,3,4,5,6, 7, 8
+//  0,1,2,3,4,5,6, 7, 8
 // [0,1,1,2,3,5,8,13,21,34]
 
 
@@ -113,26 +116,29 @@
 // console.log(fib(6), 8); // Test fails - returns 13
 
 // //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE
-// function fibonacciClosure() {
-//   let memo = {};
-//   return function fib(n) {
-//     if (n in memo) {
-//       return memo[n];
-//     } else {
-//       if (n < 2) {
-//         return n; // OR return n to add zero at start
-//       } else {
-//         memo[n] = fib(n - 1) + fib(n - 2);
-//         return memo[n];
-//       }
-//     }
-//   };
-// }
-// const fasterFib = fibonacciClosure();
-// console.log(fasterFib(6), 8);
+function fibonacciClosure() {
+  let memo = {};
+  return function fib(n) {
+    if (n in memo) {
+      return memo[n];
+    } else {
+      if (n < 2) {
+        return n; 
+      } else {
+        memo[n] = fib(n - 1) + fib(n - 2);
+        return memo[n];
+      }
+    }
+  };
+}
+const fasterFib = fibonacciClosure();
+console.log(fasterFib(6), 8);
 //  0  1  2  3  4  5  6   # The INDEX of 6
 //  1  2  3  4  5  6  7   # For the NUMBERS, fib(7) should equal 8
 // [0, 1, 1, 2, 3, 5, 8];
+
+//  0,1,2,3,4,5,6,7, 8, 9, 10
+// [0,1,1,2,3,5,8,13,21,34,55]
 
 
 //RECURSIVE SOLUTION USING MEMOIZATION AND CLOSURE - NO "ELSE" STATEMENTS

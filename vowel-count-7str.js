@@ -30,6 +30,18 @@ const vowels = ["a", "e", "i", "o", "u"];
 //   return count;
 // }
 
+// Solution #1.5 - Pythonic version of #1
+function getCount(str) {
+  let vowels = "aeiou"
+  let count = 0
+  for (let char of str) {
+    if (vowels.includes(char)) count++
+  }
+  return count
+}
+
+console.log(getCount("abracadabra"), 5);
+
 // SOLUTION #2 - REGEX SOLUTION
 // REGEX - FASTEST @ 4.5 million ops/s
 // function getCount(str) {
@@ -38,11 +50,11 @@ const vowels = ["a", "e", "i", "o", "u"];
 // }
 
 // SOLUTION #3 - 1 LINER WITH REDUCE()
-function getCount(str) {
-  return str.split("").reduce((a, c) => (vowels.includes(c) ? a + 1 : a), 0);
-}
+// function getCount(str) {
+//   return str.split("").reduce((a, c) => (vowels.includes(c) ? a + 1 : a), 0);
+// }
 
-console.log(getCount("abracadabra"), 5);
+// console.log(getCount("abracadabra"), 5);
 
 // FOR-OF LOOP WITH INCLUDES() - 45% SLOWER THAN REGEX - 5% SLOWER THAN SPLIT().FOREACH() !!!
 // function getCount(str) {
