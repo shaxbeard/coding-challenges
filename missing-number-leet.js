@@ -66,9 +66,7 @@
 // [-1,-1,-1,-1,-1,-1,-1,-1,-1, 1], original v, length = 10
 //         ^                              // Loop using nums.length = 9
 // [-1,-1,-1,-1, 4,-1, 6,-1,-1, 9]  ...  at the end, there will be one -1 left
-// How does this actually fucking work?
-// v[9] = 9
-// v[6] = 6
+
  
 
 // METHOD #2 - CLEVER USE OF A PLACEHOLDER ARRAY
