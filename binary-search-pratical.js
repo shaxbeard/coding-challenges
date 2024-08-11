@@ -72,10 +72,12 @@
 
 //   0 1 2 3 4 5 
 // [-1,0,3,5,9,12], target = 9
-//                  # mid
-//   ^              # min
+//           ^           # mid
+//         ^              # min
 //              ^   # max
-
+// mid  = 0 + 5 // 2 = 2
+//nums[mid] = 3
+// SO nums[mid] < 9
 
 function binarySearch(nums, target) {
   let min = 0;

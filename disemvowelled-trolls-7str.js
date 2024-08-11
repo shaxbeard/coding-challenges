@@ -8,6 +8,7 @@
 
 // Note: for this kata y isn't considered a vowel.
 
+// METHOD #1 - MANUAL TRANSMISSION
 // function disemvowel(str) {
 //   const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
 
@@ -23,11 +24,22 @@
 //   return nonVowels;
 // }
 
-// console.log(
-//   disemvowel("This website is for losers LOL!"),
-//   "Ths wbst s fr lsrs LL!"
-// );
+// METHOD #1.5 - PYTHONIC VERION OF #1
+function disemvowel(str) {
+  const vowels = "aeiouAEIOU"
+  let nonVowels = "";
+  for (let char of str) {
+    if (!vowels.includes(char)) nonVowels += char
+  }
+  return nonVowels
+}
 
+console.log(
+  disemvowel("This website is for losers LOL!"),
+  "Ths wbst s fr lsrs LL!"
+);
+
+// METHOD #2 - USING REPLACE AND REGEX
 // function disemvowel(str) {
 //   return str.replace(/[aeiou]/gi, "");
 // }
