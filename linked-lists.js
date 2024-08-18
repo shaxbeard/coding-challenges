@@ -22,12 +22,10 @@ class LinkedList {
 
   //add to beginning of list / head
   prepend(value) {
-    // if list is empty
-    if (!this.head) {
+    if (!this.head) { // if list is empty
       this.head = this.tail = new Node(value);
     }
-    // if linkedlist has >= one node
-    else {
+    else { // if linkedlist has >= one node
       let oldHead = this.head;
       this.head = new Node(value);
       oldHead.prev = this.head;
@@ -36,15 +34,12 @@ class LinkedList {
   }
 
   deleteHead() {
-    // if list is empty (no head)
-    if (!this.head) {
+    if (!this.head) { // if list is empty (no head)
       return null;
     }
-    // if linkedlist has >= 1 node
-    else {
+    else { // if linkedlist has >= 1 node
       let removedHead = this.head;
-      // if list has only 1 node left
-      if (this.head === this.tail) {
+      if (this.head === this.tail) { // if list has only 1 node left
         this.head = this.tail = null;
       }
       //if list has >1 node
