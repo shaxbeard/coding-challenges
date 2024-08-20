@@ -19,10 +19,11 @@
 //  0,1,2,3,4,5  - Indexes
 // [7,1,5,3,6,4], len = 6
 //    l
-//            r
-// Is 1 < 5? True. So maxP = (5 - 1 = 4)
-// Is 1 , 3? True But (3 - 1) > 4 so maxP stays at 4
-// Is 1 < 6? True. So profit = 6 - 1 = 5. Is 5 > 4? True So maxP = 5
+//              r
+// Step 1 - prices[l] > prices[r], so slide l up to r, then increment 4
+// Step 2 - prices[l] < prices[r], so the profit is prices[r] (5) - prices[l] (1) = 4
+// Step 3 - check if this profit is bigger than the max profit, true, so maxP = 4, and increment r
+
 
 
 
