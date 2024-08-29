@@ -11,10 +11,51 @@ class BinarySearchTree {
         this.root = null;
     }
     insert(value) {
-
+        const newNode = new Node(value);
+        if (this.root === null) {
+            this.root = newNode;
+        } else {
+            let currentNode = this.root;
+            while(true) {
+                if(value < currentNode.value) {
+                    //left
+                    if(!currentNode.left) {
+                        currentNode.left = newNode;
+                        return this;
+                    }
+                    currentNode = currentNode.left;
+                } else {
+                    //right
+                    if(!currentNode.right) {
+                        currentNode.right = newNode;
+                        return this;
+                    }
+                    currentNode = currentNode.right;
+                }
+            }
+        }
     }
     lookup(value) {
+    }
+    breadthFirstSearch() {
+        let currentNode = this.root;
+        let list = [];
+        let queue = [];
+        queue.push(currentNode);
 
+        while (queue.length > 0) {
+            currentNode = queue.shift();
+            console.log(currentNode.value);
+
+            list.push(currentNode.value);
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            }
+        }
+        return list;
     }
 }
 
@@ -26,6 +67,8 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
+console.log(tree.breadthFirstSearch());
+// console.log(JSON.stringify(traverse(tree.root)))
 //       9
 //   4       20
 // 1   6   15  170
