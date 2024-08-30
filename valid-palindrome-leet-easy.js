@@ -29,28 +29,30 @@
 // console.log(isPalindrome("A man, a plan, a canal: Panama"), true)
 // console.log(isPalindrome("race a car"), false)
 
-//"A man, a plan, a canal: Panama"
-// ^                            ^
 
+//DEMO WITH TWO POINTERS
+//"A man, a plan, a canal: Panama"
+//          ^                            
+//                         ^
 
 
 // METHOD #2 - SOLUTION USING TWO POINTERS
-function isPalindrome(s) {
-    let l = 0;
-    let r = s.length - 1;
+// function isPalindrome(s) {
+//     let l = 0;
+//     let r = s.length - 1;
 
-    while (l < r) { // loop until the pointers touch
-        // Skip past all chars except for the alphanumeric (lowercase letters, uppercase letters, numbers)
-        // check again that the pointers have not touched while skipping the non-alphanums
-        while (l < r && !alphaNum(s[l])) l++; 
-        while (r > l && !alphaNum(s[r])) r--;
-        // Test if each letter is the same on the left and right (case insensitive)
-        if (s[l].toLowerCase() !== s[r].toLowerCase()) return false;
-        l++;
-        r--;
-    }
-    return true;
-}
+//     while (l < r) { // loop until the pointers touch
+//         // Skip past all chars except for the alphanumeric (lowercase letters, uppercase letters, numbers)
+//         // check again that the pointers have not touched while skipping the non-alphanums
+//         while (l < r && !isAlnum(s[l])) l++; 
+//         while (r > l && !isAlnum(s[r])) r--;
+//         // Test if each letter is the same on the left and right (case insensitive)
+//         if (s[l].toLowerCase() !== s[r].toLowerCase()) return false;
+//         l++;
+//         r--;
+//     }
+//     return true;
+// }
 
 // SIMPLER VERSION OF isAlnum() 
 // function isAlnum(char) {
@@ -58,17 +60,18 @@ function isPalindrome(s) {
 // }
 
 // MANUAL VERSION TO TEST isAlnum()
-function isAlnum(c) {
-    return (
-        ('A'.charCodeAt(0) <= c.charCodeAt(0) && c.charCodeAt(0) <= 'Z'.charCodeAt(0)) ||
-        ('a'.charCodeAt(0) <= c.charCodeAt(0) && c.charCodeAt(0) <= 'z'.charCodeAt(0)) ||
-        ('0'.charCodeAt(0) <= c.charCodeAt(0) && c.charCodeAt(0) <= '9'.charCodeAt(0))
-    );
-}
+// function isAlnum(c) {
+//     return (
+//         ('A'.charCodeAt(0) <= c.charCodeAt(0) && c.charCodeAt(0) <= 'Z'.charCodeAt(0)) ||
+//         ('a'.charCodeAt(0) <= c.charCodeAt(0) && c.charCodeAt(0) <= 'z'.charCodeAt(0)) ||
+//         ('0'.charCodeAt(0) <= c.charCodeAt(0) && c.charCodeAt(0) <= '9'.charCodeAt(0))
+//     );
+// }
 
-console.log(isPalindrome("A man, a plan, a canal: Panama"), true)
-console.log(isPalindrome("race a car"), false)
+// console.log(isPalindrome("A man, a plan, a canal: Panama"), true)
+// console.log(isPalindrome("race a car"), false)
 
+// Python version of Method #2 - Two Pointers
 // def isPalindrome(self, s: str) -> bool:
 //         i, j = 0, len(s) - 1
 //         while i < j:
@@ -81,3 +84,30 @@ console.log(isPalindrome("race a car"), false)
 
 //         return True
 
+
+// Method #3 - Recursive solution
+function isPalindrome(s) {
+    function toChars(s) {
+        s = s.toLowerCase()
+        let ans = ""
+        for (let c of s) {
+            if ("abcdefghijklmnopqrstuvwxyz".includes(c)) {
+                ans = ans + c
+            }
+        }
+        return ans
+    }
+
+    function isPal(s) {
+        if (s.length <= 1) {
+            return true
+        } else {
+            return s[0] == s[s.length-1] && isPal(s.slice(1, -1))
+        }
+    }
+
+    return isPal(toChars(s))
+}
+
+console.log(isPalindrome("Able was I, ere I saw Elba"))
+console.log(isPalindrome("snake"))
