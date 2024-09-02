@@ -82,15 +82,16 @@ class BinarySearchTree {
     }
     lookup(value) {
     }
+
+    // BFS on Binary Search Tree - iterative solution
     breadthFirstSearch() {
-        let currentNode = this.root;
-        let list = [];
-        let queue = [];
-        queue.push(currentNode);
+        let queue = [this.root];
+        let list = []; // push the nums to an empty array
 
         while (queue.length > 0) {
-            currentNode = queue.shift();
+            let currentNode = queue.shift();
             list.push(currentNode.value);
+            // Add all child nodes at the next level down
             if (currentNode.left) queue.push(currentNode.left);
             if (currentNode.right) queue.push(currentNode.right);
         }
