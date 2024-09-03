@@ -19,10 +19,18 @@
 // Output: [1,3]
 // Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
 
-// curSum = 9
+// curSum = 12
 // [1,3,4,5,7,11], target = 9
-//     ^
-//       ^
+//      ^
+//        ^
+// First iteration: curSum > 9, so decrement the right pointer to decrease the sum
+// Second iteration: curSum < 9, so increment the left pointer to increase the sum
+// Third iteration: curSum > 9, so decrement the right pointer to decrease the sum
+// ...
+/// Finally, the pointers reach the 4 and 5, and the sum === 9
+// Return the indexes of the 2 values (but add 1 to them for some stupid reason)
+
+
 function twoSum(numbers, target) {
     let l = 0;
     let r = numbers.length - 1;
@@ -34,7 +42,7 @@ function twoSum(numbers, target) {
         } else if (curSum < target) {
             l++; //Move the left pointer to increase the sum
         } else {
-            return [l + 1, r + 1]
+            return [l + 1, r + 1] 
         }   
     }
     return [];
