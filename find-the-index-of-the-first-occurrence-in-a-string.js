@@ -19,9 +19,9 @@
 // wordIndex =
 // DEMO
 //  012345678901      012
-// "zzsazbusadtsad", "sad"
-//  i           
-//                    j
+// "zzsazbusadtsad", "sad", length = 3
+//         i           
+//                      j
 
 // METHOD 1 - Naive solution
 // I didn't know you could use indexOf() with a word !!!!

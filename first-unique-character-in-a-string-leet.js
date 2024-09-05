@@ -15,18 +15,18 @@
 // Output: -1
 
 // SIMPLE SOLUTION USING INDEXOF() AND LASTINDEXOF() - PERFORMANCE NOT AS GOOD
-function firstUniqChar(s) {
-    for (let i = 0; i < s.length; i++) {
-        if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
-            return i;
-        }
-    }
-    return -1;
-}
+// function firstUniqChar(s) {
+//     for (let i = 0; i < s.length; i++) {
+//         if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
 
-console.log(firstUniqChar("leetcode"), 0);
-console.log(firstUniqChar("loveleetcode"), 2);
-console.log(firstUniqChar("aabb"), -1);
+// console.log(firstUniqChar("leetcode"), 0);
+// console.log(firstUniqChar("loveleetcode"), 2);
+// console.log(firstUniqChar("aabb"), -1);
 
 //DEMO
 //  012345678901   //indexes
@@ -37,38 +37,39 @@ console.log(firstUniqChar("aabb"), -1);
 
 
 // METHOD #1 - MY SOLUTION USING HASH TABLE
-// function firstUniqChar(s) {
-//     //Loop through the string and track the freq of each letter in a hash table (frequency map)
-//     const count = freqMap(s);
-//     //Loop through string again from the start and return the INDEX of the first letter with a value of 1 in the freqMap
-//     for (let i = 0; i < s.length; i++) {
-//         if (count[s[i]] === 1) {
-//             return i;
-//         }
-//     }
-//     //If the loop reaches the end of the string without finding a val of 1, return -1
-//     return -1;
-// }
+function firstUniqChar(s) {
+    const map = {};
+    for (let char of s) {
+        !map[char] ? map[char] = 1 : map[char]++;
+    }
 
-// function freqMap(str) {
-//     const map = {};
-//     for (let char of str) {
-//         if (!map[char]) {
-//             map[char] = 1;
-//         } else {
-//             map[char]++;
-//         }
-//     }
-//     return map;
-// }
+    for (let i = 0; i < s.length; i++) {
+        if (map[s[i]] === 1) {
+            return i;
+        }
+    }
+    return -1;
+}
 
-// function freqMap(str) {
-//     const map = {};
-//     for (let char of str) {
-//         !map[char] ? map[char] = 1 : map[char]++;
-//     }
-//     return map;
-// }
+function freqMap(str) {
+    const map = {};
+    for (let char of str) {
+        if (!map[char]) {
+            map[char] = 1;
+        } else {
+            map[char]++;
+        }
+    }
+    return map;
+}
+
+function freqMap(str) {
+    const map = {};
+    for (let char of str) {
+        !map[char] ? map[char] = 1 : map[char]++;
+    }
+    return map;
+}
 function freqMap(str) {
     const map = {};
     for (let char of str) {
@@ -77,9 +78,9 @@ function freqMap(str) {
     return map;
 }
 
-// console.log(firstUniqChar("leetcode"), 0);
-// console.log(firstUniqChar("loveleetcode"), 2);
-// console.log(firstUniqChar("aabb"), -1);
+console.log(firstUniqChar("leetcode"), 0);
+console.log(firstUniqChar("loveleetcode"), 2);
+console.log(firstUniqChar("aabb"), -1);
 
 // VARIATION ON MY SOLUTION WITH SHORTER SYNTAX
 // var firstUniqChar = function(s) {
