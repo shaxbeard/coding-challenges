@@ -5,10 +5,11 @@
 
 // [4,5,6,7,0,1,2], target = 0
 // [left   ][r   ]
-//            ^      # middle pointer
+//      ^      # middle pointer
 //  l                # left pointer
 //              r    # right pointer
 
+// Say that the middle pointer is on the 6
 // Is 4 <= 6  = True, so we are in the [left] section
 // Is 0 > 6 = False (if True, search the right side becuase target is on the right side of the left section)
 // Is 0 < 4 = True (if True, search the right side because target is in the right section)

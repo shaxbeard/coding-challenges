@@ -8,23 +8,37 @@
 // rotate 2 steps to the right: [6,7,1,2,3,4,5]
 // rotate 3 steps to the right: [5,6,7,1,2,3,4]
  
+// DEMO
 //   k = 3
-//   0 1 2 3 4 5 6 7 8 9    # indexes
-//  [5,6,7,1,2,3,4]   # nums array, length = 7
-//   j
+//   0,1,2,3,4,5,6,7,8,9    # indexes
+//  [1,2,3,4,5,6,7]   # nums array, length = 7
+
+// First loop - start from the END and copy each num 3 indexes to the right
+//   0,1,2,3,4,5,6,7,8,9    # indexes
+//  [1,2,3,4,5,6,7]   # nums array before overwriting
+//  [1,2,3,1,2,3,4,5,6,7] # nums arr AFTER overwriting
+
+// Second loop - starting from index k - 1, pop k nums from the end
+//   0,1,2,3,4,5,6,7,8,9    # indexes
+//  [5,6,7,1,2,3,4] # nums arr AFTER overwriting
+// ^
+
 
 //METHOD 1 - MANUAL TRANSMISSION
-// function rotate(nums, k) {
-//     //Shift each num k places to the right
-//     for (let i = nums.length - 1; i >= 0; i--) {
-//         nums[i + k] = nums[i];
-//     }
-//     //Move the final k nums from the end to the beginning
-//     for (let j = k - 1; j >= 0; j--) {
-//     nums[j] = nums.pop();
-//     }
-//     return nums;
-// }
+function rotate(nums, k) {
+    //Shift each num k places to the right
+    for (let i = nums.length - 1; i >= 0; i--) {
+        nums[i + k] = nums[i];
+    }
+    //Move the final k nums from the end to the beginning
+    for (let j = k - 1; j >= 0; j--) {
+    nums[j] = nums.pop();
+    }
+    return nums;
+}
+
+console.log(rotate([1,2,3,4,5,6,7], 3),[5,6,7,1,2,3,4])
+
 
 // METHOD 1 - REVERSE, REVERSE 1ST HALF, REVERSE 2ND HALF
 
@@ -34,26 +48,24 @@
 //           i       
 //             j
 
-function rotate(nums, k) {
-    k %= nums.length // if k is greater than nums.length then one cycle is completed that means it will remain the same and we have to remainder shifts
-    reverse(0, nums.length-1); // reverse   <--<------
-    reverse(0, k-1) // reverse first part ---><----
-    reverse(k, nums.length-1)// reverse second part --->----->
-    return nums;
+// function rotate(nums, k) {
+//     k %= nums.length // if k is greater than nums.length then one cycle is completed that means it will remain the same and we have to remainder shifts
+//     reverse(0, nums.length-1); // reverse   <--<------
+//     reverse(0, k-1) // reverse first part ---><----
+//     reverse(k, nums.length-1)// reverse second part --->----->
+//     return nums;
 
-    function reverse(i, j) {
-        while(i < j){
-            let temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
-            i++
-            j--
-        }
-    }
-}        
+//     function reverse(i, j) {
+//         while(i < j){
+//             let temp = nums[i]
+//             nums[i] = nums[j]
+//             nums[j] = temp
+//             i++
+//             j--
+//         }
+//     }
+// }        
 
-
-
-console.log(rotate([1,2,3,4,5,6,7], 3),[5,6,7,1,2,3,4])
+// console.log(rotate([1,2,3,4,5,6,7], 3),[5,6,7,1,2,3,4])
 
 
