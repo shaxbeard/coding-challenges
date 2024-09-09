@@ -1,8 +1,4 @@
 // 13. Roman to Integer
-// Easy
-// Topics
-// Companies
-// Hint
 // Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 // Symbol       Value
@@ -38,12 +34,24 @@
 // Output: 1994
 // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
-// DEMO
-// result = 
-// "MCMXCIV"
-//     ^       
-//      ^       
 
+// DEMO
+// Input: s = "MCMXCIV"
+// Output: 1994
+
+// This is an example of a very specific MECHANISM with 2 pointers. 
+// We ALWAYS want the pointers to be at positions i and i + 1
+// So we should just use ONE INDEX so that the pointers are always incremented together
+// But we can use the variables "current" and "next" for more clarity
+
+// cur = s[i]
+// next = s[i + 1]
+// "MCMXCIV"
+//  c       
+//   n   
+
+
+// BUT, we also have to map the int value for each Roman letter
 //     'I': 1,
 //     'V': 5,
 //     'X': 10,
@@ -52,9 +60,14 @@
 //     'D': 500,
 //     'M': 1000
 
-// if curr < next for "CM" then result += 1000 - 100 (next -)
-// AND - increment i an extra time to pass the PAIR of romNums
-// else (if curr > next), just result += curr
+// We can ADD THE MAPPING to the two variables that we tied to the same index
+// cur = numMap[s[i]]
+// next = numMap[s[i + 1]]
+// "MCMXCIV"
+//  c       
+//   n  
+
+// Now we directly access the int value of each pair of Roman letters using cur and next
 
 
 var romanToInt = function(s) {
