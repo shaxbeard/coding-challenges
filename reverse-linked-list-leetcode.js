@@ -15,16 +15,50 @@
 // 1 -> 2 -> 3 -> 
 //   <-   X   # Delete right arrow, Add left arrow
 
-// temp = -> null
+// temp = null
 // Null <- 1 <- 2 <- 3 -> null
-//                   ^                    # prev pointer
-//                         ^              # curr pointer
+//                   ^                                   # prev pointer
+//              ^                        # curr pointer
+
+// DOES IT MAKE MORE SENSE TO STACK THE NUM AND THE POINTER LIKE THIS?
+// temp =  NULL
+//         -> 
+// Null  [1]     1   2   3    null
+//      [<-]    <-  <-  <-                       
+//                      ^                    # prev pointer
+//                ^                          # curr pointer
 // Step 1 - Save the pointer to curr.next to temp var
 // Step 2 - Change the pointer to curr.next to prev
 // Step 3 - Increment both pointers
 // ...
 // When curr reaches NULL, all the pointers have been changed
 // AND we can return prev as the new "head"
+
+
+
+// FOR ME, THIS IS THE CLEAREST WAY TO VISUALIZE THE LINKED LIST IN GENERAL
+// HEAD                    TAIL
+// [10  ]
+// [NODE]      [5   ]
+// [#946]  --> [NODE]      [16  ]
+//             [#742]  --> [NODE]  
+//                         [#242] --> null
+
+
+// FOR THIS REVERSAL SOLUTION, WE NEED A NULL AT THE START TOO
+//          HEAD                    TAIL
+//          [10  ]
+//          [NODE]      [5   ]
+// null  <- [#946]  <-  [NODE]      [16  ]          
+//                      [#742]  <-  [NODE]                         
+//                                  [#242]     null
+//                                    p         
+//                                               c           
+//                                               t
+// The arrows are not in the best position when I use this diagram for the reversal, but it's okay
+
+
+
 
 // Method 1 - Iterative - O(n) time, O(1) memory because we are just moving pointers
 function reverseList(head) {
@@ -40,10 +74,82 @@ function reverseList(head) {
     return prev; // Return the new head of the reversed list, which is prev
 }
 
+// Iterative using THREE pointers
+// I find a, b, c confusing as names
+// But using prev, curr, and next is confusing because "next" is also the pointer
+// What about before, current, and after?
+// Or prev, curr, after?
+// A person could start with more descriptive variable names and then switch to a, b, c later??
+function reverseList(head) {
+    let prev = null;
+    let curr = head;
+
+    while (b) {
+        let after  = b.next; // save the next node in c instead of temp
+        curr.next = a; //reverse the "current" node's next pointer
+        prev = curr; // move the "prev" pointer to the current node
+        curr = after; // move the "curr" pointer to next node at c instead of temp
+    }
+    return a;
+}
+
+// function reverseList(head) {
+//     let a = null;
+//     let b = head;
+
+//     while (b) {
+//         let c = b.next; // save the next node in c instead of temp
+//         b.next = a; //reverse the "current" node's next pointer
+//         a = b; // move the "prev" pointer to the current node
+//         b = c; // move the "curr" pointer to next node at c instead of temp
+//     }
+//     return a;
+// }
+
 
 // Method #2 - Recursive solution
 // DEMO
 // 1 -> 2 -> 3 -> 4 -> null
+
+// In a recursive solution, you deal with just ONE PIECE of the problem at a time
+
+// Say that this is the full list you want to reverse
+// HEAD                    TAIL
+// [1  ]
+// [NODE]      [2   ]
+// [#946]  --> [NODE]      [3   ]
+//             [#742]  --> [NODE]  
+//                         [#242] --> null
+
+// In the recursive solution, you can only deal with 2 nodes at a time 
+// In the context of each recursive "piece", each pair of nodes is head and head.next
+//             HEAD        head.next                 
+//             [2   ]
+//             [NODE]      [3   ]
+//             [#742]  --> [NODE]  
+//                         [#242]    null
+
+// So given this restriction, we CAN still change the pointer from 3 to 2
+// BUT - we can't point from 2 to 1 in this step (because 1 isn't there!)
+// What do we do? We temporarily point 2 to null
+
+//             [2   ]
+//             [NODE]      [3   ]
+//   null  <-- [#742]  <-- [NODE]  
+//                         [#242]    
+
+// In the next step, we POP OUT OF THE RECURSIVE CHUNK (frame?)
+// Now the 2 CAN point to the 1  
+// AND we can point the 1 to null 
+
+// HEAD                              TAIL
+//          [1  ]
+//          [NODE]      [2   ]
+// null <-- [#946]  <-- [NODE]      [3   ]
+//                      [#742]  <-- [NODE]  
+//                                  [#242] 
+
+
 
 // First call, head = 1, and we call reverseList(2)
 // Second call, head = 2, and we call reverseList(3)
@@ -70,14 +176,15 @@ function reverseList(head) {
 // we return newHead, which is the head of the fully reversed list
 
 
+
 function reverseList(head) {
     // Base case - this means the list is already reversed so return the head as is
-    if (head == null || head.next == null) return head
+    if (head == null || head.next == null) return head // head == null is just for an empty list - needed?
 
-    let newHead = reverseList(head.next) // Pass in each next pointer
-    // Reversiing the current node's pointer
+    let newHead = reverseList(head.next)
+    // In recursion, just handle two nodes at a time: 1) head 2) head.next
     head.next.next = head // Set the next node's next pointer to the current node (head)
-    head.next = null // Remove the pointer from the current node to the next node
+    head.next = null // temporarily point the current node to null
     return newHead // return the new head of the reversed list
 }
 
