@@ -9,35 +9,59 @@
 // In the case of ties, print the first substring. For example, if s = 'abcbcd', then your program should print
 // "Longest substring in alphabetical order is: abc"
 
+//  012345678901234
+// 'azcbobobegghakl' // input string s, len = 15
+//   ^
+// maxStr = "a"
+// currStr = "a"
+// is "z" > the char at the END of currStr? Yes, add the "z" to currStr (using str concatenation)
+// is "c" >= the char at the END of currStr? No, reset currStr to "c" (s[i])
 
-function longestAlphabeticalSubstring(s) {
-    // Initialize the longest substring and current substring with the first character
-    let longest = s[0];
-    let current = s[0];
+// function longest(s) {
+// // Initialize a maxStr and a currStr at 0 // NO, they are initialized at s[0] - they are not counters in this version
+// let maxStr = s[0];
+// let currStr = s[0];
+// for (let i = 1; i < s.length; i++) { // loop through the string starting with index = 1
+//     if (s[i] >= currStr[currStr.length - 1]) { // Test currChar against the last char in currStr
+//         currStr += s[i]; //
+//         if (currStr.length > maxStr.length) { // Update maxStr on each iteration
+//             maxStr = currStr;
+//         }
+//     } else {
+//         currStr = s[i]; // if currChar < the last char in currStr, reset currStr to currChar
+//     }
+// }
+// return maxStr;
+// }
 
-    // Iterate through the string starting from the second character
-    for (let i = 1; i < s.length; i++) {
-        // Check if the current character continues the alphabetical order
-        if (s[i] >= current[current.length - 1]) {
-            // If it does, add it to the current substring
-            current += s[i];
-            // Update the longest substring if the current one is longer
-            if (current.length > longest.length) {
-                longest = current;
-            }
-        } else {
-            // If not, reset the current substring to the current character
-            current = s[i];
-        }
+// console.log(longest('azcbobobegghakl'), "beggh");
+
+// PYTHON SOLUTION 
+// s = 'azcbobobegghakl'
+// maxStr = s[0]
+// curStr = s[0]
+// for char in s[1:]:
+//     if char >= curStr[-1]:
+//         curStr += char
+//         if len(curStr) > len(maxStr):
+//             maxStr = curStr
+//     else: 
+//         curStr = char
+// print("Longest substring in alphabetical order is:", maxStr)
+
+// PYTHONIC SOLUTION IN JAVASCRIPT
+s = 'azcbobobegghakl'
+let maxStr = s[0]
+let curStr = s[0]
+for (let char of s.slice(1)){
+    if (char >= curStr[curStr.length - 1]) {
+        curStr += char
+        if (curStr.length > maxStr.length) {
+            maxStr = curStr
+        } 
+    } else {
+        curStr = char
     }
-
-    // Return the longest alphabetical substring found
-    return longest;
 }
+console.log("Longest substring in alpha order is:", maxStr)
 
-// Example usage
-let s1 = 'azcbobobegghakl';
-console.log("Longest substring in alphabetical order is: " + longestAlphabeticalSubstring(s1));
-
-let s2 = 'abcbcd';
-console.log("Longest substring in alphabetical order is: " + longestAlphabeticalSubstring(s2));

@@ -30,7 +30,7 @@
 // currMax = 
 //            
 //{100,8,200,5,7,6}   # array converted to a set
-//  ^
+//           ^
 
 function longestConsecutive(nums) {
     if (nums == null || nums.length === 0) return 0; // input check
