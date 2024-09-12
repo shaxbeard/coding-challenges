@@ -1,4 +1,5 @@
-// 234. Palindrome Linked List
+// 234. Palindrome Linked List . 
+// The category for this problem is Two Pointers Advanced.
 
 // Given the head of a singly linked list, return true if it is a 
 // palindrome or false otherwise.
@@ -7,17 +8,41 @@
 // Input: head = [1,2,2,1]
 // Output: true
 
-// DEMO
 
+
+// DEMO
+// We take TWO PASSES through the list with TWO DIFFERENT SETS of pointer.
+// FIRST PASS - one slow (1x) and one fast (2x) pointer to find the mid and end nodes
+// SECOND PASS - one pointer at the start and end the original list (the end nodes is now the head of the reversed list)
+
+// START WITH ONE SLOW AND ONE FAST POINTER
 // Start state
 // s
 // 1 -> 2 -> 3 -> 3 -> 2 -> 1 
 // f
 
+// State after finding the middle node
+//                s
+// 1 -> 2 -> 3 -> 3 -> 2 -> 1
+//                          f
+
+// State after reversing 2nd half arrows
+//               
+// 1 -> 2 -> 3 -> 3 <- 2 <- 1  
+
+
+// CHANGE TO A NEW PAIR OF POINTERS !!
+// h pointer at original head, r pointer at head of reversed list
+// h              
+// 1 -> 2 -> 3 -> 3 <- 2 <- 1  
+//                          r  // rev = the head of the reversed section (formerly tail of the whole list)
+
 // End state
 //                h
-// 1 -> 2 -> 3 -> 3 <- 2 <- 1  // Note - 2nd half arrows reversed
-//                r = null
+// 1 -> 2 -> 3 -> 3 <- 2 <- 1  
+//                (r = null)  // because it traverses off the list when there is no arrow to follow
+
+
 
 
 
