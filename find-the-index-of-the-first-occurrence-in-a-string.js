@@ -16,18 +16,19 @@
 // Input: two strings - any funny business? empty string, etc.? no
 // Return the index of 1st occurrence of str2 in str1
 
-// wordIndex =
-// DEMO
-//  012345678901      012
-// "zzsazbusadtsad", "sad", length = 3
-//         i           
-//                      j
-
 // METHOD 1 - Naive solution
 // I didn't know you could use indexOf() with a word !!!!
 // function strstr(haystack, needle) {
 //   return haystack.indexOf(needle);
 // }
+
+
+// wordIndex =
+// DEMO
+//  012345678901      012
+// "zzsazbusadtsad", "sad", length = 3
+//    i           
+//                      j
 
 // METHOD 2 - BRUTE FORCE WITH NESTED FOR LOOPS ,Time = O(N * M)
 // This is also the wrong answer, right? - Neetcode says this should be your solution
