@@ -80,18 +80,21 @@ function reverseList(head) {
 // What about before, current, and after?
 // Or prev, curr, after?
 // A person could start with more descriptive variable names and then switch to a, b, c later??
-function reverseList(head) {
-    let prev = null;
-    let curr = head;
+// function reverseList(head) {
+//     let prev = null;
+//     let curr = head;
 
-    while (b) {
-        let after  = b.next; // save the next node in c instead of temp
-        curr.next = a; //reverse the "current" node's next pointer
-        prev = curr; // move the "prev" pointer to the current node
-        curr = after; // move the "curr" pointer to next node at c instead of temp
-    }
-    return a;
-}
+//     while (b) {
+//         let after  = b.next; // save the next node in c instead of temp
+//         curr.next = a; //reverse the "current" node's next pointer
+//         prev = curr; // move the "prev" pointer to the current node
+//         curr = after; // move the "curr" pointer to next node at c instead of temp
+//     }
+//     return a;
+// }
+
+
+
 
 // function reverseList(head) {
 //     let a = null;
