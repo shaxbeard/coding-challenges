@@ -76,15 +76,18 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 // Output: ["o","l","l","e","h"]
 
 // Interview solution #1 - Two pointers
-// var reverseString = function(s) {
-//   let l = 0;
-//   let r = s.length - 1;
-//   while (l < r) {
-//       [s[l], s[r]] = [s[r], s[l]]; // Neetcode says that some language allow you to swap without a temp var like this
-//       l++;
-//       r--;
-//   }
-// };
+var reverseString = function(s) {
+  let l = 0;
+  let r = s.length - 1;
+  while (l < r) {
+      [s[l], s[r]] = [s[r], s[l]]; // Neetcode says that some language allow you to swap without a temp var like this
+      l++;
+      r--;
+  }
+  return s;
+};
+
+console.log(reverseString(["h","e","l","l","o"]), ["o","l","l","e","h"]);
 
 // Solution #2 - Recursive (uses O(n) memory)
 // DEMO 
@@ -115,21 +118,21 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 // "l"
 // "e"
 // "h"
-function reverseString(s) {
-  const stack = [];
-  for (let char of s) {
-    stack.push(char);
-    console.log(stack);
-  }
-  // const stack = [...s] // OR, just copy the arr
-  let i = 0;
-  while (stack.length > 0) {
-    s[i] = stack.pop();
-    console.log(s);
-    i++;
-  }
-  return s;
-}
+// function reverseString(s) {
+//   const stack = [];
+//   for (let char of s) {
+//     stack.push(char);
+//     console.log(stack);
+//   }
+//   // const stack = [...s] // OR, just copy the arr
+//   let i = 0;
+//   while (stack.length > 0) {
+//     s[i] = stack.pop();
+//     console.log(s);
+//     i++;
+//   }
+//   return s;
+// }
 
 // console.log(reverseString("algorithm"), "mhtirogla");
-console.log(reverseString(["h","e","l","l","o"]));
+// console.log(reverseString(["h","e","l","l","o"]));
