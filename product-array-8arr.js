@@ -8,30 +8,30 @@
 // The Third element 5 is the product of all array's elements except the Third element 2.
 
 // METHOD 1 - DEMO ONLY - YOU NEED NESTED FOR() LOOPS TO TRACK MULTIPLE ITERATIONS
-function productArray(numbers){
-  const multiplyArray = [];
-  for (let i = 0; i < numbers.length; i++) {
-    let multiply = 1;
-    for (let j = 0; j < numbers.length; j++) {
-      if (i === j) {
-        continue;
-      }
-      multiply *= numbers[j];
-    }
-    multiplyArray.push(multiply);
-  }
- return multiplyArray;
-}
+// function productArray(numbers){
+//   const multiplyArray = [];
+//   for (let i = 0; i < numbers.length; i++) {
+//     let multiply = 1;
+//     for (let j = 0; j < numbers.length; j++) {
+//       if (i === j) {
+//         continue;
+//       }
+//       multiply *= numbers[j];
+//     }
+//     multiplyArray.push(multiply);
+//   }
+//  return multiplyArray;
+// }
 
 // METHOD 2 - REMOVE THE NUMBER FROM EACH ITERATION IN A SNEAKY WAY
 // function productArray(numbers){
-//   return numbers.map(num => numbers.reduce((a,b) => a * b) [...])
+//   return numbers.map(num => numbers.reduce((a,b) => a * b) / num)
 // }
 // OR - CLEARER BUT MORE VERBOSE
-// function productArray(numbers)
-// {
-//   var sum = numbers.reduce((x, y) => x * y);
-//   return numbers.map(num => [...]);
-// }
+function productArray(numbers)
+{
+  var sum = numbers.reduce((x, y) => x * y);
+  return numbers.map(num => sum / num);
+}
 
 console.log(productArray([1,5,2]), [10,2,5])
