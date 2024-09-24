@@ -27,8 +27,9 @@
 // DEMO
 //  012345678901      012
 // "zzsazbusadtsad", "sad", length = 3
-//    i           
-//                      j
+//  i           
+//                    j
+
 
 // METHOD 2 - BRUTE FORCE WITH NESTED FOR LOOPS ,Time = O(N * M)
 // This is also the wrong answer, right? - Neetcode says this should be your solution
@@ -36,7 +37,6 @@
 
 const strstr = (haystack, needle) => {    
     for (let i = 0; i < haystack.length - needle.length + 1; i++) {    // start looping through haystack until the remaining substring is shorter than needle
-    //   if (haystack[i] === needle[0]) {             // WE DON'T NEED THIS CHECK - THE TEST BELOW ALREADY DOES THIS ! 
         for (let j = 0; j < needle.length; j++) {    // start looping through both needle and haystack
           if (needle[j] !== haystack[i + j]) break;  // when the characters don't match, break out of the loop and return to looping through haystack                                
           if (j === needle.length - 1) return i;     // otherwise, if all of the characters matched, // return the index of the first character of haystack with which we started the loop
