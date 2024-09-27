@@ -42,6 +42,21 @@ function isSubsequence(s,t) {
     return i === s.length; // crucial logic here
 }
 
+// Java solution - almost identical to JS syntax - actually Typescript!
+// class Solution {
+//     public boolean isSubsequence(String s, String t) {
+//         int i = 0;
+//         int j = 0;
+//         while (i < s.length && j < t.length) {
+//             if (s.charAt(i) == t.charAt(i)) { // s.charAt(i) not s[i] 
+//                 i++;
+//             }
+//             j++;
+//         }
+//         return i == s.length();
+//     }
+// }
+
 console.log(isSubsequence("abc", "ahbgdc"), true);
 console.log(isSubsequence("axc", "ahbgdc"), false);
 
