@@ -87,6 +87,21 @@ var reverseString = function(s) {
   return s;
 };
 
+// Java solution - note, you have to use temp for swap (I think)
+// class Solution {
+//   public void reverseString(char[] s) {
+//       int left = 0, right = s.length-1;
+//       while( left < right ){  
+//           char temp = s[left];
+//           s[left] = s[right];            
+//           s[right] = temp;
+//           left += 1;
+//           right -= 1;
+//       }
+//       return;
+//   }
+// }
+
 console.log(reverseString(["h","e","l","l","o"]), ["o","l","l","e","h"]);
 
 // Solution #2 - Recursive (uses O(n) memory)
