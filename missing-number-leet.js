@@ -71,8 +71,8 @@
 
 // METHOD #2 - CLEVER USE OF A PLACEHOLDER ARRAY
 // function missingNumber(nums) {
-//     let n = nums.length;
-//     let v = new Array(n+1).fill(-1);
+//     // let n = nums.length;
+//     let v = new Array(nums.length+1).fill(-1);
 //     for(let i = 0; i < nums.length; i++) {
 //         let num = nums[i];
 //         v[num] = num; // place the NUM from nums in its corresponding INDEX in v
@@ -88,20 +88,24 @@
 // console.log(missingNumber([9,6,4,2,3,5,7,0,1]), 8)
 
 // METHOD #3 - CLEVER MATH TRICK - SUBTRACT RANGE SUM FROM NUMS SUM
-// var missingNumber = function(nums) {
-//     const n = nums.length;
+var missingNumber = function(nums) {
+    const n = nums.length;
     
-//     // Calculate Tsum using a for loop
-//     let Tsum = 0;
-//     for (let i = 0; i <= n; i++) {
-//         Tsum += i;
-//     }
-//     // Calculate Tsum using Array.from and reduce
-//     // const Tsum = Array.from({length: n + 1}, (_,i) => i).reduce((a,c) => a + c, 0);
+    // Calculate rangeSum using a for loop
+    // let rangeSum = 0;
+    // for (let i = 0; i <= n; i++) {
+    //     rangeSum += i;
+    // }
+    // Calculate rangeSum using Array.from and reduce
+    // const rangeSum = Array.from({length: n + 1}, (_,i) => i).reduce((a,c) => a + c, 0);
 
-//     const actualSum = nums.reduce((acc, num) => acc + num, 0);
-//     return Tsum - actualSum;
-// };
+    const actualSum = nums.reduce((acc, num) => acc + num, 0);
+    return rangeSum - actualSum;
+};
+
+console.log(missingNumber([3,0,1]), 2)
+console.log(missingNumber([0,1]), 2)
+console.log(missingNumber([9,6,4,2,3,5,7,0,1]), 8)
 
 // [9,6,4,2,3,5,7,0,1]
 // DEMO USING BINARY SEARCH
@@ -116,24 +120,24 @@
 // mid = 5 // 2 = 2
 
 //METHOD #4 - BINARY SEARCH SOLUTION !!
-var missingNumber = function(nums) {
-    nums.sort((a, b) => a - b); // Sort the array first
-    let left = 0;
-    let right = nums.length; // point to virtual index 1 past the end
+// var missingNumber = function(nums) {
+//     nums.sort((a, b) => a - b); // Sort the array first
+//     let left = 0;
+//     let right = nums.length; // point to virtual index 1 past the end
 
-    while (left < right) { // just < not <= like standard binary search
-        const mid = Math.floor((left + right) / 2);
-        if (nums[mid] > mid) { // if the ACTUAL NUM at mid index > the index itself
-            right = mid; // If that's the case, search the left side (including mid)
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left; // the missing number will be the INDEX of left (not the num at that index)
-};
+//     while (left < right) { // just < not <= like standard binary search
+//         const mid = Math.floor((left + right) / 2);
+//         if (nums[mid] > mid) { // if the ACTUAL NUM at mid index > the index itself
+//             right = mid; // If that's the case, search the left side (including mid)
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left; // the missing number will be the INDEX of left (not the num at that index)
+// };
 
 
-console.log(missingNumber([3,0,1]), 2)
-console.log(missingNumber([0,1]), 2)
-console.log(missingNumber([9,6,4,2,3,5,7,0,1]), 8)
+// console.log(missingNumber([3,0,1]), 2)
+// console.log(missingNumber([0,1]), 2)
+// console.log(missingNumber([9,6,4,2,3,5,7,0,1]), 8)
     
