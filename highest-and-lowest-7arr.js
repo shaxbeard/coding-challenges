@@ -17,14 +17,20 @@
 //Pseudocode -
 //Methods!
 
+
+// METHOD #1 - USING MATH.MIN() AND MATH.MAX()
+function highAndLow(numbers) {
+  numbers = numbers.split(" ");
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
+
+// METHOD #2 - USING SORT()
 function highAndLow(numbers) {
   const arr = numbers.split(" ").sort((a, b) => b - a);
   return `${arr[0]} ${arr[arr.length - 1]}`;
-
-  // OR SOLVE IT WITH THE JS MATH METHODS
-  //   numbers = numbers.split(" ");
-  //   return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
 }
+
+
 
 console.log(highAndLow("1 2 3 4 5")); // return "5 1"
 console.log(highAndLow("1 9 3 4 -5")); // return "9 -5"
