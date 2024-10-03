@@ -27,35 +27,43 @@
 //  ^
 
 // Method #1 - Nested Loops and charCodeAt()
-function highScore(str) {
-  const alphabet = " abcdefghijklmnopqrstuvwxyz";
-  let maxScore = 0;  
-  let maxWord = "";
-  let strArray = str.split(" ");
+// function highScore(str) {
+//   const alphabet = " abcdefghijklmnopqrstuvwxyz";
+//   let maxScore = 0;  
+//   let maxWord = "";
+//   let strArray = str.split(" ");
 
-  for (let i = 0; i < strArray.length; i++) {
-    let wordScore = 0;
+//   for (let i = 0; i < strArray.length; i++) {
+//     let wordScore = 0; // Each word score must be in the outer loop
 
-    for (let j = 0; j < strArray[i].length; j++) {
-      console.log(strArray[i].charCodeAt(j) - 96);
-    }
+//     for (let j = 0; j < strArray[i].length; j++) {
+//       wordScore += strArray[i].charCodeAt(j) - 96;
+//       // wordScore += alphabet.indexOf(strArray[i][j]);
+//     }
 
-    if (wordScore > maxScore) {
-      maxScore = wordScore;
-      maxWord = strArray[i];
-    }
-  }
-  return maxWord;
-}
+//     if (wordScore > maxScore) {
+//       maxScore = wordScore;
+//       maxWord = strArray[i];
+//     }
+//   }
+//   return maxWord;
+// }
 
 // Method #2 - The highest rated CodeWars solution
+//  0       1      2     3      4     5     6      7
+// [28,     9,    28,    1,    54,    37,   35,    48]    // word scores
+// ["man", "i", "need", "a", "taxi", "up", "to", "ubud"]  // word array
 
-function high(s) {
-  let as = s
-    .split(" ")
-    .map(s => [...s].reduce((a, b) => a + b.charCodeAt(0) - 96, 0));
-  return s.split(" ")[as.indexOf(Math.max(...as))];
+
+function highScore(s) {
+  const strArr = s.split(" ");
+  // Make an array with the count of each word
+  const countArr = strArr.map(s => s.split("").reduce((a, b) => a + b.charCodeAt(0) - 96, 0));
+  // return the word at the same index as the max score
+  const maxCount = Math.max(...countArr);
+  return strArr[countArr.indexOf(maxCount)];
 }
+
 
 console.log(highScore("man i need a taxi up to ubud"), "taxi");
 console.log(highScore("what time are we climbing up the volcano"), "volcano");
