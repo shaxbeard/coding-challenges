@@ -40,7 +40,7 @@ function intersection(nums1, nums2) {
     return [...result];
 }
 
-//DEMO FOR METHOD #2
+// DEMO FOR METHOD #2
 // [4,9,5], [9,4,9,8,4] - unsorted input arrays
 
 // result = [4,9]
@@ -70,7 +70,6 @@ function intersection(nums1, nums2) {
             j++; 
         }
     }
-
     return result;
 }
 
