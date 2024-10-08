@@ -2,7 +2,6 @@
 
 // Given the root of a binary tree, invert the tree, and return its root.
 
- 
 // Example 1:
 //       4                4
 //    2     7   =>     7     2
@@ -17,7 +16,7 @@
 //    2     7       
 //  1  3   6 9       
 
-// The problem repeats a right/left swap at every node
+// The problem repeats a swap of the right and left children at every node
 // Top level
 //  4        4
 // 2 7  =>  7 2
@@ -33,7 +32,8 @@
 
 
 function invertTree(root) {
-    if (root === null) return root;
+    // base case
+    if (!root) return root;
 
     // swap the children
     let temp = root.left;
