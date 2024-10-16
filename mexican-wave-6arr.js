@@ -9,16 +9,41 @@
 //        ^
 // str.slice(0, i) + char.toUpperCase() + str.slice(i + 1); // works for the first letter too
 
-function wave(str) {
-  return str
-    .split("")
-    .map((char, i) => str.slice(0, i) + char.toUpperCase() + str.slice(i + 1))
-    .filter(x => x != str);
+// "hello"   // copy of input str
+//  ^
+
+function wave(str){
+  let newArr = [];
+  for (let i = 0; i < str.length; i++) {
+    let copy = str;
+    if(str[i] !== ' ') { 
+    copy[i] = copy[i].toUpperCase();
+    newArr.push(copy);
+    }
+  }
+  return newArr
 }
+
+// function wave(str) {
+//   return str
+//     .split("")
+//     .map((char, i) => str.slice(0, i) + char.toUpperCase() + str.slice(i + 1))
+//     .filter(x => x != str);
+// }
+
+// function wave(str){
+//   let result = [];
+//   str.split("").forEach((char, index) => {
+//       if (/[a-z]/.test(char)) {
+//           result.push(str.slice(0, index) + char.toUpperCase() + str.slice(index + 1));
+//       }
+//   });
+//   return result;
+// }
 
 console.log(wave("hello"), ["Hello", "hEllo", "heLlo", "helLo", "hellO"]);
 console.log(
-  wave("Two words", [
+  wave("two words"), [
     "Two words",
     "tWo words",
     "twO words",
@@ -27,5 +52,4 @@ console.log(
     "two woRds",
     "two worDs",
     "two wordS",
-  ])
-);
+  ]);
