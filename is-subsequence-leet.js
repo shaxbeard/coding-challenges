@@ -13,11 +13,15 @@
 // Input: s = "axc", t = "ahbgdc"
 // Output: false
 
+
+// DEMO HERE
 // Success
 //  0123  012345  
 //  abc   ahbgdc   
-//     i          // on success, i === s.length
+//     i          
 //             j
+// on success, i === s.length
+
 
 // Failue
 // "axc"  "ahbgdc"
