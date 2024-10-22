@@ -1,6 +1,38 @@
+
+//DEMO
+// [5,4,1,8,7,2,6,3] - input
+// [1,2,3,4,5,6,7,8] - output
+
+
+// Step 1 - Split the array into halves until each arr has 1 or 0 items
+
+//                   [5,4,1,8,7,2,6,3]  - length = 8
+//                            ^         - mid index = 8 / 2 = 4
+//                       /       \
+//               [5,4,1,8]       [7,2,6,3] - left = arr.slice(0,4), right = arr.slice(4)
+//               /      \         /      \
+//          [5,4]     [1,8]  [7,2]       [6,3]  - slice each arr in halves again ...
+//        /    \     /   \   /   \       /   \
+//      [5]   [4]  [1]  [8] [7]  [2]  [6]     [3]
+
+
+// What if the input array had an odd number of elements?
+// YOU STILL END UP WITH EACH NUM IN ITS OWN ARRAY - THERE ARE NO "EMPTY ARRAYS"
+
+//                   [5,4,1,8,7,2,6,3,9]  - length = 9
+//                            ^         - mid index = 9 // 2 = 4
+//                       /       \
+//               [5,4,1,8]       [7,2,6,3,9] - left = arr.slice(0,4), right = arr.slice(4)
+//               /      \         /      \
+//          [5,4]     [1,8]  [7,2]       [6,3,9]  - slice each arr in halves again - left = arr.slice(0,2), right = arr.slice(2) 
+//        /    \     /   \   /   \       /   \
+//      [5]   [4]  [1]  [8] [7]  [2]  [6]     [3,9] - again, left = arr.slice(0,1), right = arr.slice(1)
+//                                            /  \
+//                                         [3]   [9]
+
 function mergeSort(arr) {
   // base case
-  if (arr.length <= 1) { // stop when each subarray has 1 (or zero?) elements
+  if (arr.length <= 1) { // stop when each subarray has 1 (or zero - this handles an empty input array) elements
     return arr;
   }
   // define the left and right halves
@@ -16,9 +48,17 @@ function mergeSort(arr) {
   return merge(sortedLeft, sortedRight); // merge() is a helper function here
 }
 
-const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3];
-console.log(mergeSort(list), [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]); 
+console.log(mergeSort([5,4,1,8,7,2,6,3]),[1,2,3,4,5,6,7,8]); 
 
+
+// Step 2 - Sort the individual nums by stiching the arrays together
+//      [5]   [4]  [1]  [8] [7]  [2]  [6]     [3]
+//       \    /      \  /     \  /      \    /
+//       [4,5]       [1,8]    [2,7]     [3,6]
+//           \      /            \      /
+//           [1,4,5,8]            [2,3,6,7]
+//                    \          /
+//                   [1,2,3,4,5,6,7,8]
 
 // Helper function to merge two sorted arrays
 function merge(left, right) {
