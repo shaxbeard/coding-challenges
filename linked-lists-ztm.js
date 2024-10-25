@@ -29,17 +29,21 @@
 
 
 // Does this convey the structure even better?
-// [apples]      [grapes]
+// [apples]
+// [NODE  ]      [grapes]
 // [8946  ]  --> [ NODE ]      [pears]
 //               [8742  ]  --> [NODE ]
 //                             [372  ] -->  null
-//                             
+
+
+                        
 
 // Now with numbers
-// [10  ]      [5   ]
-// [8946]  --> [NODE]      [16  ]
-//             [8742]  --> [NODE]
-//                         [372  ] -->  null
+// [10  ]
+// [NODE]      [5   ]
+// [#946]  --> [NODE]      [16  ]
+//             [#742]  --> [NODE]
+//                         [#372] -->  null
                 
 
 
@@ -76,17 +80,20 @@ class LinkedList {
 
 // DEMO FOR THE APPEND() METHOD
 // After having all three nodes 
-// [10  ]      [5   ]
-// [8946]  --> [NODE]      [16  ]
-//             [8742]  --> [NODE]
-//                         [372  ] -->  null
+// [10  ]
+// [NODE]      [5   ]
+// [#946]  --> [NODE]      [16  ]
+//             [#742]  --> [NODE]
+//                         [#122] -->  null
 
 
 // BEFORE we append the 3rd node           
 // HEAD        TAIL
-// [10  ]      [5   ]
-// [8946]  --> [NODE]      
-//             [8742]  -->  null
+// [10  ]
+// [NODE]      [5   ]
+// [#946]  --> [NODE]     
+//             [#742]  --> null
+//                         
 //     
 // The newNode after the contructor           
 //[16  ]
@@ -95,17 +102,19 @@ class LinkedList {
 
 // AFTER we point the arrow from TAIL to the newNode         
 // HEAD        TAIL
-// [10  ]      [5   ]
-// [8946]  --> [NODE]      [16  ]
-//             [8742]  --> [NODE]  
+// [10  ]
+// [NODE]      [5   ]
+// [#946]  --> [NODE]      [16  ]
+//             [#742]  --> [NODE]  
 //                         [#242] --> null
 //      
 
 // After we reassign the ENTIRE VARIABLE of this.tail to the newNode       
 // HEAD                    TAIL
-// [10  ]      [5   ]
-// [8946]  --> [NODE]      [16  ]
-//             [8742]  --> [NODE]  
+// [10  ]
+// [NODE]      [5   ]
+// [#946]  --> [NODE]      [16  ]
+//             [#742]  --> [NODE]  
 //                         [#242] --> null
 //   
 
